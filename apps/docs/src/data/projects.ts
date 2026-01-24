@@ -3,7 +3,7 @@ import type { Project } from '#/types'
 export const projects: Project[] = [
     {
         name: 'Zeraora',
-        docs: '/zeraora',
+        docs: '/zeraora/',
         desc: '一个 Python 工具包，包含一堆杂七杂八的工具，大部分都是从日常业务代码里提取抽象的，有些是为了保障兼容性，希望能帮你少写几行代码。',
         socials: [
             { icon: 'simple-icons:github', link: 'https://github.com/aixcyi/Zeraora' },

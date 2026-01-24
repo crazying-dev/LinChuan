@@ -8,8 +8,8 @@ defineProps<{ title: string, doc?: string, logo?: string, description?: string }
 <template>
     <template v-if="doc">
         <RawCard :href="doc" use="a">
-            <span class="text-2xl">{{ title }}</span>
-            <div class="inline-flex flex-row items-center gap-4">
+            <span class="text-2xl text-nowrap">{{ title }}</span>
+            <div class="inline-flex flex-row flex-nowrap items-center gap-4">
                 <slot name="iconbar"></slot>
             </div>
             <slot>
@@ -19,8 +19,8 @@ defineProps<{ title: string, doc?: string, logo?: string, description?: string }
     </template>
     <template v-else>
         <RawCard use="div">
-            <span class="text-2xl">{{ title }}</span>
-            <div class="inline-flex flex-row items-center gap-4">
+            <span class="text-2xl text-nowrap">{{ title }}</span>
+            <div class="inline-flex flex-row flex-nowrap items-center gap-4">
                 <slot name="iconbar"></slot>
             </div>
             <slot>

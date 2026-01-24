@@ -9,7 +9,7 @@ import { Icon } from '@iconify/vue'
 
 <template>
     <section class="w-screen min-h-screen flex justify-center items-center">
-        <RawCard class="gap-8">
+        <RawCard class="gap-8 text-nowrap">
             <h1 class="text-5xl text-white"><b>雪泥文档</b></h1>
             <span class="text-lg text-amber-100 tracking-[.333em]">· 雪泥鸿爪文档收容站点 ·</span>
             <div class="text-lg font-mono relative">
