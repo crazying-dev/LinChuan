@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { gsap } from 'gsap'
-import { onMounted, type TemplateRef, useTemplateRef } from 'vue'
+import { gsap } from 'gsap';
+import { onMounted, type TemplateRef, useTemplateRef } from 'vue';
 
 defineProps<{ use?: string, flairStyle?: string }>()
 

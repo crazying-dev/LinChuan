@@ -1,5 +1,14 @@
 <script lang="ts" setup>
-import { copyrightInterval as interval, copyrights, links, navifox, sitemap, socials, thanks, tighnari, } from '#/data'
+import {
+    copyrightInterval as interval,
+    copyrights,
+    links,
+    navifox,
+    sitemap,
+    socials,
+    thanks,
+    tighnari,
+} from '@navifox/constants';
 
 const version = __APP_VERSION__
 </script>

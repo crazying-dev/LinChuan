@@ -2,8 +2,8 @@
 import FlairButton from '#/components/FlairButton.vue'
 import RawCard from '#/components/RawCard.vue'
 import RepoCard from '#/components/RepoCard.vue'
-import { projects } from '#/data'
 import { Icon } from '@iconify/vue'
+import { projects } from '@navifox/constants'
 </script>
 
 

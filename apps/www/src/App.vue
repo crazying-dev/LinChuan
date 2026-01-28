@@ -1,12 +1,14 @@
 <script lang="ts" setup>
-import Background from '#/assets/background.jpg'
-import Content from '#/components/Content.vue'
-import { signature, socials, tighnari, websites } from '#/data'
-import Footer from '#/Footer.vue'
-import { logger } from '#/utils/logging.ts'
-import { Icon } from '@iconify/vue'
-import { useResizeObserver } from '@vueuse/core'
-import { ref, useTemplateRef } from 'vue'
+import Background from '#/assets/background.jpg';
+import Content from '#/components/Content.vue';
+import Footer from '#/Footer.vue';
+import { Icon } from '@iconify/vue';
+import { navifox, signature, socials, tighnari, websites } from '@navifox/constants';
+import { logger } from '@navifox/utils';
+import { useResizeObserver, useTitle } from '@vueuse/core';
+import { ref, useTemplateRef } from 'vue';
+
+useTitle().value = navifox.name
 
 logger.draw(signature, '#459199')
 

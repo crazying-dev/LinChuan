@@ -1,6 +1,6 @@
-import type { Hyperlink } from '#/types'
+import type { LinkInfo } from '@navifox/types';
 
-function* detect(): Generator<Hyperlink> {
+function* detect(): Generator<LinkInfo> {
     if (import.meta.env.VITE_ICP_NO)
         yield { text: import.meta.env.VITE_ICP_NO, link: import.meta.env.VITE_ICP_REF }
     if (import.meta.env.VITE_MPS_NO)

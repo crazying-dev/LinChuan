@@ -1,7 +1,7 @@
 {
     "name": "navifox-pages",
-    "private": true,
     "version": "0.0.0",
+    "private": true,
     "scripts": {
         "dev:www": "pnpm --filter @navifox/www run dev --host",
         "dev:docs": "pnpm --filter @navifox/docs run dev --host",
@@ -18,13 +18,14 @@
     "dependencies": {
     },
     "devDependencies": {
-        "@types/node": "^24.10.8",
-        "typescript": "~5.9.3"
+        "@navifox/tsconfig": "workspace:*",
+        "@types/node": "catalog:",
+        "typescript": "catalog:"
     },
     "packageManager": "pnpm@10.28.0",
     "pnpm": {
         "overrides": {
-            "vite": "npm:rolldown-vite@7.2.5"
+            "vite": "catalog:"
         }
     }
 }

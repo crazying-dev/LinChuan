@@ -1,4 +1,4 @@
-import type { Friend } from '#/types'
+import type { Friend } from '@navifox/types';
 
 export const signature: string = `
       •  ┓       •

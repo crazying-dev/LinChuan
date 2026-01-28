@@ -1,8 +1,7 @@
+import type { LogLevel } from '@navifox/types';
+
 // https://developer.mozilla.org/zh-CN/docs/Web/API/console
 // https://developer.chrome.com/docs/devtools/console/format-style?hl=zh-cn
-
-
-type LogLevel = { name: string, style: string }
 
 export class Logger {
     static DEBUG = { name: 'DEBUG', style: 'color: lightgrey' } as LogLevel
@@ -31,10 +30,21 @@ export class Logger {
         )
     }
 
-    debug = (msg: string, style: string = '') => this.log(Logger.DEBUG, msg, style)
-    info = (msg: string, style: string = '') => this.log(Logger.INFO, msg, style)
-    warn = (msg: string, style: string = '') => this.log(Logger.WARN, msg, style)
-    error = (msg: string, style: string = '') => this.log(Logger.ERROR, msg, style)
+    debug(msg: string, style: string = '') {
+        this.log(Logger.DEBUG, msg, style)
+    }
+
+    info(msg: string, style: string = '') {
+        this.log(Logger.INFO, msg, style)
+    }
+
+    warn(msg: string, style: string = '') {
+        this.log(Logger.WARN, msg, style)
+    }
+
+    error(msg: string, style: string = '') {
+        this.log(Logger.ERROR, msg, style)
+    }
 
     print(msg: string, ...style: string[]) {
         console.log(

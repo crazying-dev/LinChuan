@@ -1,10 +1,10 @@
-import { documentation, moeTravel, navifox, travelling, weblog } from '#/data/websites.ts'
-import type { Hyperlink } from '#/types'
+import type { LinkInfo } from '@navifox/types';
+import { documentation, moeTravel, navifox, navifoxGuild, travelling, weblog } from './websites';
 
 // const nbsp = (txt: string) => txt.replace(' ', '&nbsp;')
 
-export const socials: Hyperlink[] = [
-    { text: '罗狐会馆', icon: 'bi:tencent-qq', link: 'https://qm.qq.com/q/gPK9D7nBOU' },
+export const socials: LinkInfo[] = [
+    { text: navifoxGuild.name, icon: 'bi:tencent-qq', link: navifoxGuild.link },
     // { text: '推特<br/>X／Twitter', icon: 'simple-icons:x', link: 'https://x.com/aixcyi/' },
     { text: undefined, link: '' },
     { text: 'GitHub', icon: 'simple-icons:github', link: 'https://github.com/aixcyi/' },
@@ -17,20 +17,20 @@ export const socials: Hyperlink[] = [
     // { text: 'Gitee', icon: 'simple-icons:gitee', link: 'https://gitee.com/aixcyi/' },
 ]
 
-export const websites: Hyperlink[] = [
+export const websites: LinkInfo[] = [
     // { text: weblog.name, link: weblog.link },
     // { text: '友情链接', link: '/links', icon: 'solar:link-square-line-duotone' },
     // { text: travelling.name, link: travelling.link, icon: 'pepicons-print:train' },
     // { text: moeTravel.name, link: moeTravel.link, icon: 'solar:planet-bold-duotone' },
 ]
 
-export const sitemap: Hyperlink[] = [
+export const sitemap: LinkInfo[] = [
     { text: navifox.name, link: navifox.link },
     { text: weblog.name, link: weblog.link },
     { text: documentation.name, link: documentation.link },
 ]
 
-export const links: Hyperlink[] = [
+export const links: LinkInfo[] = [
     { text: 'Rabbit Mind', link: 'https://rabbitmind.net/' },
     { text: 'Pinpe 的云端', link: 'https://pinpe.top/' },
     { text: '纸鹿摸鱼处', link: 'https://blog.zhilu.site/' },
@@ -38,7 +38,7 @@ export const links: Hyperlink[] = [
     { text: moeTravel.name, link: moeTravel.link },
 ]
 
-export const thanks: Hyperlink[] = [
+export const thanks: LinkInfo[] = [
     { text: 'oO大黄Oo', link: 'https://www.pixiv.net/users/9892346' },
     { text: '錯誤', link: 'https://www.pixiv.net/users/1297556' },
     { text: 'アナ', link: 'https://www.pixiv.net/users/24036634' },
