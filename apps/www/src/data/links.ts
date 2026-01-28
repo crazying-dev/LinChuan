@@ -32,6 +32,8 @@ export const sitemap: Hyperlink[] = [
 
 export const links: Hyperlink[] = [
     { text: 'Rabbit Mind', link: 'https://rabbitmind.net/' },
+    { text: 'Pinpe 的云端', link: 'https://pinpe.top/' },
+    { text: '纸鹿摸鱼处', link: 'https://blog.zhilu.site/' },
     { text: travelling.name, link: travelling.link },
     { text: moeTravel.name, link: moeTravel.link },
 ]

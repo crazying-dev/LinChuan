@@ -14,11 +14,11 @@ const version = __APP_VERSION__
             <div class="pb-4 flex flex-wrap">
                 <span v-for="line in navifox.desc?.split('\n')">{{ line }}</span>
             </div>
-            <div v-for="copyright in copyrights">
+            <template v-for="copyright in copyrights">
                 <a :href="copyright.link"
                    class="inline-flex no-underline tighnari dark"
                    target="_blank">{{ copyright.text }}</a>
-            </div>
+            </template>
             <div v-show="tighnari.name">
                 <span>© {{ interval.start }}-{{ interval.stop }} {{ tighnari.name }} 版权所有</span>
             </div>
@@ -31,11 +31,11 @@ const version = __APP_VERSION__
         </div>
         <div class="inline-flex flex-col gap-1">
             <div class="text-base pb-1"><b>导航</b></div>
-            <div v-for="item in sitemap">
+            <template v-for="item in sitemap">
                 <a :href="item.link"
                    class="inline-flex no-underline tighnari dark"
                    target="_blank">{{ item.text }}</a>
-            </div>
+            </template>
         </div>
         <div class="inline-flex flex-col gap-1">
             <div class="text-base pb-1"><b>链接</b></div>
@@ -47,19 +47,19 @@ const version = __APP_VERSION__
         </div>
         <div class="inline-flex flex-col gap-1">
             <div class="text-base pb-1"><b>友链</b></div>
-            <div v-for="item in links">
+            <template v-for="item in links">
                 <a :href="item.link"
                    class="inline-flex no-underline tighnari dark"
                    target="_blank">{{ item.text }}</a>
-            </div>
+            </template>
         </div>
         <div class="inline-flex flex-col gap-1">
             <div class="text-base pb-1"><b>引用 & 鸣谢</b></div>
-            <div v-for="item in thanks">
+            <template v-for="item in thanks">
                 <a :href="item.link"
                    class="inline-flex no-underline tighnari dark"
                    target="_blank">{{ item.text }}</a>
-            </div>
+            </template>
         </div>
     </div>
 </template>
