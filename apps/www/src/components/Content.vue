@@ -17,7 +17,7 @@ switch (props.wide) {
 
 
 <template>
-    <component :is="use ?? 'div'" :class="classes">
-        <slot></slot>
-    </component>
+<component :is="use ?? 'div'" :class="classes">
+    <slot></slot>
+</component>
 </template>

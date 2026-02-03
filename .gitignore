@@ -1,9 +1,12 @@
-/.idea
-/.vscode
+.idea
+.vscode
 **/node_modules/
 cache
 dist
 dist-ssr
+dist.*
 *.local
+*.code-workspace
+!navifox.code-workspace
 
 pnpm-lock.yaml

@@ -4,6 +4,13 @@ import { onMounted, type TemplateRef, useTemplateRef } from 'vue';
 
 defineProps<{ use?: string, flairStyle?: string }>()
 
+const button = useTemplateRef('button')
+const flair = useTemplateRef('flair')
+
+onMounted(() => {
+    new ButtonFactory(button, flair);
+})
+
 class ButtonFactory {
     readonly xSet: Function;
     readonly ySet: Function;
@@ -100,21 +107,14 @@ class ButtonFactory {
         });
     }
 }
-
-const button = useTemplateRef('button')
-const flair = useTemplateRef('flair')
-
-onMounted(() => {
-    new ButtonFactory(button, flair);
-})
 </script>
 
 
 <template>
-    <component :is="use ?? 'a'" ref="button" class="button button--stroke">
-        <span ref="flair" :style="flairStyle" class="flair"></span>
-        <span ref="label" class="label"><slot></slot></span>
-    </component>
+<component :is="use ?? 'a'" ref="button" class="button button--stroke">
+    <span ref="flair" :style="flairStyle" class="flair"></span>
+    <span ref="label" class="label"><slot></slot></span>
+</component>
 </template>
 
 

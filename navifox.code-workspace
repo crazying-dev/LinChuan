@@ -1,0 +1,46 @@
+{
+    "settings": {
+        "editor.defaultFormatter": "Vue.volar",
+        "javascript.preferences.quoteStyle": "single",
+        "typescript.preferences.quoteStyle": "single",
+        "html.format.wrapAttributes": "preserve-aligned",
+        "css.lint.duplicateProperties": "warning",
+        "css.lint.zeroUnits": "warning",
+        "vue.editor.focusMode": true,
+        "vue.format.template.initialIndent": false,
+    },
+    "folders": [
+        {
+            "name": "路狐领航 @navifox/www",
+            "path": "./apps/www",
+        }, {
+            "name": "文档月饼盒 @navifox/docs",
+            "path": "./apps/docs",
+        }, {
+            "name": "个人简历 @navifox/cv",
+            "path": "./apps/cv",
+        }, {
+            "name": "@navifox/tsconfig",
+            "path": "./internal/tsconfig",
+        }, {
+            "name": "@navifox/types",
+            "path": "./internal/types",
+        }, {
+            "name": "@navifox/constants",
+            "path": "./internal/constants",
+        }, {
+            "name": "@navifox/utils",
+            "path": "./internal/utils",
+        }, {
+            "name": "根目录",
+            "path": ".",
+        },
+    ],
+    "extensions": {
+        "recommendations": [
+            "Vue.volar",
+            "antfu.pnpm-catalog-lens",
+            "bradlc.vscode-tailwindcss",
+        ],
+    },
+}
