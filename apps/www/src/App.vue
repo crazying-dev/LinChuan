@@ -5,10 +5,11 @@ import Footer from '#/Footer.vue';
 import { Icon } from '@iconify/vue';
 import { navifox, signature, socials, tighnari, websites } from '@navifox/constants';
 import { logger } from '@navifox/utils';
-import { useResizeObserver, useTitle } from '@vueuse/core';
+import { useFavicon, useResizeObserver, useTitle } from '@vueuse/core';
 import { ref, useTemplateRef } from 'vue';
 
 useTitle().value = navifox.name
+useFavicon().value = navifox.icon
 
 logger.draw(signature, '#459199')
 

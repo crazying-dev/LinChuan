@@ -2,7 +2,7 @@
 import FlairButton from '#/components/FlairButton.vue';
 import { Icon } from '@iconify/vue';
 import { copyrightInterval, documentation, navifoxGuild, projects } from '@navifox/constants';
-import { useTitle } from '@vueuse/core';
+import { useFavicon, useTitle } from '@vueuse/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { range } from 'lodash-es';
@@ -10,6 +10,7 @@ import { onMounted, onUnmounted } from 'vue';
 import { Vue3NextQrcode } from 'vue3-next-qrcode';
 
 useTitle().value = documentation.name
+useFavicon().value = documentation.icon
 
 gsap.registerPlugin(ScrollTrigger)
 
