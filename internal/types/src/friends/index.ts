@@ -16,10 +16,14 @@ export interface Friend {
     description?: string
     /** 附加渲染样式。Tailwind CSS 类名。 */
     styles?: { avatar: string[] }
+    /** 所在地址。 */
+    location?: string
     /** 社交链接。 */
     socials?: { [brand: string]: string }
     /** 是否隐藏或不可用。 */
     disabled?: boolean
+    /** 年龄／网龄／圈龄。 */
+    age?: number
     /** 附加标签。 */
     tags?: string[]
 

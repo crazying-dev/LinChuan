@@ -1,5 +1,13 @@
 import type { LinkInfo } from '@navifox/types';
-import { moeTravel, mooncakeDocs, navifox, navifoxGuild, seraphonogram, travelling } from './websites';
+import {
+    curriculumVitae,
+    moeTravel,
+    mooncakeDocs,
+    navifox,
+    navifoxGuild,
+    seraphonogram,
+    travelling,
+} from './websites';
 
 // const nbsp = (txt: string) => txt.replace(' ', '&nbsp;')
 
@@ -27,6 +35,7 @@ export const websites: LinkInfo[] = [
 export const sitemap: LinkInfo[] = [
     { text: navifox.name, link: navifox.link },
     { text: seraphonogram.name, link: seraphonogram.link },
+    { text: curriculumVitae.name, link: curriculumVitae.link },
     { text: mooncakeDocs.name, link: mooncakeDocs.link },
 ]
 

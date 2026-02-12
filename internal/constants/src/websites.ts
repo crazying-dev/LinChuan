@@ -22,6 +22,12 @@ export const mooncakeDocs: WebsiteInfo = {
     icon: 'https://www.navifox.net/favicon.ico',
     desc: '收纳展示散落在各个项目仓库的文档',
 }
+export const curriculumVitae: WebsiteInfo = {
+    name: '己言简',
+    link: 'https://cv.navifox.net',
+    icon: 'https://www.navifox.net/favicon.ico',
+    desc: '于时光中铭记你我',
+}
 export const travelling: WebsiteInfo = {
     name: '开往',
     link: 'https://www.travellings.cn/go.html',

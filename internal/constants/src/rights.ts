@@ -1,4 +1,5 @@
 import type { LinkInfo } from '@navifox/types';
+import { thisYear } from './chore';
 
 function* detect(): Generator<LinkInfo> {
     if (import.meta.env.VITE_ICP_NO)
@@ -10,7 +11,4 @@ function* detect(): Generator<LinkInfo> {
 }
 
 export const copyrights = [ ...detect() ]
-export const copyrightInterval = {
-    start: 2016,
-    stop: Math.max(2026, new Date().getFullYear())
-}
+export const copyrightInterval = { start: 2016, stop: thisYear }
