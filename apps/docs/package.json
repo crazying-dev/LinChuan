@@ -18,8 +18,7 @@
         "gsap": "catalog:",
         "lodash-es": "catalog:",
         "tailwindcss": "catalog:",
-        "vue": "catalog:",
-        "vue3-next-qrcode": "catalog:"
+        "vue": "catalog:"
     },
     "devDependencies": {
         "@iconify/vue": "catalog:",
@@ -27,6 +26,7 @@
         "@types/node": "catalog:",
         "@vitejs/plugin-vue": "catalog:",
         "@vue/tsconfig": "catalog:",
+        "naive-ui": "catalog:",
         "typescript": "catalog:",
         "vite": "catalog:",
         "vite-plugin-zip-file": "catalog:",

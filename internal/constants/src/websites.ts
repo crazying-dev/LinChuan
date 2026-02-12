@@ -8,7 +8,7 @@ export const navifox: WebsiteInfo = {
 }
 export const navifoxGuild: WebsiteInfo = {
     name: '罗狐会馆',
-    link: 'https://qm.qq.com/q/gPK9D7nBOU',
+    link: 'https://qm.qq.com/q/7WO1tJmTss',
     desc: '妖灵会馆之一，狐狸们的栖息地，坐落在名为“网络”的无主空间，致力于广罗世间狐妖。',
 }
 export const seraphonogram: WebsiteInfo = {

@@ -6,8 +6,8 @@ import { useFavicon, useTitle } from '@vueuse/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { range } from 'lodash-es';
+import { NQrCode } from 'naive-ui';
 import { onMounted, onUnmounted } from 'vue';
-import { Vue3NextQrcode } from 'vue3-next-qrcode';
 
 useTitle().value = mooncakeDocs.name
 useFavicon().value = mooncakeDocs.icon
@@ -21,6 +21,13 @@ onMounted(() => {
 onUnmounted(() => {
     ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
+
+const boxStates = {
+    '产地': navifoxGuild.name,
+    '包装规格': `${projects.length} 个/盒`,
+    '生产日期': `${copyrightInterval.start} 年`,
+    '保质期': `${copyrightInterval.start + 1000} 年`,
+}
 
 function initializePanels() {
     const panels: HTMLDivElement[] = gsap.utils.toArray("#panel")
@@ -69,7 +76,7 @@ function initializeArrows() {
          style="background-color: var(--background)">
     <div class="p-12 inline-flex flex-col items-center gap-8 text-nowrap">
         <h1 class="text-5xl text-white"><b>{{ mooncakeDocs.name }}</b></h1>
-        <span class="text-lg text-amber-100 tracking-[.1em]">· {{ mooncakeDocs.description }} ·</span>
+        <span class="text-lg text-amber-100 tracking-[.1em]">· {{ mooncakeDocs.desc }} ·</span>
     </div>
     <div class="absolute bottom-16 left-1/2" style="transform: translateX(-50%)">
         <Icon v-for="() in range(3)"
@@ -118,24 +125,24 @@ function initializeArrows() {
 </section>
 
 <section id="panel"
-         class="w-full h-screen flex justify-center items-center"
+         class="w-full h-screen flex justify-center items-center text-gray-400"
          style="background-color: var(--background)">
     <div class="p-1.5 MooncakeRect"
          style="background-color: var(--color-gray-400)">
-        <div class="p-12 inline-flex items-center flex-wrap gap-4 justify-center max-sm:flex-col MooncakeRect"
+        <div class="p-12 inline-flex items-center flex-wrap gap-6 max-sm:flex-col MooncakeRect"
              style="background-color: var(--background)">
-            <div class="inline-flex flex-col text-nowrap gap-1 max-sm:text-center">
-                <span class="text-md text-gray-400">产地：{{ navifoxGuild.name }}</span>
-                <span class="text-md text-gray-400">生产日期：{{ copyrightInterval.start }}年</span>
-                <span class="text-md text-gray-400">保质期：{{ copyrightInterval.start + 1000 }}年</span>
-                <span class="text-md text-gray-400">包装规格：{{ projects.length }} 个/盒</span>
-            </div>
-            <Vue3NextQrcode
-                :size="128"
-                :text="navifoxGuild.link"
-                :whiteMargin="false"
-                colorDark="#99a1af"
-                colorLight="transparent" />
+            <table>
+                <tbody>
+                <tr v-for="(v, k) in boxStates">
+                    <td class="w-20 text-justify" style="text-align-last: justify;">{{ k }}</td>
+                    <td class="border-transparent border-l-16">{{ v }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <n-qr-code :value="navifoxGuild.link"
+                       background-color="transparent"
+                       class="p-0!"
+                       color="#99a1af" />
         </div>
     </div>
 </section>
