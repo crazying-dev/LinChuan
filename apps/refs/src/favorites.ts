@@ -1,4 +1,4 @@
-import type { BookmarkGroup } from '@navifox/types';
+import type { BookmarkGroup, Hyperlink } from '@navifox/types';
 import { markit } from '@navifox/utils';
 
 const groupPython: BookmarkGroup = {
@@ -7,180 +7,125 @@ const groupPython: BookmarkGroup = {
         {
             name: '标准库',
             link: 'https://docs.python.org/zh-cn/3/library/index.html',
-        }, {
-            name: '术语对照表',
-            link: 'https://docs.python.org/zh-cn/3/glossary.html',
+            logo: 'logos:python',
+            tags: [ 'catalog' ],
         }, {
             name: '语言参考',
             link: 'https://docs.python.org/zh-cn/3/reference/index.html',
+            logo: 'logos:python',
+            tags: [ 'catalog' ],
         }, {
-            name: '版本更新历史',
+            name: '更新历史',
             link: 'https://docs.python.org/zh-cn/3/whatsnew/index.html',
+            logo: 'logos:python',
+            tags: [ 'catalog' ],
+        }, {
+            name: '术语对照表',
+            link: 'https://docs.python.org/zh-cn/3/glossary.html',
+            logo: 'logos:python',
         }, {
             name: '`+ - * /` 优先级',
             link: 'https://docs.python.org/zh-cn/3/reference/expressions.html#operator-precedence',
+            logo: 'logos:python',
         }, {
             name: '__特殊方法\\_\\_',
             link: 'https://docs.python.org/zh-cn/3/reference/datamodel.html#special-method-names',
+            logo: 'logos:python',
         }, {
             name: 'ABCs 抽象基类',
             link: 'https://docs.python.org/zh-cn/3/library/collections.abc.html#collections-abstract-base-classes',
+            logo: 'logos:python',
         }, {
             name: 'f-string',
             link: 'https://docs.python.org/zh-cn/3/reference/lexical_analysis.html#f-strings',
+            logo: 'logos:python',
         }, {
-            name: '内置 Exception 结构',
+            name: 'Exception 层次结构',
             link: 'https://docs.python.org/zh-cn/3/library/exceptions.html#exception-hierarchy',
+            logo: 'logos:python',
+            note: '内置异常',
         }, {
             name: '格式规格迷你语言',
             link: 'https://docs.python.org/zh-cn/3/library/string.html#formatspec',
+            logo: 'logos:python',
         }, {
             name: '正则库 `re` 的函数',
             link: 'https://docs.python.org/zh-cn/3/library/re.html#functions',
+            logo: 'logos:python',
         }, {
             name: 'LogRecord 属性',
             link: 'https://docs.python.org/zh-cn/3/library/logging.html#logrecord-attributes',
+            logo: 'logos:python',
         }, {
-            name: '十进制定点和浮点算术\n常见问题',
+            name: '十进制定点和浮点算术常见问题',
             link: 'https://docs.python.org/zh-cn/3/library/decimal.html#decimal-faq',
+            logo: 'logos:python',
         }, {
             name: 'Status of Python versions',
             link: 'https://devguide.python.org/versions/',
-            icon: 'https://devguide.python.org/_static/favicon.png',
+            logo: 'logos:python',
+            note: '版本状态',
         }, {
             name: 'Development cycle',
             link: 'https://devguide.python.org/developer-workflow/development-cycle/index.html',
-            icon: 'https://devguide.python.org/_static/favicon.png',
+            logo: 'logos:python',
+            note: '发布节奏',
         }
     ]
 }
-const groupPythonEcosystem: BookmarkGroup = {
-    title: { text: 'Python 生态', link: '#python-ecosystem' },
+const groupDjango: BookmarkGroup = {
+    title: { text: 'Django', link: '#django-configs' },
     items: [
         {
-            name: 'typing-extensions',
-            link: 'https://typing-extensions.readthedocs.io/en/stable/',
-            note: '运行时类型提示',
+            name: 'Python 兼容性',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/faq/install/#what-python-version-can-i-use-with-django',
+            logo: 'logos:django-icon',
         }, {
-            name: 'Requests',
-            link: 'https://requests.readthedocs.io/en/stable/',
-            note: '优雅简单的 HTTP 库',
+            name: '废弃时间表',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/internals/deprecation/',
+            logo: 'logos:django-icon',
         }, {
-            name: 'NumPy',
-            link: 'https://numpy.org/doc/stable/reference/index.html',
-            icon: 'https://numpy.org/doc/stable/_static/favicon.ico',
-            note: '科学计算基础工具包',
+            name: '发行流程',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/internals/release-process/',
+            logo: 'logos:django-icon',
+            note: '版本号命名、发布节奏',
         }, {
-            name: 'Pandas',
-            link: 'https://pandas.pydata.org/docs/reference/index.html',
-            icon: 'https://pandas.pydata.org/docs/_static/favicon.ico',
-            note: '数据结构与数据分析工具',
+            name: 'PostgreSQL',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/contrib/postgres/',
+            logo: 'logos:django-icon',
+            note: '子模块',
+            tags: [ 'catalog' ],
         }, {
-            name: 'Pillow',
-            link: 'https://pillow.readthedocs.io/en/stable/reference/index.html',
-            icon: 'https://pillow.readthedocs.io/en/stable/_static/favicon.ico',
-            note: '图像处理库'
-        }, {
-            name: 'librosa',
-            link: 'https://librosa.org/doc/latest/index.html',
-            icon: 'https://librosa.org/doc/latest/_static/librosa_logo_text.svg',
-            note: '音频处理库',
-        }, {
-            name: 'Click',
-            link: 'https://click.palletsprojects.com/en/stable/',
-            icon: 'https://click.palletsprojects.com/en/stable/_static/click-icon.svg',
-            note: '创建 CLI 命令行界面程序',
-        }, {
-            name: 'Rich',
-            link: 'https://rich.readthedocs.io/en/stable/',
-            note: '有色富文本、表格、语法高亮 CLI 打印',
-        }, {
-            name: 'Celery',
-            link: 'https://docs.celeryq.dev/en/stable/index.html',
-            icon: 'https://docs.celeryq.dev/en/stable/_static/favicon.ico',
-            note: '分布式任务队列',
-        }, {
-            name: 'psycopg 3',
-            link: 'https://www.psycopg.org/psycopg3/docs/',
-            icon: 'https://www.psycopg.org/psycopg3/docs/_static/psycopg.svg',
-            note: 'PostgreSQL 适配器',
-        }, {
-            name: 'Selenium',
-            link: 'https://www.selenium.dev/zh-cn/documentation/',
-            icon: 'https://www.selenium.dev/favicons/favicon-32x32.png',
-            note: '浏览器自动化',
-        }, {
-            name: 'Flask',
-            link: 'https://flask.palletsprojects.com/zh-cn/stable/',
-            icon: 'https://flask.palletsprojects.com/zh-cn/stable/_static/shortcut-icon.png',
-            note: 'Web 应用 WSGI 框架',
-        }, {
-            name: 'Fast API',
-            link: 'https://fastapi.tiangolo.com/zh/',
-            icon: 'https://fastapi.tiangolo.com/zh/img/favicon.png',
-            note: 'Web 应用框架',
-        }, {
-            name: 'Litestar',
-            link: 'https://docs.litestar.dev/main/reference/index.html',
-            icon: 'https://docs.litestar.dev/main/_static/favicon.svg',
-            note: 'Web 应用 ASGI 框架',
-        }, {
-            name: 'Sphinx',
-            link: 'https://www.sphinx-doc.org/zh-cn/master/',
-            icon: 'https://www.sphinx-doc.org/zh-cn/master/_static/favicon.svg',
-            note: '轻松创建智能且美观的文档',
-        }, {
-            name: 'Manim Community',
-            link: 'https://docs.manim.community/en/stable/',
-            icon: 'https://docs.manim.community/en/stable/_static/favicon.ico',
-            note: '以编程方式生成动画',
+            name: '异常',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/exceptions/',
+            logo: 'logos:django-icon',
         }
     ]
 }
-const groupDjangoEcosystem: BookmarkGroup = {
-    title: { text: 'Django 生态', link: '#django-eco' },
-    items: [
-        {
-            name: 'Django 文档',
-            link: 'https://docs.djangoproject.com/zh-hans/5.2/',
-        }, {
-            name: 'Django Packages',
-            link: 'https://djangopackages.org/',
-        }, {
-            name: 'Django REST Framework',
-            link: 'https://www.django-rest-framework.org/',
-            icon: 'https://www.django-rest-framework.org/img/favicon.ico',
-        }, {
-            name: 'Django OAuth Toolkit',
-            link: 'https://django-oauth-toolkit.readthedocs.io/en/latest/',
-        }, {
-            name: 'django-environ',
-            link: 'https://django-environ.readthedocs.io/en/latest/',
-        }, {
-            name: 'Django-CAS-ng',
-            link: 'https://djangocas.dev/docs/latest/cas-protocol-overview.html',
-        }
-    ]
-}
-const groupDjangoSettings: BookmarkGroup = {
-    title: { text: 'Django 配置', link: '#django-configs' },
+const groupDjangoConfigs: BookmarkGroup = {
+    title: { text: 'Django 配置专题', link: '#django-configs' },
     items: [
         {
             name: 'Settings 参考',
             link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/settings/',
+            logo: 'logos:django-icon',
         }, {
-            name: 'Settings references',
+            name: '`REST_FRAMEWORK`',
             link: 'https://www.django-rest-framework.org/api-guide/settings/',
             icon: 'https://www.django-rest-framework.org/img/favicon.ico',
+            note: 'REST Framework',
         }, {
-            name: 'OAuth Toolkit Settings',
+            name: '`OAUTH2_PROVIDER`',
             link: 'https://django-oauth-toolkit.readthedocs.io/en/latest/settings.html',
+            note: 'Django OAuth Toolkit',
         }, {
             name: '日志默认配置',
             link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/logging/#default-logging-definition',
+            logo: 'logos:django-icon',
         }, {
-            name: 'AppConfig 配置',
+            name: '`AppConfig` 配置',
             link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/applications/#application-configuration',
+            logo: 'logos:django-icon',
         }
     ]
 }
@@ -190,103 +135,152 @@ const groupDjangoModel: BookmarkGroup = {
         {
             name: '模型',
             link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/models/',
+            logo: 'logos:django-icon',
             note: 'API 索引页',
+            tags: [ 'catalog' ],
+        }, {
+            name: '字段类型',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/models/fields/',
+            logo: 'logos:django-icon',
         }, {
             name: 'Serializer fields',
             link: 'https://www.django-rest-framework.org/api-guide/fields/',
             icon: 'https://www.django-rest-framework.org/img/favicon.ico',
-        }, {
-            name: '自定义模型字段',
-            link: 'https://docs.djangoproject.com/zh-hans/5.2/howto/custom-model-fields/',
+            note: '序列化器字段',
         }, {
             name: 'PostgreSQL 特有模型字段',
             link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/contrib/postgres/fields/',
+            logo: 'logos:django-icon',
+        }, {
+            name: '自定义模型字段',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/howto/custom-model-fields/',
+            logo: 'logos:django-icon',
+        }, {
+            name: '`Meta` 选项',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/models/options/',
+            logo: 'logos:django-icon',
+        }, {
+            name: '自定义 `Manager`',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/topics/db/managers/#custom-managers',
+            logo: 'logos:django-icon',
         }, {
             name: '定制 User',
             link: 'https://docs.djangoproject.com/zh-hans/5.2/topics/auth/customizing/#substituting-a-custom-user-model',
-        }, {
-            name: '自定义 Manager',
-            link: 'https://docs.djangoproject.com/zh-hans/5.2/topics/db/managers/#custom-managers',
+            logo: 'logos:django-icon',
         }, {
             name: '约束参考',
             link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/models/constraints/',
+            logo: 'logos:django-icon',
         }, {
             name: 'Nested serialization',
             link: 'https://www.django-rest-framework.org/api-guide/relations/#nested-relationships',
             icon: 'https://www.django-rest-framework.org/img/favicon.ico',
         }, {
-            name: '事务',
-            link: 'https://docs.djangoproject.com/zh-hans/5.2/topics/db/transactions/',
+            name: 'QuerySet 参考',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/models/querysets/',
+            logo: 'logos:django-icon',
+        }, {
+            name: '查询表达式',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/models/expressions/',
+            logo: 'logos:django-icon',
+        }, {
+            name: '数据库函数',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/models/database-functions/',
+            logo: 'logos:django-icon',
         }, {
             name: '执行查询',
             link: 'https://docs.djangoproject.com/zh-hans/5.2/topics/db/queries/',
+            logo: 'logos:django-icon',
         }, {
             name: '执行原生 SQL 查询',
             link: 'https://docs.djangoproject.com/zh-hans/5.2/topics/db/sql/',
+            logo: 'logos:django-icon',
+        }, {
+            name: '事务',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/topics/db/transactions/',
+            logo: 'logos:django-icon',
+        }, {
+            name: '底层缓存 API',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/topics/cache/#the-low-level-cache-api',
+            logo: 'logos:django-icon',
         }
     ]
 }
-// TODO: 等待补充 Django 视图层、杂项等相关链接。
+const groupDjangoView: BookmarkGroup = {
+    title: { text: 'Django 视图层', link: '#django-view' },
+    items: [
+        {
+            name: '请求类 `HttpRequest`',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/request-response/',
+            logo: 'logos:django-icon',
+        }, {
+            name: '响应类 `HttpResponse`',
+            link: 'https://docs.djangoproject.com/zh-hans/5.2/ref/request-response/#httpresponse-objects',
+            logo: 'logos:django-icon',
+        }, {
+            name: '_class_ `Request`',
+            link: 'https://www.django-rest-framework.org/api-guide/requests/',
+            icon: 'https://www.django-rest-framework.org/img/favicon.ico',
+            note: '请求对象',
+        }, {
+            name: '_class_ `Responses`',
+            link: 'https://www.django-rest-framework.org/api-guide/responses/',
+            icon: 'https://www.django-rest-framework.org/img/favicon.ico',
+            note: '响应对象',
+        }
+    ]
+}
 const groupKotlin: BookmarkGroup = {
     title: { text: 'Kotlin', link: '#kotlin' },
     items: [
         {
-            name: 'Kotlin',
-            link: 'https://kotlinlang.org/docs/home.html',
-            icon: 'https://kotlinlang.org/assets/images/favicon.ico?v2',
-        }, {
-            name: 'JavaSE 8 API',
-            link: 'https://docs.oracle.com/javase/8/docs/api/',
-        }, {
             name: 'stdlib',
             link: 'https://kotlinlang.org/api/core/kotlin-stdlib/',
-            icon: 'https://kotlinlang.org/assets/images/favicon.ico?v2',
+            logo: 'logos:kotlin-icon',
             note: '标准库目录',
+            tags: [ 'catalog' ],
         }, {
             name: 'idioms',
             link: 'https://kotlinlang.org/docs/idioms.html',
-            icon: 'https://kotlinlang.org/assets/images/favicon.ico?v2',
+            logo: 'logos:kotlin-icon',
             note: '语法糖摘要',
+            tags: [ 'catalog' ],
+        }, {
+            name: 'JavaSE 8',
+            link: 'https://docs.oracle.com/javase/8/docs/api/',
+            logo: 'devicon:java',
+            note: 'API 手册',
+            tags: [ 'catalog' ],
         }, {
             name: 'Symbols precedence',
             link: 'https://kotlinlang.org/grammar/#expressions',
-            icon: 'https://kotlinlang.org/assets/images/favicon.ico?v2',
+            logo: 'logos:kotlin-icon',
             note: '运算符优先级',
         }, {
             name: 'Operator overloading',
             link: 'https://kotlinlang.org/docs/operator-overloading.html',
-            icon: 'https://kotlinlang.org/assets/images/favicon.ico?v2',
+            logo: 'logos:kotlin-icon',
             note: '运算符重载',
         }, {
             name: 'Scope functions',
             link: 'https://kotlinlang.org/docs/scope-functions.html',
-            icon: 'https://kotlinlang.org/assets/images/favicon.ico?v2',
+            logo: 'logos:kotlin-icon',
             note: '范围函数',
         }, {
             name: 'KDoc',
             link: 'https://kotlinlang.org/docs/kotlin-doc.html',
-            icon: 'https://kotlinlang.org/assets/images/favicon.ico?v2',
+            logo: 'logos:kotlin-icon',
             note: '代码内注释文档',
         }, {
             name: 'K2 compiler migration',
             link: 'https://kotlinlang.org/docs/k2-compiler-migration-guide.html',
-            icon: 'https://kotlinlang.org/assets/images/favicon.ico?v2',
+            logo: 'logos:kotlin-icon',
             note: 'K2 编译器迁移指南',
-        }, {
-            name: 'Kotlin 文档 中文版',
-            link: 'https://book.kotlincn.net/text/home.html',
-        }, {
-            name: 'Maven Repository',
-            link: 'https://mvnrepository.com/',
-            icon: 'https://mvnrepository.com/assets/images/e8a73ff26e5b1e3f20868111d80c5544-favicon.ico',
         }, {
             name: 'Text Components',
             link: 'https://docs.oracle.com/javase/tutorial/uiswing/components/text.html',
+            logo: 'devicon:java',
             note: '几种文本组件的区别',
-        }, {
-            name: 'dom4j',
-            link: 'https://dom4j.github.io/',
-            note: 'Java XML 框架',
         }
     ]
 }
@@ -296,64 +290,69 @@ const groupFrontend: BookmarkGroup = {
         {
             name: 'HTML 元素参考',
             link: 'https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements',
+            logo: 'simple-icons:mdnwebdocs',
             note: '<div/> 之类的东西',
         }, {
             name: 'HTML 实体',
             link: 'https://developer.mozilla.org/zh-CN/docs/Glossary/Entity',
+            logo: 'simple-icons:mdnwebdocs',
             note: '&nbsp; 之类的东西',
         }, {
-            name: 'HTML DOM 接口类型',
+            name: 'DOM 接口类型',
             link: 'https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_DOM_API#html_dom_api_%E6%8E%A5%E5%8F%A3',
-            note: 'HTMLDivElement 之类',
+            logo: 'simple-icons:mdnwebdocs',
+            note: 'HTMLDivElement 之类的东西',
         }, {
             name: 'HTML 术语表',
             link: 'https://developer.mozilla.org/zh-CN/docs/Glossary',
+            logo: 'simple-icons:mdnwebdocs',
             note: 'Glossary',
         }, {
             name: 'CSS 属性',
             link: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties',
+            logo: 'devicon:css',
+            note: 'MDN - CSS',
         }, {
             name: 'CSS 值函数',
             link: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/Functions',
+            logo: 'devicon:css',
+            note: 'MDN - CSS',
         }, {
-            name: 'JavaScript 内置对象',
+            name: '内置对象',
             link: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects',
+            logo: 'logos:javascript',
+            note: 'MDN - JavaScript',
         }, {
-            name: 'JavaScript 表达式和运算符',
+            name: '表达式和运算符',
             link: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators',
-        }, {
-            name: 'TypeScript Cheat Sheets',
-            link: 'https://www.typescriptlang.org/cheatsheets/',
+            logo: 'logos:javascript',
+            note: 'MDN - JavaScript',
         }, {
             name: 'Node.js API',
             link: 'https://nodejs.org/docs/latest/api/',
+            logo: 'logos:nodejs-icon-alt',
         }, {
             name: 'Node.js 版本状态',
             link: 'https://nodejs.org/zh-cn/about/previous-releases',
+            logo: 'logos:nodejs-icon-alt',
         }, {
-            name: 'Vite 指引',
-            link: 'https://cn.vite.dev/guide/',
-            icon: 'https://cn.vite.dev/logo-without-border.svg',
-            note: '前端构建工具',
-        }, {
-            name: 'Tailwind CSS',
+            name: 'Hover, focus... states',
             link: 'https://tailwindcss.com/docs/hover-focus-and-other-states',
-            note: '纯样式库',
+            logo: 'logos:tailwindcss-icon',
+            note: 'Tailwind 定语缩写',
         }, {
-            name: 'Customizing your theme',
+            name: 'Customizing theme',
             link: 'https://tailwindcss.com/docs/theme#customizing-your-theme',
+            logo: 'logos:tailwindcss-icon',
+            note: '定制自己的主题',
         }, {
-            name: 'GSAP',
-            link: 'https://gsap.com/docs/v3/Eases/',
-            note: '纯动效库',
+            name: 'TypeScript Cheat Sheets',
+            link: 'https://www.typescriptlang.org/cheatsheets/',
+            logo: 'logos:typescript-icon',
         }, {
             name: 'GSAP Demo Hub',
             link: 'https://demos.gsap.com/explore/',
             note: 'GSAP 官方示例库',
-        }, {
-            name: 'Lodash',
-            link: 'https://lodash.com/docs',
-            note: '业务工具库',
         }
     ]
 }
@@ -363,22 +362,12 @@ const groupVue: BookmarkGroup = {
         {
             name: 'Vue.js API 参考',
             link: 'https://cn.vuejs.org/api/',
-            icon: 'https://cn.vuejs.org/logo.svg',
-            note: 'JavaScript Web 框架',
-        }, {
-            name: 'Vue Router',
-            link: 'https://router.vuejs.org/zh/',
-            icon: 'https://router.vuejs.org/logo.svg',
-            note: 'Vue.js 官方路由',
+            logo: 'logos:vue',
         }, {
             name: 'VueUse functions',
             link: 'https://vueuse.org/functions.html',
+            logo: 'logos:vueuse',
             note: 'Vue 组合式工具集',
-        }, {
-            name: 'Vben Admin',
-            link: 'https://doc.vben.pro/',
-            icon: 'https://unpkg.com/@vbenjs/static-source@0.1.7/source/logo-v1.webp',
-            note: '企业级管理系统框架',
         }, {
             name: 'Element Plus 组件',
             link: 'https://element-plus.org/zh-CN/component/overview.html',
@@ -387,6 +376,7 @@ const groupVue: BookmarkGroup = {
         }, {
             name: 'Element 组件',
             link: 'https://element.eleme.cn/#/zh-CN/component/installation',
+            logo: 'logos:element',
             note: '面向 Vue 2',
         }, {
             name: 'Ant Design Vue 组件',
@@ -394,7 +384,7 @@ const groupVue: BookmarkGroup = {
         }, {
             name: 'Naive UI 组件',
             link: 'https://www.naiveui.com/zh-CN/dark/components/button',
-            icon: 'https://www.naiveui.com/assets/naivelogo-BdDVTUmz.svg',
+            logo: 'logos:naiveui',
         }, {
             name: 'Reka UI 组件',
             link: 'https://reka-ui.com/docs/components/navigation-menu',
@@ -407,43 +397,13 @@ const groupVue: BookmarkGroup = {
         }
     ]
 }
-const groupVitePress: BookmarkGroup = {
-    title: { text: 'VitePress', link: '#vitepress' },
-    items: [
-        {
-            name: 'VitePress',
-            link: 'https://vitepress.dev/zh/',
-            icon: 'https://vitepress.dev/vitepress-logo-mini.svg',
-            note: '静态站点生成器',
-        }, {
-            name: '伊奥\'s VitePress',
-            link: 'https://vitepress.yiov.top/',
-            icon: 'https://vitepress.yiov.top/logo.png',
-            note: '快速上手中文教程',
-        }, {
-            name: 'Catppuccin Theme',
-            link: 'https://vitepress.catppuccin.com/',
-            icon: 'https://github.com/catppuccin/catppuccin/blob/main/assets/logos/exports/1544x1544_circle.png?raw=true',
-            note: '多套颜色主题',
-        }, {
-            name: 'Carbon',
-            link: 'https://carbon.breno.tech/',
-            icon: 'https://carbon.breno.tech/logo.svg',
-            note: '一个精简主题',
-        }, {
-            name: 'Mild Theme',
-            link: 'https://theme.hacxy.cn/',
-            note: '适用博客的默认主题+',
-        }
-    ]
-}
 const groupReact: BookmarkGroup = {
     title: { text: 'React', link: '#react' },
     items: [
         {
             name: 'Ant Design 组件',
             link: 'https://ant.design/components/overview-cn',
-            icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+            logo: 'devicon:antdesign',
         }, {
             name: 'shadcn/ui',
             link: 'https://ui.shadcn.com/',
@@ -455,34 +415,35 @@ const groupNoSQL: BookmarkGroup = {
     title: { text: '(No)SQL', link: '#sql' },
     items: [
         {
-            name: 'PostgreSQL',
-            link: 'https://www.postgresql.org/docs/current/index.html',
-            note: '关系型数据库',
-        }, {
             name: 'Data Types',
             link: 'https://www.postgresql.org/docs/current/datatype.html',
+            logo: 'logos:postgresql',
             note: '数据类型',
         }, {
             name: 'Data Types',
             link: 'https://dev.mysql.com/doc/refman/5.7/en/data-types.html',
-            icon: 'https://labs.mysql.com/common/themes/sakila/favicon.ico',
+            logo: 'logos:mysql',
             note: 'MySQL 5.7 数据类型',
-        }, {
-            name: 'Functions & Operators',
-            link: 'https://www.postgresql.org/docs/current/functions.html',
-            note: '函数与操作符',
         }, {
             name: 'SQL Commands',
             link: 'https://www.postgresql.org/docs/current/sql-commands.html',
-            note: 'PostgreSQL 语句一览',
+            logo: 'logos:postgresql',
+            note: '语句一览',
         }, {
             name: 'Commands',
             link: 'https://redis.io/docs/latest/commands/',
+            logo: 'logos:redis',
             note: 'Redis 命令列表',
+        }, {
+            name: 'Functions & Operators',
+            link: 'https://www.postgresql.org/docs/current/functions.html',
+            logo: 'logos:postgresql',
+            note: '函数与操作符',
         }, {
             name: 'Versioning Policy',
             link: 'https://www.postgresql.org/support/versioning/',
-            note: 'PostgreSQL 更新策略',
+            logo: 'logos:postgresql',
+            note: '更新策略',
         }
     ]
 }
@@ -490,94 +451,50 @@ const groupIntelliJ: BookmarkGroup = {
     title: { text: 'IntelliJ', link: 'intellij' },
     items: [
         {
-            name: 'Marketplace',
-            link: 'https://plugins.jetbrains.com/',
-            icon: 'https://resources.jetbrains.com/storage/ui/favicons/favicon.ico',
-            note: '插件与主题市场',
+            name: 'SDK',
+            link: 'https://plugins.jetbrains.com/docs/intellij/welcome.html',
+            logo: 'vscode-icons:file-type-jetbrains',
+            note: '插件、语言、主题',
+            tags: [ 'catalog' ],
         }, {
             name: '`plugin.xml`',
             link: 'https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html',
-            icon: 'https://www.jetbrains.com/favicon-32x32.png',
+            logo: 'vscode-icons:file-type-jetbrains',
         }, {
             name: '`build.plugin.kts`',
             link: 'https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html',
-            icon: 'https://www.jetbrains.com/favicon-32x32.png',
+            logo: 'vscode-icons:file-type-jetbrains',
             note: '2.x 版本',
         }, {
             name: '`build.gradle.kts`',
             link: 'https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html#usage',
-            icon: 'https://www.jetbrains.com/favicon-32x32.png',
+            logo: 'vscode-icons:file-type-jetbrains',
             note: '1.x 版本',
-        }, {
-            name: 'IntelliJ Platform SDK',
-            link: 'https://plugins.jetbrains.com/docs/intellij/welcome.html',
-            icon: 'https://www.jetbrains.com/favicon-32x32.png',
-            note: '插件、语言、主题',
         }, {
             name: 'Bundled Plugins IDs',
             link: 'https://plugins.jetbrains.com/docs/intellij/plugin-dependencies.html#ids-of-bundled-plugins',
-            icon: 'https://www.jetbrains.com/favicon-32x32.png',
+            logo: 'vscode-icons:file-type-jetbrains',
             note: '各捆绑插件的ID',
         }, {
             name: 'product versions in use',
             link: 'https://plugins.jetbrains.com/docs/marketplace/product-versions-in-use-statistics.html',
-            icon: 'https://www.jetbrains.com/favicon-32x32.png',
+            logo: 'vscode-icons:file-type-jetbrains',
             note: '产品版本使用率统计',
         }, {
             name: 'UI Inspector',
             link: 'https://plugins.jetbrains.com/docs/intellij/internal-ui-inspector.html',
-            icon: 'https://www.jetbrains.com/favicon-32x32.png',
+            logo: 'vscode-icons:file-type-jetbrains',
             note: 'UI 检查器的用法',
         }, {
             name: 'Plugin Signing',
             link: 'https://plugins.jetbrains.com/docs/intellij/plugin-signing.html',
-            icon: 'https://www.jetbrains.com/favicon-32x32.png',
+            logo: 'vscode-icons:file-type-jetbrains',
             note: '插件签名教程',
         }, {
             name: 'Semantic versioning',
             link: 'https://plugins.jetbrains.com/docs/marketplace/semver.html',
-            icon: 'https://www.jetbrains.com/favicon-32x32.png',
+            logo: 'vscode-icons:file-type-jetbrains',
             note: '语义版本控制',
-        }
-    ]
-}
-const groupProtocol: BookmarkGroup = {
-    title: { text: '协议 · 语法', link: '#protocol' },
-    items: [
-        {
-            name: 'HTTP',
-            link: 'https://developer.mozilla.org/zh-CN/docs/Web/HTTP',
-            note: '超文本传输协议',
-        }, {
-            name: '常见 MIME 列表',
-            link: 'https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/MIME_types/Common_types',
-        }, {
-            name: 'OAuth 2.0',
-            link: 'https://oauth.net/2/',
-        }, {
-            name: 'PNG 3',
-            link: 'https://www.w3.org/TR/png-3/',
-        }, {
-            name: '正则表达式',
-            link: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions',
-        }, {
-            name: 'JSON Schema',
-            link: 'https://json-schema.org/specification',
-        }, {
-            name: 'YAML',
-            link: 'https://yaml.org/',
-            icon: 'https://yaml.org/assets/logo.png',
-        }, {
-            name: 'TOML',
-            link: 'https://toml.io/en/',
-            icon: 'https://toml.io/favicon.png',
-        }, {
-            name: 'Shiki Languages',
-            link: 'https://shiki.style/languages',
-            icon: 'https://shiki.style/logo.svg',
-        }, {
-            name: 'mermaid',
-            link: 'https://mermaid.js.org/intro/',
         }
     ]
 }
@@ -585,14 +502,6 @@ const groupMinecraft: BookmarkGroup = {
     title: { text: 'Minecraft', link: '#minecraft' },
     items: [
         {
-            name: 'Minecraft 维基',
-            link: 'https://zh.minecraft.wiki/w/Minecraft_Wiki',
-            icon: 'https://zh.minecraft.wiki/images/Favicon.ico',
-        }, {
-            name: 'MC百科',
-            link: 'https://www.mcmod.cn/',
-            icon: 'https://www.mcmod.cn/images/favicon.ico',
-        }, {
             name: 'Java版本记录',
             link: 'https://zh.minecraft.wiki/w/Java%E7%89%88%E7%89%88%E6%9C%AC%E8%AE%B0%E5%BD%95',
         }, {
@@ -644,24 +553,33 @@ const groupMinecraft: BookmarkGroup = {
         }
     ]
 }
-const groupMinecraftMods: BookmarkGroup = {
-    title: { text: 'Minecraft 模组', link: 'mods' },
-    items: [
-        {
-            name: '暮色森林',
-            link: 'https://www.mcmod.cn/class/61.html',
-            note: 'The Twilight Forest',
-        }, {
-            name: '群峦传说：次世代',
-            link: 'https://www.mcmod.cn/class/2104.html',
-            note: 'TerraFirmaCraft: The Next Generation',
-        }
-    ]
-}
 const groupChores: BookmarkGroup = {
     title: { text: '杂项', link: '#chores' },
     items: [
         {
+            name: 'HTTP 状态响应码',
+            link: 'https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Status',
+            logo: 'simple-icons:mdnwebdocs',
+        }, {
+            name: '常见 MIME 列表',
+            link: 'https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/MIME_types/Common_types',
+            logo: 'simple-icons:mdnwebdocs',
+        }, {
+            name: '正则表达式',
+            link: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions',
+            logo: 'simple-icons:mdnwebdocs',
+        }, {
+            name: 'JSON Schema',
+            link: 'https://json-schema.org/specification',
+            logo: 'logos:json-schema-icon',
+        }, {
+            name: 'Shiki Languages',
+            link: 'https://shiki.style/languages',
+            icon: 'https://shiki.style/logo.svg',
+        }, {
+            name: 'mermaid',
+            link: 'https://mermaid.js.org/intro/',
+        }, {
             name: 'Prettier Configuration',
             link: 'https://prettier.io/docs/options',
             icon: 'https://prettier.io/icon.png',
@@ -673,27 +591,33 @@ const groupChores: BookmarkGroup = {
 }
 export const bookmarks = [
     groupPython,
-    groupPythonEcosystem,
-    groupDjangoEcosystem,
-    groupDjangoSettings,
+    groupDjango,
+    groupDjangoConfigs,
     groupDjangoModel,
+    groupDjangoView,
     groupKotlin,
+    groupIntelliJ,
+    groupNoSQL,
     groupFrontend,
     groupVue,
-    groupVitePress,
     groupReact,
-    groupNoSQL,
-    groupIntelliJ,
-    groupProtocol,
     groupMinecraft,
-    groupMinecraftMods,
     groupChores,
 ]
+export const anchors: Hyperlink[] = [
+    { text: 'Python', link: groupPython.title.link, logo: 'catppuccin:python' },
+    { text: 'Kotlin', link: groupKotlin.title.link, logo: 'catppuccin:kotlin' },
+    { text: '前端', link: groupFrontend.title.link, logo: 'catppuccin:javascript' },
+    { text: '更多', link: groupMinecraft.title.link, logo: 'fluent-emoji-flat:fox' },
+]
+
 for (const group of bookmarks) {
+    group.title.elementId = group.title.link.substring(1)
+
     for (const bookmark of group.items) {
         if (bookmark.name)
             bookmark.name = markit(bookmark.name)
-        if (!bookmark.icon)
+        if (!bookmark.logo && !bookmark.icon)
             bookmark.icon = `${new URL(bookmark.link).origin}/favicon.ico`
     }
 }

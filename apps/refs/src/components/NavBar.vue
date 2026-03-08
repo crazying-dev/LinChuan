@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { isShowingNavDropdown } from '#/storage.ts';
 import { Icon } from '@iconify/vue';
-import { navifoxRefs } from '@navifox/constants';
+import { navifox } from '@navifox/constants';
 import { onMounted, ref } from 'vue';
 
 const isDarkMode = ref(false)
@@ -21,7 +21,7 @@ onMounted(() => {
 <div class="relative">
     <div class="flex flex-row justify-between md:justify-start items-center py-4">
 
-        <a :href="navifoxRefs.link"
+        <a :href="navifox.link"
            class="flex font-medium items-center justify-center md:justify-start text-slate-800 dark:text-slate-300">
             <div class="justify-center text-white mr-3 text-4xl">
                 <div class="self-center">
@@ -29,8 +29,9 @@ onMounted(() => {
                 </div>
             </div>
             <span class="hidden md:flex domain text-xl md:text-2xl lg:text-3xl font-bold tracking-tight">
-                <span class="text-cyan-300 font-black">refs.</span>
-                <span class="bg-gradient-to-r from-cyan-100 to-white bg-clip-text text-transparent">navifox</span>
+                <span class="bg-gradient-to-r from-white to-orange-200 bg-clip-text text-transparent">navi</span>
+                <span class="text-orange-400 font-black">fox</span>
+                <span class="text-gray-400 font-black">.net</span>
             </span>
         </a>
         <div class="md:ml-auto flex flex-wrap items-center text-base justify-center">
@@ -68,11 +69,11 @@ onMounted(() => {
                         class="cursor-pointer inline-flex h-9 items-center rounded-3xl backdrop-blur-sm ml-0 px-3 py-2 transition-colors duration-200 group bg-white/10 outline outline-white/20 text-white hover:bg-white/20 hover:outline-white/30"
                         type="button"
                         @click="isShowingNavDropdown = !isShowingNavDropdown">
-                    <div class="mx-1 text-white">
+                    <div class="text-white">
                         <Icon height="1.25rem" icon="carbon:catalog-publish" />
                     </div>
-                    <span class="mx-1 hidden md:inline text-sm font-medium text-white">更多参考</span>
-                    <div class="hidden md:inline">
+                    <span class="ml-2 hidden md:inline text-sm font-medium text-white">更多参考</span>
+                    <div class="ml-1 hidden md:inline">
                         <Icon height="1.25rem" icon="mingcute:down-small-line" />
                     </div>
                 </button>

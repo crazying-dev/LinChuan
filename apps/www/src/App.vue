@@ -3,7 +3,7 @@ import Background from '#/assets/background.jpg';
 import Footer from '#/components/Footer.vue';
 import Content from '#/layouts/Content.vue';
 import { Icon } from '@iconify/vue';
-import { navifox, signature, socials, tighnari, websites } from '@navifox/constants';
+import { navifox, signature, sitemap, socials, tighnari } from '@navifox/constants';
 import { logger, useWebsiteLinks, useWebsiteMetas } from '@navifox/utils';
 import { useHead } from '@unhead/vue';
 import { useResizeObserver } from '@vueuse/core';
@@ -52,10 +52,10 @@ useResizeObserver(bio, (entries) => {
 
         <!-- 卡片2 -->
 
-        <div v-if="websites.length" class="card">
+        <div v-if="!sitemap.length" class="card">
             <div :style="{ maxWidth: `${cardWidth}px` }"
                  class="flex flex-row flex-wrap items-center gap-4 align-top">
-                <template v-for="(site, index) in websites">
+                <template v-for="(site, index) in sitemap">
                     <div v-if="index !== 0"
                          class="h-6 border-r border-(--fox-cyan-2)" />
                     <a :href="site.link"
@@ -63,8 +63,9 @@ useResizeObserver(bio, (entries) => {
                        draggable="false"
                        target="_self"
                     >
-                        <Icon :icon="site.icon!" height="32" />
-                        <span class="ml-1 text-sm">{{ site.text }}</span>
+                        <Icon v-if="site.logo" :icon="site.logo" height="32" />
+                        <div v-else class="size-8" />
+                        <span class="ml-1 text-sm">{{ site.name }}</span>
                     </a>
                 </template>
             </div>
@@ -76,7 +77,7 @@ useResizeObserver(bio, (entries) => {
             <div :style="{ maxWidth: `${cardWidth}px` }"
                  class="flex flex-wrap items-center gap-x-4 gap-y-5 align-top">
                 <template v-for="site in socials">
-                    <div v-if="!site.text || !site.logo"
+                    <div v-if="!site.name || !site.logo"
                          class="h-5 border-r border-(--fox-cyan-2)" />
                     <a v-else
                        :href="site.link"
@@ -84,7 +85,7 @@ useResizeObserver(bio, (entries) => {
                        draggable="false"
                        target="_self"
                        @mouseleave="btnTextSocial = ''"
-                       @mouseover="btnTextSocial = site.text ?? ''"
+                       @mouseover="btnTextSocial = site.name"
                     >
                         <Icon :icon="site.logo" height="32" />
                     </a>

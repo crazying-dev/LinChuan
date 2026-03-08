@@ -2,7 +2,7 @@
 import {
     copyrightInterval as interval,
     copyrights,
-    links,
+    friends,
     navifox,
     sitemap,
     socials,
@@ -11,12 +11,12 @@ import {
 } from '@navifox/constants';
 
 const version = __APP_VERSION__
-const linkMap = {
-    '导航': sitemap,
-    '链接': socials,
-    '友链': links,
-    '引用鸣谢': thanks,
-}
+const linkMap = [
+    { title: '导航', subtitle: 'Sitemap', data: sitemap },
+    { title: '链接', subtitle: 'Socials', data: socials },
+    { title: '友链', subtitle: 'Friends', data: friends },
+    { title: '引用鸣谢', subtitle: 'Thanks', data: thanks },
+]
 </script>
 
 
@@ -42,12 +42,12 @@ const linkMap = {
             <span>构建版本号：<code>{{ version }}</code></span>
         </div>
     </div>
-    <div v-for="(items, title) in linkMap" class="flex flex-col gap-1">
+    <div v-for="{title, data} in linkMap" class="flex flex-col gap-1">
         <div class="text-base pb-1"><b>{{ title }}</b></div>
-        <template v-for="item in items">
-            <a v-if="item.text" :href="item.link"
+        <template v-for="item in data">
+            <a :href="item.link"
                class="flex no-underline"
-               target="_blank">{{ item.text }}</a>
+               target="_blank">{{ item.name }}</a>
         </template>
     </div>
 </footer>

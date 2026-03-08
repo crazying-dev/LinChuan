@@ -41,6 +41,13 @@ export interface Hyperlink extends Favicon {
     icon?: string
 
     logo?: string
+
+    /**
+     * HTML 元素 `id`。
+     *
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Global_attributes/id 全局属性 `id`
+     */
+    elementId?: string
 }
 
 /**

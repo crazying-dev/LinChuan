@@ -17,9 +17,10 @@ export const navifoxGuild: Website = {
     author: tighnari.name,
 }
 export const navifoxRefs: Website = {
-    name: '罗狐内参',
+    name: '参考星笺',
     link: 'https://refs.navifox.net',
-    description: '罗狐会馆内部参考。',
+    icon: 'https://www.navifox.net/favicon.ico',
+    description: '狐狸们用小爪子敲出的<b>作弊一页纸</b>。',
     author: tighnari.name,
 }
 export const seraphonogram: Website = {
@@ -27,6 +28,7 @@ export const seraphonogram: Website = {
     link: 'https://blog.navifox.net',
     icon: 'https://www.navifox.net/favicon.ico',
     mime: 'image/png',
+    description: '一个无“人”光顾的博客。',
     author: tighnari.name,
 }
 export const mooncakeDocs: Website = {
@@ -34,7 +36,7 @@ export const mooncakeDocs: Website = {
     link: 'https://docs.navifox.net',
     icon: 'https://www.navifox.net/favicon.ico',
     mime: 'image/png',
-    description: '收纳展示散落在各个项目仓库的文档',
+    description: '收纳展示散落在各个项目仓库的文档。',
     author: tighnari.name,
 }
 export const curriculumVitae: Website = {
@@ -55,3 +57,47 @@ export const moeTravel: Website = {
     link: 'https://travel.moe/go.html?travel=on',
     conf: 'https://travel.moe/',
 }
+export const sitemap = [
+    navifox,
+    mooncakeDocs,
+    navifoxRefs,
+    seraphonogram,
+    curriculumVitae,
+]
+export const socials: Website[] = [
+    { ...navifoxGuild, logo: 'bi:tencent-qq' },
+    // { name: '推特<br/>X／Twitter', logo: 'simple-icons:x', link: 'https://x.com/aixcyi/' },
+    { name: 'GitHub', logo: 'simple-icons:github', link: 'https://github.com/aixcyi/' },
+    { name: 'PyPI', logo: 'file-icons:pypi', link: 'https://pypi.org/user/aixcyi/' },
+    {
+        name: 'JetBrains 插件市场',
+        logo: 'simple-icons:jetbrains',
+        link: 'https://plugins.jetbrains.com/author/aixcyi/',
+    },
+    // { name: 'Gitee', logo: 'simple-icons:gitee', link: 'https://gitee.com/aixcyi/' },
+]
+export const friends: Website[] = [
+    {
+        name: 'Rabbit Mind',
+        link: 'https://rabbitmind.net/',
+        icon: 'https://rabbitmind.net/favicon.ico',
+        description: '这里的更新速度取决于咖啡浓度☕',
+    }, {
+        name: '纸鹿摸鱼处',
+        link: 'https://blog.zhilu.site/',
+        icon: 'https://www.zhilu.site/icon.png',
+        description: '纸鹿至麓不知路，支炉制露不止漉',
+    }, {
+        name: 'Pinpe 的云端',
+        link: 'https://pinpe.top/',
+        description: '宁为鲜花而死，不为面包而活。',
+    },
+]
+export const thanks: Website[] = [
+    { name: 'oO大黄Oo', link: 'https://www.pixiv.net/users/9892346', logo: 'fa6-brands:pixiv' },
+    { name: '錯誤', link: 'https://www.pixiv.net/users/1297556', logo: 'fa6-brands:pixiv', note: '头像作者' },
+    { name: 'アナ', link: 'https://www.pixiv.net/users/24036634', logo: 'fa6-brands:pixiv' },
+    { name: 'shields.io', link: 'https://shields.io/', icon: 'https://shields.io/img/favicon.ico' },
+    { name: 'Iconify Design', link: 'https://iconify.design/', logo: 'line-md:iconify2-twotone' },
+    { name: 'JetBrains Mono', link: 'https://www.jetbrains.com/lp/mono/', logo: 'vscode-icons:file-type-jetbrains' },
+]

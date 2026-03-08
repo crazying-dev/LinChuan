@@ -1,13 +1,22 @@
 <script lang="ts" setup>
-import { sheets } from '#/constants';
 import { isShowingNavDropdown } from '#/storage.ts';
 import { Icon } from '@iconify/vue';
+import type { Hyperlink } from '@navifox/types';
 import { useWindowScroll, useWindowSize } from '@vueuse/core';
 import { nextTick, onMounted, useTemplateRef, watch } from 'vue';
 
 const navDropdown = useTemplateRef('nav-dropdown')
 const { width } = useWindowSize()
 const { y } = useWindowScroll()
+const sheets: Hyperlink[] = [
+    { text: '时间戳对照表', link: '/timestamp' },
+    { text: '语法更新摘要', link: '/grammar', logo: 'material-icon-theme:python' },
+    { text: '镜像源', link: '/mirrors' },
+    { text: 'UUID 结构', link: '/uuid' },
+    { text: null, link: '' },
+    { text: 'CheatSheets.zip', link: 'https://cheatsheets.zip/', icon: 'https://cheatsheets.zip/images/favicon.png' },
+    { text: '路狐领航', link: 'https://www.navifox.net/', logo: 'fluent-emoji-flat:fox' },
+]
 
 function resize() {
     const dropdown = navDropdown.value
@@ -42,12 +51,13 @@ watch(isShowingNavDropdown, (after) => {
         <template v-for="sheet in sheets">
             <a v-if="sheet.text"
                :href="sheet.link"
+               :target="sheet.link.startsWith('https://') ? '_blank' : '_self'"
                class="nav-item flex items-center px-4 py-3 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100/50 dark:hover:bg-slate-700/50 transition-colors rounded-xl mx-2 my-1"
                rel="nofollow"
                role="button">
                 <div class="flex-shrink-0 w-5 h-5 mr-3">
                     <Icon v-if="sheet.logo" :icon="sheet.logo" class="size-[1.25rem]" />
-                    <img v-else-if="sheet.icon" :src="sheet.icon" class="size-[1.25rem]">
+                    <img v-else-if="sheet.icon" :src="sheet.icon" alt="ico" class="size-[1.25rem]">
                     <div v-else class="size-[1.25rem]" />
                 </div>
                 <span class="font-medium">{{ sheet.text }}</span>
