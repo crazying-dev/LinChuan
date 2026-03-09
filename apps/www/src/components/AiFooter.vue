@@ -32,15 +32,33 @@ const linkMap = [
                class="flex no-underline"
                target="_blank">{{ copyright.text }}</a>
         </template>
-        <div v-show="tighnari.name">
+        <p v-show="tighnari.name">
             <span>© {{ interval.start }}-{{ interval.stop }} {{ tighnari.name }} 版权所有</span>
-        </div>
-        <div v-show="tighnari.uid">
+        </p>
+        <p v-show="tighnari.uid">
             <span>© {{ interval.start }}-{{ interval.stop }} {{ tighnari.uid }}. All Rights Reserved.</span>
-        </div>
-        <div>
-            <span>构建版本号：<code>{{ version }}</code></span>
-        </div>
+        </p>
+        <p>
+            <span>
+                使用了
+                <a class="hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200"
+                   href="https://iconify.design/"
+                   target="_blank">Iconify</a>
+                的能力。
+            </span>
+        </p>
+        <p>
+            <span>
+                使用了
+                <a class="hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200"
+                   href="https://www.jetbrains.com/lp/mono/"
+                   target="_blank"><code>JetBrains Mono</code></a>
+                字体渲染。
+            </span>
+        </p>
+        <p>
+            <span>构建为 <code>{{ version }}</code></span>
+        </p>
     </div>
     <div v-for="{title, data} in linkMap" class="flex flex-col gap-1">
         <div class="text-base pb-1"><b>{{ title }}</b></div>

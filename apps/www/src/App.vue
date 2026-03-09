@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Background from '#/assets/background.jpg';
-import Footer from '#/components/Footer.vue';
+import AiFooter from '#/components/AiFooter.vue';
 import Content from '#/layouts/Content.vue';
 import { Icon } from '@iconify/vue';
 import { navifox, signature, sitemap, socials, tighnari } from '@navifox/constants';
@@ -103,7 +103,7 @@ useResizeObserver(bio, (entries) => {
 <Content class="w-full text-sm py-10 bg-black border-t border-(--fox-cyan-1)"
          use="footer"
          wide="fattier">
-    <Footer />
+    <AiFooter />
 </Content>
 </template>
 

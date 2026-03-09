@@ -125,13 +125,27 @@ const linkMap = [
                         中的主题。
                     </span>
                 </p>
+                <p class="flex flex-wrap text-sm text-slate-600 dark:text-slate-400">
+                    <span>
+                        使用了
+                        <a class="hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200"
+                           href="https://iconify.design/"
+                           target="_blank">Iconify</a>
+                        的能力。
+                    </span>
+                </p>
+                <p class="flex flex-wrap text-sm text-slate-600 dark:text-slate-400">
+                    <span>
+                        使用了
+                        <a class="hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200"
+                           href="https://www.jetbrains.com/lp/mono/"
+                           target="_blank"><code>JetBrains Mono</code></a>
+                        字体渲染。
+                    </span>
+                </p>
             </div>
 
         </div>
     </div>
 </footer>
 </template>
-
-<style scoped>
-
-</style>

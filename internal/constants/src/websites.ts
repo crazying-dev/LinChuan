@@ -98,6 +98,4 @@ export const thanks: Website[] = [
     { name: '錯誤', link: 'https://www.pixiv.net/users/1297556', logo: 'fa6-brands:pixiv', note: '头像作者' },
     { name: 'アナ', link: 'https://www.pixiv.net/users/24036634', logo: 'fa6-brands:pixiv' },
     { name: 'shields.io', link: 'https://shields.io/', icon: 'https://shields.io/img/favicon.ico' },
-    { name: 'Iconify Design', link: 'https://iconify.design/', logo: 'line-md:iconify2-twotone' },
-    { name: 'JetBrains Mono', link: 'https://www.jetbrains.com/lp/mono/', logo: 'vscode-icons:file-type-jetbrains' },
 ]
