@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import Background from '#/assets/background.jpg';
 import AiFooter from '#/components/AiFooter.vue';
-import Content from '#/layouts/Content.vue';
 import { Icon } from '@iconify/vue';
 import { navifox, signature, sitemap, socials, tighnari } from '@navifox/constants';
 import { logger, useWebsiteLinks, useWebsiteMetas } from '@navifox/utils';
@@ -31,22 +30,22 @@ useResizeObserver(bio, (entries) => {
      alt="背景图片"
      class="absolute select-none object-cover size-full -z-1" />
 
-<Content class="h-screen text-(--fox-cyan-2) flex items-center justify-end"
-         wide="thinner">
-    <div class="flex w-fit flex-col">
+<div class="bg-black/25  dark:bg-black/50 h-screen flex items-center justify-end">
+    <div class="px-8 md:px-[20%] flex w-fit flex-col text-[#FDE2A2]"
+         style="text-shadow: 1px 1px 3px #000c,0 0 8px #0009;">
 
         <!-- 卡片1 -->
 
         <div ref="bio" class="card">
-            <div class="border-b border-b-cyan-800">
+            <div class="border-b border-b-blue-200">
                 <div class="flex flex-wrap items-baseline gap-3">
-                    <span class="text-4xl font-semibold">{{ tighnari.name }}</span>
-                    <code class="text-xl">@{{ tighnari.uid }}</code>
+                    <span class="text-4xl font-semibold text-orange-300">{{ tighnari.name }}</span>
+                    <code class="text-xl text-[#A2EBFD]">@{{ tighnari.uid }}</code>
                 </div>
             </div>
             <div class="flex flex-col gap-y-4 align-top">
                 <h3 class="font-semibold text-lg/6">{{ tighnari.tags?.join('／') }}</h3>
-                <h3 class="text-lg/6" v-html="tighnari.description" />
+                <h3 class="text-lg/6 text-[#B5A2FD]" v-html="tighnari.description" />
             </div>
         </div>
 
@@ -57,7 +56,7 @@ useResizeObserver(bio, (entries) => {
                  class="flex flex-row flex-wrap items-center gap-4 align-top">
                 <template v-for="(site, index) in sitemap">
                     <div v-if="index !== 0"
-                         class="h-6 border-r border-(--fox-cyan-2)" />
+                         class="h-6 border-r border-[#FDE2A2]" />
                     <a :href="site.link"
                        class="flex select-none items-center no-underline button"
                        draggable="false"
@@ -78,7 +77,7 @@ useResizeObserver(bio, (entries) => {
                  class="flex flex-wrap items-center gap-x-4 gap-y-5 align-top">
                 <template v-for="site in socials">
                     <div v-if="!site.name || !site.logo"
-                         class="h-5 border-r border-(--fox-cyan-2)" />
+                         class="h-5 border-r border-[#FDE2A2]" />
                     <a v-else
                        :href="site.link"
                        class="flex select-none items-center no-underline button"
@@ -87,7 +86,9 @@ useResizeObserver(bio, (entries) => {
                        @mouseleave="btnTextSocial = ''"
                        @mouseover="btnTextSocial = site.name"
                     >
-                        <Icon :icon="site.logo" height="32" />
+                        <Icon :icon="site.logo"
+                              class="hover:text-[#FDA2BD]"
+                              height="32" />
                     </a>
                 </template>
                 <span class="flex-1 text-right text-sm leading-4"
@@ -98,31 +99,17 @@ useResizeObserver(bio, (entries) => {
         <!-- 卡片尾部 -->
 
     </div>
-</Content>
-
-<Content class="w-full text-sm py-10 bg-black border-t border-(--fox-cyan-1)"
-         use="footer"
-         wide="fattier">
-    <AiFooter />
-</Content>
+</div>
+<AiFooter />
 </template>
 
 
 <style scoped>
-a {
-    transition: color .3s;
-    color: var(--fox-cyan-2);
-
-    &:hover {
-        color: blueviolet;
-    }
-}
-
 .card {
     display: flex;
     flex-direction: column;
     border: 1px solid transparent;
-    border-radius: .5rem;
+    border-radius: .75rem;
     padding-inline: 1.5rem;
     transition: all .3s;
 

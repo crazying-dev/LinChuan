@@ -17,19 +17,21 @@ export const navifoxGuild: Website = {
     author: tighnari.name,
 }
 export const navifoxRefs: Website = {
-    name: '参考星笺',
+    name: '星笺',
     link: 'https://refs.navifox.net',
     icon: 'https://www.navifox.net/favicon.ico',
     description: '狐狸们用小爪子敲出的<b>作弊一页纸</b>。',
     author: tighnari.name,
+    note: '快速参考',
 }
 export const seraphonogram: Website = {
-    name: '羽音 · 博客',
+    name: '羽音',
     link: 'https://blog.navifox.net',
     icon: 'https://www.navifox.net/favicon.ico',
     mime: 'image/png',
-    description: '一个无“人”光顾的博客。',
+    description: '<span>静谧星夜下</span><span>不绝如缕的羽音。</span>',
     author: tighnari.name,
+    note: '博客',
 }
 export const mooncakeDocs: Website = {
     name: '文档月饼盒',
@@ -46,6 +48,7 @@ export const curriculumVitae: Website = {
     mime: 'image/png',
     description: '于时光中铭记你我',
     author: tighnari.name,
+    note: '简历',
 }
 export const travelling: Website = {
     name: '开往',
@@ -59,9 +62,9 @@ export const moeTravel: Website = {
 }
 export const sitemap = [
     navifox,
+    seraphonogram,
     mooncakeDocs,
     navifoxRefs,
-    seraphonogram,
     curriculumVitae,
 ]
 export const socials: Website[] = [
@@ -95,7 +98,7 @@ export const friends: Website[] = [
 ]
 export const thanks: Website[] = [
     { name: 'oO大黄Oo', link: 'https://www.pixiv.net/users/9892346', logo: 'fa6-brands:pixiv' },
-    { name: '錯誤', link: 'https://www.pixiv.net/users/1297556', logo: 'fa6-brands:pixiv', note: '头像作者' },
+    { name: '錯誤', link: 'https://www.pixiv.net/users/1297556', logo: 'fa6-brands:pixiv' },
     { name: 'アナ', link: 'https://www.pixiv.net/users/24036634', logo: 'fa6-brands:pixiv' },
-    { name: 'shields.io', link: 'https://shields.io/', icon: 'https://shields.io/img/favicon.ico' },
+    { name: 'shields.io', link: 'https://shields.io/', icon: 'https://shields.io/img/favicon.ico', note: '徽章生成' },
 ]
