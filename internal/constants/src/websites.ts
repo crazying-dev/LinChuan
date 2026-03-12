@@ -93,6 +93,7 @@ export const friends: Website[] = [
     }, {
         name: 'Pinpe 的云端',
         link: 'https://pinpe.top/',
+        icon: 'https://pinpe.top/favicon/logo.jpg',
         description: '宁为鲜花而死，不为面包而活。',
     },
 ]

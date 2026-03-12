@@ -60,7 +60,8 @@ const linkMap = [
                         <div :class="styles.icon"
                              class="w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
                             <Icon v-if="item.logo" :icon="item.logo" height="24" />
-                            <img v-else-if="item.icon" :src="item.icon" alt="ico" class="size-6 select-none" />
+                            <img v-else-if="item.icon" :src="item.icon" alt="ico"
+                                 class="size-6 select-none rounded-md" />
                             <div v-else class="size-6" />
                         </div>
                         <div class="min-w-0 flex-1">
