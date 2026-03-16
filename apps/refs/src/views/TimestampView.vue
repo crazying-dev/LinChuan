@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import LinkButton from "#/components/LinkButton.vue";
+import LinkButton from '#/components/LinkButton.vue';
 import TimestampTable from '#/components/TimestampTable.vue';
 import Content from '#/layouts/Content.vue';
 import { Duration } from '@navifox/utils';

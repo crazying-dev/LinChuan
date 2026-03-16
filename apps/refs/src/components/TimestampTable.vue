@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Duration } from '@navifox/utils'
+import { Duration } from '@navifox/utils';
 
 const props = defineProps<{
     title: string,
