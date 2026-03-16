@@ -23,7 +23,7 @@ const route = useRoute()
                 <div class="lg:w-3/5 mx-auto intro leading-relaxed text-slate-600">
                     <p>{{ route.meta.description }}</p>
                 </div>
-                <div class="flex flex-wrap items-center justify-center gap-3 mt-6 mb-8 *:cursor-pointer">
+                <div class="flex flex-wrap items-center justify-center gap-3 mt-6 mb-8">
                     <slot name="buttons"></slot>
                 </div>
             </slot>
