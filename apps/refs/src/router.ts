@@ -8,6 +8,7 @@ declare module 'vue-router' {
     interface RouteMeta {
         title: string
         description?: string
+        keywords?: string[]
     }
 }
 
@@ -25,6 +26,7 @@ const router = createRouter({
             meta: {
                 title: '时间戳对照表',
                 description: '对照、查询不同进位制（字符集）下的计数空间，以及不同单位的时间存储上限。',
+                keywords: [ '时间戳', '进制', '进位制', '表格', '字符集', '字符串', '对照表' ],
             },
             component: () => import('#/views/TimestampView.vue'),
         },
@@ -33,7 +35,8 @@ const router = createRouter({
             name: 'GenshinTalent',
             meta: {
                 title: '角色实用天赋表',
-                description: '原神角色（截止 6.4 月之三版本）部分实用天赋一览表。',
+                description: '原神角色（截止 6.4 月之五版本）部分实用天赋一览表。',
+                keywords: [ '原神', '角色', '天赋', '表格', '月之五', '6.4' ],
             },
             component: () => import('#/views/GenshinTalentsView.vue'),
         }
@@ -42,7 +45,7 @@ const router = createRouter({
 router.beforeEach(to => {
     useHead({
         title: to.meta.title ?? navifoxRefs.name,
-        meta: [ ...useWebsiteMetas(navifoxRefs, { description: to.meta.description }) ],
+        meta: [ ...useWebsiteMetas(navifoxRefs, { description: to.meta.description, keywords: to.meta.keywords }) ],
         link: [ ...useWebsiteLinks(navifoxRefs) ],
         titleTemplate: to.meta.title ? `%s - ${navifoxRefs.name}` : null,
     })

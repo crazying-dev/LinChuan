@@ -22,6 +22,7 @@ export const navifoxRefs: Website = {
     icon: 'https://www.navifox.net/favicon.ico',
     description: '狐狸们用小爪子敲出的<b>作弊一页纸</b>。',
     author: tighnari.name,
+    tags: [ '快速参考', '参考', '星笺', '导航', '路狐领航' ],
     note: '快速参考',
 }
 export const seraphonogram: Website = {
