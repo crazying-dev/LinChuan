@@ -42,21 +42,6 @@ const toggleDark = useToggle(isDark)
         </a>
         <div class="md:ml-auto flex flex-wrap items-center text-base justify-center">
 
-            <!--TODO: 搜索框如何改造？ -->
-            <!--<button id="mysearch-trigger"-->
-            <!--        class="cursor-pointer inline-flex h-9 items-center backdrop-blur-sm rounded-3xl px-3 md:px-4 lg:px-6 py-2 transition-colors duration-200 group bg-white/10 outline outline-white/20 text-white hover:bg-white/20 hover:outline-white/30"-->
-            <!--        type="button">-->
-            <!--    <div class="md:text-xl md:mr-2">-->
-            <!--        <Icon height="1.25rem" icon="topcoat:search" />-->
-            <!--    </div>-->
-            <!--    <span class="hidden md:inline font-medium">问问神奇网络</span>-->
-            <!--    <span-->
-            <!--        class="hidden md:inline md:ml-2 text-sm leading-5 py-0.5 px-1.5 border border-slate-300 rounded-md">-->
-            <!--            <span class="font-sans">⌘</span>-->
-            <!--            <span class="font-sans">K</span>-->
-            <!--        </span>-->
-            <!--</button>-->
-
             <button
                 v-if="cover"
                 class="cursor-pointer inline-flex items-center justify-center flex-shrink-0 h-9 w-9 rounded-3xl ml-2 lg:ml-3 backdrop-blur-sm transition-colors duration-200 group bg-white/10 outline outline-white/20 text-white hover:bg-white/20 hover:outline-white/30"
@@ -83,7 +68,7 @@ const toggleDark = useToggle(isDark)
                         aria-haspopup="true"
                         class="cursor-pointer inline-flex h-9 items-center rounded-3xl backdrop-blur-sm ml-0 px-3 py-2 transition-colors duration-200 group bg-white/10 outline outline-white/20 text-white hover:bg-white/20 hover:outline-white/30"
                         type="button"
-                        @click="isShowingNavDropdown = !isShowingNavDropdown">
+                        @click.stop="isShowingNavDropdown = !isShowingNavDropdown">
                     <div class="text-white">
                         <Icon height="1.25rem" icon="carbon:catalog-publish" />
                     </div>
@@ -98,7 +83,7 @@ const toggleDark = useToggle(isDark)
                         aria-haspopup="true"
                         class="cursor-pointer inline-flex h-9 items-center rounded-3xl backdrop-blur-sm ml-0 px-3 py-2 transition-colors duration-200 group bg-white outline outline-slate-200 dark:bg-slate-800 dark:outline-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700"
                         type="button"
-                        @click="isShowingNavDropdown = !isShowingNavDropdown">
+                        @click.stop="isShowingNavDropdown = !isShowingNavDropdown">
                     <div class="text-slate-700 dark:text-slate-300">
                         <Icon height="1.25rem" icon="carbon:catalog-publish" />
                     </div>

@@ -2,11 +2,11 @@
 import { isShowingNavDropdown } from '#/storage.ts';
 import { Icon } from '@iconify/vue';
 import type { Hyperlink } from '@navifox/types';
-import { useWindowScroll, useWindowSize } from '@vueuse/core';
+import { onClickOutside, useWindowScroll, useWindowSize } from '@vueuse/core';
 import { nextTick, onMounted, useTemplateRef, watch } from 'vue';
 
 const navDropdown = useTemplateRef('nav-dropdown')
-const { width } = useWindowSize()
+const { width } = useWindowSize({ type: 'visual' })
 const { y } = useWindowScroll()
 const sheets: Hyperlink[] = [
     { text: '时间戳对照表', link: '/timestamp', logo: 'svg-spinners:clock' },
@@ -16,25 +16,20 @@ const sheets: Hyperlink[] = [
 ]
 
 function resize() {
+    isShowingNavDropdown.value = false
     const dropdown = navDropdown.value
     const portal = document.getElementById('nav-dropdown-portal')
     if (!dropdown) return
     if (!portal) return
     const portalRect = portal.getBoundingClientRect()
     dropdown.style['right'] = `${width.value - portalRect.right}px`
-    dropdown.style['top'] = `${y.value + portalRect.y + 8}px`
+    dropdown.style['top'] = `${portalRect.bottom + 8}px`
 }
 
+onClickOutside(navDropdown, () => isShowingNavDropdown.value = false, { ignore: [ '#nav-trigger' ] })
 onMounted(() => nextTick(resize))
-watch(width, () => {
-    isShowingNavDropdown.value = false
-})
-watch(isShowingNavDropdown, (after) => {
-    if (after) {
-        // TODO: 此处不能聚焦，导致不能触发失焦时隐藏菜单的代码。
-        navDropdown.value?.focus()
-    }
-})
+watch(width, resize)
+watch(y, resize)
 </script>
 
 
@@ -43,7 +38,7 @@ watch(isShowingNavDropdown, (after) => {
      :class="isShowingNavDropdown?['opacity-100','visible','scale-100','pointer-events-auto']:['opacity-0','invisible','scale-95','pointer-events-none']"
      class="fixed z-[9999] w-56 rounded-3xl bg-white dark:bg-slate-800 shadow-xl outline outline-slate-200 dark:outline-slate-700 transform transition-all duration-200"
      style="right: -999px; top: -999px;"
-     @blur="isShowingNavDropdown = false">
+     tabindex="-1">
     <div class="py-2">
         <template v-for="sheet in sheets">
             <a v-if="sheet.text"
