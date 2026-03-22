@@ -103,7 +103,6 @@ const groupDjango: BookmarkGroup = {
     ]
 }
 const groupDjangoConfigs: BookmarkGroup = {
-    title: { text: 'Django 配置专题', link: '#django-configs' },
     items: [
         {
             name: 'Settings 参考',
@@ -130,7 +129,6 @@ const groupDjangoConfigs: BookmarkGroup = {
     ]
 }
 const groupDjangoModel: BookmarkGroup = {
-    title: { text: 'Django 模型层', link: '#django-model' },
     items: [
         {
             name: '模型',
@@ -207,7 +205,6 @@ const groupDjangoModel: BookmarkGroup = {
     ]
 }
 const groupDjangoView: BookmarkGroup = {
-    title: { text: 'Django 视图层', link: '#django-view' },
     items: [
         {
             name: '请求类 `HttpRequest`',
@@ -328,6 +325,15 @@ const groupFrontend: BookmarkGroup = {
             logo: 'logos:javascript',
             note: 'MDN - JavaScript',
         }, {
+            name: '正则表达式标志',
+            link: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Regular_expressions#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%A0%87%E5%BF%97',
+            logo: 'logos:javascript',
+            note: 'MDN - JavaScript',
+        }, {
+            name: 'TypeScript Cheat Sheets',
+            link: 'https://www.typescriptlang.org/cheatsheets/',
+            logo: 'logos:typescript-icon',
+        }, {
             name: 'Node.js API',
             link: 'https://nodejs.org/docs/latest/api/',
             logo: 'logos:nodejs-icon-alt',
@@ -336,18 +342,27 @@ const groupFrontend: BookmarkGroup = {
             link: 'https://nodejs.org/zh-cn/about/previous-releases',
             logo: 'logos:nodejs-icon-alt',
         }, {
-            name: 'TypeScript Cheat Sheets',
-            link: 'https://www.typescriptlang.org/cheatsheets/',
-            logo: 'logos:typescript-icon',
+            name: 'CLI Commands',
+            link: 'https://docs.npmjs.com/cli/v11/commands/npm',
+            logo: 'devicon:npm',
         }, {
-            name: 'GSAP Demo Hub',
-            link: 'https://demos.gsap.com/explore/',
-            note: 'GSAP 官方示例库',
+            name: '`package.json`',
+            link: 'https://docs.npmjs.com/cli/v11/configuring-npm/package-json',
+            logo: 'devicon:npm',
         }, {
+            name: '`pnpm-workspace.yaml`',
+            link: 'https://pnpm.io/settings',
+            logo: 'devicon:pnpm',
+        }
+    ]
+}
+const groupFrontendLibs: BookmarkGroup = {
+    items: [
+        {
             name: 'Hover, focus... states',
-            link: 'https://tailwindcss.com/docs/hover-focus-and-other-states',
+            link: 'https://tailwindcss.com/docs/hover-focus-and-other-states#quick-reference',
             logo: 'logos:tailwindcss-icon',
-            note: 'Tailwind 定语缩写',
+            note: 'Tailwind 条件缩写',
         }, {
             name: 'background-image',
             link: 'https://tailwindcss.com/docs/background-image',
@@ -358,6 +373,16 @@ const groupFrontend: BookmarkGroup = {
             link: 'https://tailwindcss.com/docs/theme#customizing-your-theme',
             logo: 'logos:tailwindcss-icon',
             note: '定制自己的主题',
+        }, {
+            name: 'GSAP Demo Hub',
+            link: 'https://demos.gsap.com/explore/',
+            note: 'GSAP 官方示例库',
+        }, {
+            name: 'Lodash Docs',
+            link: 'https://lodash.com/docs',
+        }, {
+            name: 'es-toolkit 参考',
+            link: 'https://es-toolkit.dev/zh_hans/reference/array/at.html',
         }
     ]
 }
@@ -559,7 +584,6 @@ const groupMinecraft: BookmarkGroup = {
     ]
 }
 const groupChores: BookmarkGroup = {
-    title: { text: '杂项', link: '#chores' },
     items: [
         {
             name: 'HTTP 状态响应码',
@@ -568,10 +592,6 @@ const groupChores: BookmarkGroup = {
         }, {
             name: '常见 MIME 列表',
             link: 'https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/MIME_types/Common_types',
-            logo: 'simple-icons:mdnwebdocs',
-        }, {
-            name: '正则表达式',
-            link: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions',
             logo: 'simple-icons:mdnwebdocs',
         }, {
             name: 'JSON Schema',
@@ -595,6 +615,7 @@ const groupChores: BookmarkGroup = {
     ]
 }
 export const bookmarks = [
+    groupChores,
     groupPython,
     groupDjango,
     groupDjangoConfigs,
@@ -604,20 +625,22 @@ export const bookmarks = [
     groupIntelliJ,
     groupNoSQL,
     groupFrontend,
+    groupFrontendLibs,
     groupVue,
     groupReact,
     groupMinecraft,
-    groupChores,
 ]
 export const anchors: Hyperlink[] = [
-    { text: 'Python', link: groupPython.title.link, logo: 'catppuccin:python' },
-    { text: 'Kotlin', link: groupKotlin.title.link, logo: 'catppuccin:kotlin' },
-    { text: '前端', link: groupFrontend.title.link, logo: 'catppuccin:javascript' },
-    { text: '更多', link: groupMinecraft.title.link, logo: 'fluent-emoji-flat:fox' },
+    { text: 'Python & Django', link: groupPython.title!.link, logo: 'catppuccin:python' },
+    { text: 'Kotlin & IntelliJ', link: groupKotlin.title!.link, logo: 'catppuccin:kotlin' },
+    { text: '(No)SQL', link: groupNoSQL.title!.link, logo: 'catppuccin:database' },
+    { text: '前端+', link: groupFrontend.title!.link, logo: 'catppuccin:javascript' },
+    { text: '更多', link: groupMinecraft.title!.link, logo: 'fluent-emoji-flat:fox' },
 ]
 
 for (const group of bookmarks) {
-    group.title.elementId = group.title.link.substring(1)
+    if (group.title)
+        group.title.elementId = group.title.link.substring(1)
 
     for (const bookmark of group.items) {
         if (bookmark.name)

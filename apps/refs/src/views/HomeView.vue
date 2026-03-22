@@ -6,16 +6,6 @@ import NavDropdown from '#/components/NavDropdown.vue';
 import SignatureLine from '#/components/SignatureLine.vue';
 import { Icon } from '@iconify/vue';
 import { anchors, bookmarks, navifoxRefs } from '@navifox/constants';
-import { onMounted } from 'vue';
-
-onMounted(() => {
-    const elements = document.querySelectorAll('.bookmark-item')
-    elements.forEach((el, index) => {
-        setTimeout(() => {
-            el.classList.add('animate-in')
-        }, index * 50)
-    })
-})
 </script>
 
 
@@ -72,8 +62,9 @@ onMounted(() => {
 <section class="Home MaxContainer">
     <div class="w-full lg:w-4/5 flex flex-col mx-auto justify-center mt-10">
         <template v-for="group in bookmarks">
-            <div v-if="group.title.elementId" :id="group.title.elementId" />
-            <a :href="group.title.link"
+            <div v-if="group.title?.elementId" :id="group.title.elementId" />
+            <a v-if="group.title"
+               :href="group.title.link"
                :target="group.title.link.startsWith('https://') ? '_blank' : '_self'"
                class="sm:text-xl font-medium mt-6 mb-2 text-slate-800 dark:text-slate-300">
                 <h2 class="hover:*:opacity-100">
@@ -82,10 +73,11 @@ onMounted(() => {
                         class="ml-2 text-slate-400 dark:text-slate-500 select-none opacity-0 transition-opacity duration-150">#</span>
                 </h2>
             </a>
-            <div class="h-1 bg-slate-200 dark:bg-slate-900 rounded-full overflow-hidden mb-6">
+            <div v-if="group.title"
+                 class="h-1 bg-slate-200 dark:bg-slate-900 rounded-full overflow-hidden mb-6">
                 <div class="w-24 h-full bg-gradient-to-r from-indigo-500 to-purple-600 dark:bg-slate-800"></div>
             </div>
-            <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-2 mb-6 text-slate-800">
+            <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-2 mb-8 text-slate-800">
                 <a v-for="item in group.items"
                    :href="item.link"
                    class="inline-flex items-center px-4 py-3 gap-1.5 border border-transparent hover:border-purple-600 hover:bg-purple-600/10 rounded-lg transition-all duration-200 hover:**:[.Note]:text-purple-500 hover:**:[.Note]:border-purple-500"

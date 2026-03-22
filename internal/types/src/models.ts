@@ -163,7 +163,7 @@ export interface Experience {
 export interface BookmarkGroup {
 
     /** 标题（带链接）。 */
-    title: Hyperlink
+    title?: Hyperlink
 
     /** 组内书签。 */
     items: Website[]
