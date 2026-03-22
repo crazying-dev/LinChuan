@@ -8,6 +8,8 @@ import { useHead } from '@unhead/vue';
 import { useResizeObserver } from '@vueuse/core';
 import { ref, useTemplateRef } from 'vue';
 
+const showSitemap = ref(false)
+const showSocials = ref(true)
 const version = __APP_VERSION__
 const btnTextSocial = ref('')
 const cardWidth = ref(0)
@@ -27,53 +29,54 @@ useResizeObserver(bio, (entries) => {
 
 
 <template>
-<img :src="Background"
-     alt="背景图片"
-     class="absolute select-none object-cover size-full -z-1" />
-
-<div class="bg-black/25  dark:bg-black/50 h-screen flex items-center justify-end">
-    <div class="px-8 md:px-[20%] flex w-fit flex-col text-[#FDE2A2]"
+<img :src="Background" alt="背景图片" class="absolute size-full select-none object-cover -z-100" />
+<div class="absolute size-full bg-black/25  dark:bg-black/50 -z-10" />
+<div class="MaxContainer md:px-[20%]! h-screen flex items-center justify-end">
+    <div class="max-md:-mx-4 flex w-fit flex-col text-[#FDE2A2]"
          style="text-shadow: 1px 1px 3px #000c,0 0 8px #0009;">
 
-        <!-- 卡片1 -->
-
-        <div ref="bio" class="card">
-            <div class="border-b border-b-blue-200">
-                <div class="flex flex-wrap items-baseline gap-3">
-                    <span class="text-4xl font-semibold text-orange-300">{{ tighnari.name }}</span>
-                    <code class="text-xl text-[#A2EBFD]">@{{ tighnari.uid }}</code>
-                </div>
+        <div ref="bio"
+             class="p-4 border border-transparent rounded-xl flex flex-col gap-y-3 transition-all duration-300 Card">
+            <div class="flex flex-wrap items-baseline gap-3">
+                <span class="text-4xl font-semibold text-orange-300">{{ tighnari.name }}</span>
+                <code class="text-xl text-[#A2EBFD]">@{{ tighnari.uid }}</code>
             </div>
-            <div class="flex flex-col gap-y-4 align-top">
-                <h3 class="font-semibold text-lg/6">{{ tighnari.tags?.join('／') }}</h3>
-                <h3 class="text-lg/6 text-[#B5A2FD]" v-html="tighnari.description" />
-            </div>
+            <div class="border-b border-b-blue-200/25 md:border-b-blue-200/50 -mx-4" />
+            <h3 class="font-semibold text-lg/6">{{ tighnari.tags?.join('／') }}</h3>
+            <h3 class="text-lg/6 text-[#B5A2FD]" v-html="tighnari.description" />
         </div>
 
-        <!-- 卡片2 -->
-
-        <div v-if="!sitemap.length" class="card">
+        <div v-if="sitemap.length && showSitemap"
+             class="p-4 border border-transparent rounded-xl flex flex-col transition-all duration-300 Card">
             <div :style="{ maxWidth: `${cardWidth}px` }"
                  class="flex flex-row flex-wrap items-center gap-4 align-top">
                 <template v-for="(site, index) in sitemap">
                     <div v-if="index !== 0"
                          class="h-6 border-r border-[#FDE2A2]" />
                     <a :href="site.link"
-                       class="flex select-none items-center no-underline button"
+                       :title="site.name"
+                       class="flex select-none items-center no-underline *:transition-all *:duration-300 group"
                        draggable="false"
                        target="_self"
                     >
-                        <Icon v-if="site.logo" :icon="site.logo" height="32" />
-                        <div v-else class="size-8" />
-                        <span class="ml-1 text-sm">{{ site.name }}</span>
+                        <template v-if="site.logo">
+                            <Icon :icon="site.logo"
+                                  class="group-hover:transform-[scale(1.2)] group-hover:text-[#FDA2BD]"
+                                  height="32" />
+                            <span class="ml-1 text-sm group-hover:text-[#FDA2BD] group-hover:ml-2 group-hover:-mr-1">
+                                {{ site.name }}</span>
+                        </template>
+                        <template v-else>
+                            <span class="ml-1 text-sm group-hover:text-[#FDA2BD]">
+                                {{ site.name }}</span>
+                        </template>
                     </a>
                 </template>
             </div>
         </div>
 
-        <!-- 卡片3 -->
-
-        <div v-if="socials.length" class="card">
+        <div v-if="socials.length && showSocials"
+             class="p-4 border border-transparent rounded-xl flex flex-col transition-all duration-300 Card">
             <div :style="{ maxWidth: `${cardWidth}px` }"
                  class="flex flex-wrap items-center gap-x-4 gap-y-5 align-top">
                 <template v-for="site in socials">
@@ -81,14 +84,15 @@ useResizeObserver(bio, (entries) => {
                          class="h-5 border-r border-[#FDE2A2]" />
                     <a v-else
                        :href="site.link"
-                       class="flex select-none items-center no-underline button"
+                       :title="site.name"
+                       class="flex select-none items-center no-underline *:transition-all *:duration-300"
                        draggable="false"
                        target="_self"
                        @mouseleave="btnTextSocial = ''"
                        @mouseover="btnTextSocial = site.name"
                     >
                         <Icon :icon="site.logo"
-                              class="hover:text-[#FDA2BD]"
+                              class="hover:text-[#FDA2BD] hover:transform-[scale(1.2)]"
                               height="32" />
                     </a>
                 </template>
@@ -96,8 +100,6 @@ useResizeObserver(bio, (entries) => {
                       v-html="btnTextSocial" />
             </div>
         </div>
-
-        <!-- 卡片尾部 -->
 
     </div>
 </div>
@@ -112,40 +114,17 @@ useResizeObserver(bio, (entries) => {
 
 
 <style scoped>
-.card {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid transparent;
-    border-radius: .75rem;
-    padding-inline: 1.5rem;
-    transition: all .3s;
-
-    & > div {
-        padding: 1.25rem .75rem;
-        transition: all .3s;
-    }
-}
-
-.card:hover {
-    box-shadow: 0 0 12px 0 #00000047;
-    padding-block: 1rem;
-    backdrop-filter: blur(12px);
-    background-color: rgb(0 0 0 / 12%);
-}
-
-.button {
-    &,
-    & * {
-        transition: all .3s;
+@media (width >= 768px) {
+    .Card {
+        /* 避免窄屏状态下与负 margin 冲突 */
+        padding: 1rem 2rem;
     }
 
-    &:hover > svg {
-        transform: scale(1.2);
-    }
-
-    &:hover > span {
-        margin-left: .5rem;
-        margin-right: -.25rem;
+    .Card:hover {
+        box-shadow: 0 0 12px 0 #00000047;
+        padding-block: 2rem;
+        backdrop-filter: blur(12px);
+        background-color: rgb(0 0 0 / 12%);
     }
 }
 </style>
