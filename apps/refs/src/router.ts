@@ -23,6 +23,15 @@ const router = createRouter({
             },
             component: () => import('#/views/TimestampView.vue'),
         }, {
+            path: '/mirror',
+            name: 'MirrorSheet',
+            meta: {
+                title: '镜像源',
+                description: '展示常见包管理器（pip、npm 等等）的镜像源设置，用于快速设置与解决问题；镜像源按收录时间排序。',
+                keywords: [ 'pip', 'npm', 'pnpm', '镜像源' ],
+            },
+            component: () => import('#/views/MirrorView.vue'),
+        }, {
             path: '/genshin/talent',
             name: 'GenshinTalentSheet',
             meta: {
