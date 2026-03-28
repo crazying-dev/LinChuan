@@ -5,6 +5,7 @@ import BannerHoney from '#/assets/honey.jpg';
 import BannerZZZ from '#/assets/zzz.webp';
 import AiTimelineItem from '#/components/AiTimelineItem.vue';
 import { Icon } from '@iconify/vue';
+import { navifox } from '@navifox/constants';
 </script>
 
 
@@ -165,8 +166,12 @@ import { Icon } from '@iconify/vue';
         <Icon height="20" icon="devicon:pnpm" />
         并创建 Monorepo 仓库容纳 Navifox Pages 向现代化前端开发发展。<br />
     </AiTimelineItem>
+    <AiTimelineItem :colors="['#FF7F27']" timestamp="2026 年 3 月">
+        从古法手敲代码入坑 AI 辅助开发，从 Cursor 到 Trae 再到 Trae CN，最后还是换回
+        VSCode 然后搭配 Kimi Code 使用，并且尝试编写前端、后端开发工程师的 SKILL。<br />
+    </AiTimelineItem>
     <AiTimelineItem :colors="['#FF7F27','var(--color-gray-800)']">
-        愿在生活的密林里都能遇见一只毛茸茸的郭狐，与你相伴，为你领航。<br />
+        <div v-html="navifox.description" />
     </AiTimelineItem>
 </ul>
 </template>

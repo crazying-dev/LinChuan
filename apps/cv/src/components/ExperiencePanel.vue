@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import Job2021 from '#/components/experiences/Job2021.vue';
 import Job2022 from '#/components/experiences/Job2022.vue';
-import Repo2026NavifoxPages from '#/components/experiences/Repo2026NavifoxPages.vue';
+import NavifoxPages from '#/components/experiences/NavifoxPages.vue';
 import { Icon } from '@iconify/vue';
 import { ColorBadge } from '@navifox/constants';
 import type { Experience } from '@navifox/types';
@@ -11,7 +11,7 @@ const experiences: Experience[] = [
         title: '前端开发+部署',
         start: { year: 2026, month: 1 },
         project: { name: 'Navifox Pages', description: '' },
-        detail: Repo2026NavifoxPages,
+        detail: NavifoxPages,
         skills: [
             ColorBadge.TypeScript,
             ColorBadge.Vue,

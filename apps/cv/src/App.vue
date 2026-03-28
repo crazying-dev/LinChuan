@@ -4,10 +4,10 @@ import ExperiencePanel from '#/components/ExperiencePanel.vue';
 import ProgrammerPanel from '#/components/ProgrammerPanel.vue';
 import SkillsPanel from '#/components/SkillsPanel.vue';
 import { Icon } from '@iconify/vue';
-import { curriculumVitae, tighnari } from '@navifox/constants';
+import { curriculumVitae, signature, tighnari } from '@navifox/constants';
 import type { Badge } from '@navifox/types';
 import { BackToTopButton, Button } from '@navifox/ui';
-import { useWebsiteLinks, useWebsiteMetas } from '@navifox/utils';
+import { logger, useWebsiteLinks, useWebsiteMetas } from '@navifox/utils';
 import { useHead } from '@unhead/vue';
 import { ref, useTemplateRef } from 'vue';
 
@@ -22,13 +22,15 @@ function* getStates(): Generator<Badge> {
         yield { logo: 'stash:last-updates-solid', text: cvLastUpdateTime }
 }
 
-const cvLastUpdateTime = '2026.2'
+const cvLastUpdateTime = '2026.3'
 const egoStates = [ ...getStates() ]
 const isShowingCatalog = ref(false)
 const experiencePanel = useTemplateRef('experiencePanel')
 const programmerPanel = useTemplateRef('programmerPanel')
 const skillsPanel = useTemplateRef('skillsPanel')
 const timeline = useTemplateRef('timeline')
+
+logger.draw(signature, '#459199')
 
 useHead({
     title: curriculumVitae.name,

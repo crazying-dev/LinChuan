@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { curriculumVitae, mooncakeDocs, navifox } from '@navifox/constants';
+import { curriculumVitae, mooncakeDocs, navifox, navifoxRefs } from '@navifox/constants';
 </script>
 
 
@@ -26,6 +26,11 @@ import { curriculumVitae, mooncakeDocs, navifox } from '@navifox/constants';
         <span>用来展示项目经历、技能树等富文本信息。</span>
         <span>PDF 简历写太长可能不受 HR 待见，写太短又放不下很多经历；</span>
         <span>更重要的也是，希望有个地方能刻下过往值得铭记的经历，对抗时间的磨损。</span>
+    </p>
+    <p>
+        <span><a :href="navifoxRefs.link">{{ navifoxRefs.name }}</a>（Cheatsheet），</span>
+        <span>包含通过 <code>git</code> 固化的技术类书签收藏，以及一些用于快速参考的页面。</span>
+        <span>因为是“路狐领航”下具有参考作用的页面，于是取名“星笺”寓意星间的导航与参考。</span>
     </p>
     <p>
         <span>在这个大仓库之前，我对前端技术栈的使用一直停留在单项目仓库、简单 <code>npm install</code> 的阶段；</span>

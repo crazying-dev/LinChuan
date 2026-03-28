@@ -54,7 +54,7 @@ a {
 }
 
 a:hover {
-    color: var(--color-amber-300);
+    color: var(--color-pink-300);
 }
 
 b {
