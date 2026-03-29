@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import LinkButton from '#/components/LinkButton.vue';
 import Content from '#/layouts/Content.vue';
+import { AiButton } from '@navifox/ui';
 import { chunks, UUID } from '@navifox/utils';
 import { onClickOutside } from '@vueuse/core';
 import { range } from 'es-toolkit';
@@ -89,11 +89,12 @@ onClickOutside(editor, () => {
 <template>
 <Content>
     <template #buttons>
-        <LinkButton text="UUID v1" @click="uuid = UUID.v1(); plaintext = uuid.string; update()" />
-        <LinkButton text="UUID v2" @click="uuid = UUID.v2(); plaintext = uuid.string; update()" />
-        <LinkButton text="UUID v4" @click="uuid = UUID.v4(); plaintext = uuid.string; update()" />
-        <LinkButton text="UUID v6" @click="uuid = UUID.v6(); plaintext = uuid.string; update()" />
-        <LinkButton text="UUID v7" @click="uuid = UUID.v7(); plaintext = uuid.string; update()" />
+        <AiButton text="UUID v1" @click="uuid = UUID.v1(); plaintext = uuid.string; update()" />
+        <AiButton text="UUID v2" @click="uuid = UUID.v2(); plaintext = uuid.string; update()" />
+        <AiButton text="UUID v4" @click="uuid = UUID.v4(); plaintext = uuid.string; update()" />
+        <AiButton text="UUID v6" @click="uuid = UUID.v6(); plaintext = uuid.string; update()" />
+        <AiButton text="UUID v7" @click="uuid = UUID.v7(); plaintext = uuid.string; update()" />
+        <AiButton :copytext="uuid?.hex" coffee text="复制纯 Hex" />
     </template>
     <div class="MaxContainer flex flex-col text-black dark:text-white">
         <div class="md:text-2xl text-center text-nowrap overflow-x-auto selection:bg-pink-300 selection:text-black">

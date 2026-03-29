@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import CopyButton from '#/components/CopyButton.vue';
 import Content from '#/layouts/Content.vue';
 import { Icon } from '@iconify/vue';
+import { AiButton } from '@navifox/ui';
 import { onClickOutside } from '@vueuse/core';
-import { head, last } from 'es-toolkit/array';
+import { head, last } from 'es-toolkit';
 import { ref, useTemplateRef } from 'vue';
 
 const pipSources = [
@@ -131,18 +131,18 @@ onClickOutside(npmInstall, (() => npmLayout.value = 0), { ignore: [ '#npmInstall
                         </code>
                     </code>
                 </p>
-                <div class="flex flex-wrap gap-x-4">
-                    <CopyButton id="pipInstallationCopy"
-                                :plaintext="copyableText('pip:install')"
-                                class="my-2 px-4 py-1.5 bg-amber-300 text-[#366E9D] hover:text-amber-200 hover:bg-[#366E9D] dark:bg-[#366E9D] dark:text-amber-200 dark:hover:text-[#366E9D] dark:hover:bg-amber-300">
-                        <span class="">复制{{ [ '本段', '本段', '关键参数', '源地址' ][pipLayout] }}</span>
-                    </CopyButton>
-                    <button
+                <div class="flex flex-wrap gap-4">
+                    <AiButton
+                        id="pipInstallationCopy"
+                        :copytext="copyableText('pip:install')"
+                        :text="`复制${['本段','本段','关键参数','源地址'][pipLayout]}`"
+                        coffee
+                        inner />
+                    <AiButton
                         v-for="{indexUrl, name, host} in pipSources"
-                        class="my-2 px-4 py-1.5 cursor-pointer rounded-md bg-slate-200 hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-800"
-                        @click="pipSource = indexUrl; pipHost = host">
-                        <span>{{ name }}</span>
-                    </button>
+                        :text="name"
+                        inner
+                        @click="pipSource = indexUrl; pipHost = host" />
                 </div>
             </div>
             <h3 class="text-xl flex items-center gap-2 py-2 mt-8">
@@ -153,17 +153,17 @@ onClickOutside(npmInstall, (() => npmLayout.value = 0), { ignore: [ '#npmInstall
                 <p class="mb-2"><code>pip config set global.index-url {{ pipSource }}</code></p>
                 <p class="mb-2"><code>pip config set global.trusted-host {{ pipHost }}</code></p>
                 <div class="flex flex-wrap gap-x-4">
-                    <CopyButton id="pipInstallationCopy"
-                                :plaintext="copyableText('pip:config')"
-                                class="my-2 px-4 py-1.5 bg-amber-300 text-[#366E9D] hover:text-amber-200 hover:bg-[#366E9D] dark:bg-[#366E9D] dark:text-amber-200 dark:hover:text-[#366E9D] dark:hover:bg-amber-300">
-                        <span class="">复制本段</span>
-                    </CopyButton>
-                    <button
+                    <AiButton
+                        id="pipInstallationCopy"
+                        :copytext="copyableText('pip:config')"
+                        coffee
+                        inner
+                        text="复制本段" />
+                    <AiButton
                         v-for="{indexUrl, name} in pipSources"
-                        class="my-2 px-4 py-1.5 cursor-pointer rounded-md bg-slate-200 hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-800"
-                        @click="pipSource = indexUrl">
-                        <span>{{ name }}</span>
-                    </button>
+                        :text="name"
+                        inner
+                        @click="pipSource = indexUrl" />
                 </div>
             </div>
             <h3 class="text-xl flex items-center gap-2 py-2 mt-8">
@@ -173,10 +173,11 @@ onClickOutside(npmInstall, (() => npmLayout.value = 0), { ignore: [ '#npmInstall
             <div>
                 <p class="mb-2"><code>pip config get global.index-url</code></p>
                 <p class="mb-2"><code>pip config get global.trusted-host</code></p>
-                <CopyButton :plaintext="copyableText('pip:show')"
-                            class="my-2 px-4 py-1.5 bg-amber-300 text-[#366E9D] hover:text-amber-200 hover:bg-[#366E9D] dark:bg-[#366E9D] dark:text-amber-200 dark:hover:text-[#366E9D] dark:hover:bg-amber-300">
-                    <span>复制本段</span>
-                </CopyButton>
+                <AiButton
+                    :copytext="copyableText('pip:show')"
+                    coffee
+                    inner
+                    text="复制本段" />
             </div>
             <h3 class="text-xl flex items-center gap-2 py-2 mt-8">
                 <Icon class="min-w-6" height="24" icon="logos:pypi" />
@@ -185,10 +186,11 @@ onClickOutside(npmInstall, (() => npmLayout.value = 0), { ignore: [ '#npmInstall
             <div>
                 <p class="mb-2"><code>pip config unset global.index-url</code></p>
                 <p class="mb-2"><code>pip config unset global.trusted-host</code></p>
-                <CopyButton :plaintext="copyableText('pip:clean')"
-                            class="my-2 px-4 py-1.5 bg-amber-300 text-[#366E9D] hover:text-amber-200 hover:bg-[#366E9D] dark:bg-[#366E9D] dark:text-amber-200 dark:hover:text-[#366E9D] dark:hover:bg-amber-300">
-                    <span>复制本段</span>
-                </CopyButton>
+                <AiButton
+                    :copytext="copyableText('pip:clean')"
+                    coffee
+                    inner
+                    text="复制本段" />
             </div>
         </div>
 
@@ -218,17 +220,17 @@ onClickOutside(npmInstall, (() => npmLayout.value = 0), { ignore: [ '#npmInstall
                     </code>
                 </p>
                 <div class="flex flex-wrap gap-x-4">
-                    <CopyButton id="npmInstallationCopy"
-                                :plaintext="copyableText('npm:install')"
-                                class="my-2 px-4 py-1.5 bg-red-500 dark:bg-red-700 text-white hover:text-red-500 dark:hover:text-red-600 hover:bg-white">
-                        <span class="">复制{{ [ '本段', '本段', '关键参数', '源地址' ][npmLayout] }}</span>
-                    </CopyButton>
-                    <button
+                    <AiButton
+                        id="npmInstallationCopy"
+                        :copytext="copyableText('npm:install')"
+                        :text="`复制${['本段','本段','关键参数','源地址'][npmLayout]}`"
+                        coffee
+                        inner />
+                    <AiButton
                         v-for="{registry, name} in npmSources"
-                        class="my-2 px-4 py-1.5 cursor-pointer rounded-md bg-slate-200 hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-800"
-                        @click="npmSource = registry">
-                        <span>{{ name }}</span>
-                    </button>
+                        :text="name"
+                        inner
+                        @click="npmSource = registry" />
                 </div>
             </div>
             <h3 class="text-xl flex items-center gap-2 py-2 mt-8">
@@ -239,17 +241,17 @@ onClickOutside(npmInstall, (() => npmLayout.value = 0), { ignore: [ '#npmInstall
             <div>
                 <p class="mb-2"><code>npm config set registry {{ npmSource }}</code></p>
                 <div class="flex flex-wrap gap-x-4">
-                    <CopyButton id="npmInstallationCopy"
-                                :plaintext="copyableText('npm:config')"
-                                class="my-2 px-4 py-1.5 bg-red-500 dark:bg-red-700 text-white hover:text-red-500 dark:hover:text-red-600 hover:bg-white">
-                        <span class="">复制本段</span>
-                    </CopyButton>
-                    <button
+                    <AiButton
+                        id="npmInstallationCopy"
+                        :copytext="copyableText('npm:config')"
+                        coffee
+                        inner
+                        text="复制本段" />
+                    <AiButton
                         v-for="{registry, name} in npmSources"
-                        class="my-2 px-4 py-1.5 cursor-pointer rounded-md bg-slate-200 hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-800"
-                        @click="npmSource = registry">
-                        <span>{{ name }}</span>
-                    </button>
+                        :text="name"
+                        inner
+                        @click="npmSource = registry" />
                 </div>
             </div>
             <h3 class="text-xl flex items-center gap-2 py-2 mt-8">
@@ -258,10 +260,11 @@ onClickOutside(npmInstall, (() => npmLayout.value = 0), { ignore: [ '#npmInstall
             </h3>
             <div>
                 <p class="mb-2"><code>npm config get registry</code></p>
-                <CopyButton :plaintext="copyableText('npm:show')"
-                            class="my-2 px-4 py-1.5 bg-red-500 dark:bg-red-700 text-white hover:text-red-500 dark:hover:text-red-600 hover:bg-white">
-                    <span>复制本段</span>
-                </CopyButton>
+                <AiButton
+                    :copytext="copyableText('npm:show')"
+                    coffee
+                    inner
+                    text="复制本段" />
             </div>
         </div>
     </div>

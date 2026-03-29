@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import LinkButton from '#/components/LinkButton.vue';
 import TimestampTable from '#/components/TimestampTable.vue';
 import Content from '#/layouts/Content.vue';
+import { AiButton } from '@navifox/ui';
 import { Duration } from '@navifox/utils';
 import { ref } from 'vue';
 
@@ -63,9 +63,9 @@ const configs = {
 <template>
 <Content>
     <template #buttons>
-        <LinkButton text="毫秒戳" @click="tabCursor=0" />
-        <LinkButton text="秒戳" @click="tabCursor=1" />
-        <LinkButton text="日戳" @click="tabCursor=2" />
+        <AiButton text="毫秒戳" @click="tabCursor=0" />
+        <AiButton text="秒戳" @click="tabCursor=1" />
+        <AiButton text="日戳" @click="tabCursor=2" />
     </template>
     <div class="MaxContainer flex flex-col">
         <TransitionGroup>
