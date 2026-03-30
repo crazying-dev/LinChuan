@@ -43,6 +43,9 @@ export interface GenshinCharacter {
     /** 元素。 */
     element: '火' | '水' | '风' | '雷' | '草' | '冰' | '岩' | null
 
+    /** 游戏内排序。从 `0` 开始，负数表示未定义。 */
+    gameIndex: number
+
     /** 能力。 */
     abilities: Ability[]
 }

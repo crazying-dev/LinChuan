@@ -1,8 +1,9 @@
-import { remove } from 'es-toolkit/array';
+import { remove } from 'es-toolkit';
 import genshindb from 'genshin-db';
 import { promises as fs } from 'node:fs';
 import { join, normalize } from 'node:path';
 import { default as characterAbilityMap } from './abilities.mjs';
+import { default as characterNameArray } from './namespace.mjs';
 
 
 const target = '../../src/constants/characters.ts'
@@ -42,9 +43,9 @@ async function precheck() {
     const nameset = new Set(genshindb.characters('names', { matchCategories: true }))
     for (const name of Object.keys(characterAbilityMap))
         if (!nameset.has(name)) {
-            console.error(`Character "${name}" does not exist !!!`)
-            process.exit(1)
-            return
+            throw Error(
+                `Character "${name}" does not exist !!!`
+            )
         }
 }
 
@@ -52,62 +53,79 @@ async function precheck() {
  * 提取数据库中预先指定的部分数据。
  */
 async function migrate(to) {
-    const dataset = []
-    const characters = genshindb.characters('names', { matchCategories: true, verboseCategories: true })
-    for (const character of characters) {
+    // 命名时这里的变量名与写入文件中的必须一致！！！
+    const characters = []
+    const queryChars = genshindb.characters('names', { matchCategories: true, verboseCategories: true })
+    for (const char of queryChars) {
         // 角色基本信息
-        const name = character['name']
+        const name = char['name']
         const data = {
             name,
-            rarity: character['rarity'],
-            region: character['region'] ? character['region'] : null,
-            weapon: character['weaponText'],
-            element: character['elementText']
-                ? character['elementText'] !== '无' ? character['elementText'] : null
+            rarity: char['rarity'],
+            region: char['region'] ? char['region'] : null,
+            weapon: char['weaponText'],
+            element: char['elementText']
+                ? char['elementText'] !== '无' ? char['elementText'] : null
                 : null,
+            gameIndex: characterNameArray.indexOf(name),
             abilities: [],
         }
+        if (data.gameIndex < 0 && name !== '空' && name !== '荧')
+            throw Error(
+                `Character "${name}" is not in namespace !!!`
+            )
         // 天赋（talent）、命之座（constellation）
         if (name in characterAbilityMap) {
-            const dbTalents = genshindb.talents(name)
-            const dbConstellations = genshindb.constellations(name)
+            const queryTalents = genshindb.talents(name)
+            const queryConstellations = genshindb.constellations(name)
             for (const { scope, short, talent, constellation } of characterAbilityMap[name]) {
                 const field =
                     talent ? talentsText[talent]
                         : constellation ? constellationsText[constellation]
                             : ''
                 const original = (
-                    talent ? dbTalents[talent]['description']
-                        : constellation ? dbConstellations[constellation]['description']
+                    talent ? queryTalents[talent]['description']
+                        : constellation ? queryConstellations[constellation]['description']
                             : '（为手工标注，游戏内无对应描述）'
                 )
                 data.abilities.push({ scope, field, short, original })
             }
         }
-        dataset.push(data)
+        characters.push(data)
     }
+
+    // ----------------------------------------------------------------
 
     // 不同元素的主角（天赋）各不相同，但不同性别的描述一致，所以合并性别、拆分元素，不过目前主角都没什么实用天赋；
     // 不同性别的奇偶（天赋）描述一致，但不想新增技术债，因此不作特殊处理。
     // 这里将 `name` 字段改成与天赋数据库中的一致。
-    remove(dataset, c => c.name === '空' || c.name === '荧')
-    dataset.push(
-        { name: '旅行者 (火元素)', rarity: 5, region: null, weapon: '单手剑', element: '火', abilities: [] },
-        { name: '旅行者 (水元素)', rarity: 5, region: null, weapon: '单手剑', element: '水', abilities: [] },
-        { name: '旅行者 (风元素)', rarity: 5, region: null, weapon: '单手剑', element: '风', abilities: [] },
-        { name: '旅行者 (雷元素)', rarity: 5, region: null, weapon: '单手剑', element: '雷', abilities: [] },
-        { name: '旅行者 (草元素)', rarity: 5, region: null, weapon: '单手剑', element: '草', abilities: [] },
-        // {name: '旅行者 (冰元素)', rarity: 5, region: null, weapon: '单手剑', element: '冰', abilities: []},
-        { name: '旅行者 (岩元素)', rarity: 5, region: null, weapon: '单手剑', element: '岩', abilities: [] },
+    remove(characters, c => c.name === '空' || c.name === '荧')
+    characters.push(
+        // @formatter:off
+        { name: '旅行者 (风元素)', rarity: 5, region: null, weapon: '单手剑', element: '风', gameIndex: -7, abilities: [] },
+        { name: '旅行者 (岩元素)', rarity: 5, region: null, weapon: '单手剑', element: '岩', gameIndex: -6, abilities: [] },
+        { name: '旅行者 (雷元素)', rarity: 5, region: null, weapon: '单手剑', element: '雷', gameIndex: -5, abilities: [] },
+        { name: '旅行者 (草元素)', rarity: 5, region: null, weapon: '单手剑', element: '草', gameIndex: -4, abilities: [] },
+        { name: '旅行者 (水元素)', rarity: 5, region: null, weapon: '单手剑', element: '水', gameIndex: -3, abilities: [] },
+        { name: '旅行者 (火元素)', rarity: 5, region: null, weapon: '单手剑', element: '火', gameIndex: -2, abilities: [] },
+        // { name: '旅行者 (冰元素)', rarity: 5, region: null, weapon: '单手剑', element: '冰', gameIndex: -1, abilities: [] },
+        // @formatter:on
     )
 
-    // 按拼音排序
-    dataset.sort((a, b) => a.name.localeCompare(b.name))
+    // FIXME: 临时补上 genshin-db@5.2.9 “兹白”缺失的 region 字段。
+    const char = characters.find(c => c.name === '兹白')
+    if (char) {
+        char.region = '璃月'
+    }
+
+    characters.sort((a, b) => b.gameIndex - a.gameIndex)
+
+    // ----------------------------------------------------------------
 
     const data = (
         "import type { GenshinCharacter } from '@navifox/types';\n" +
         '// 此文件由脚本生成。\n' +
-        `export const characters: GenshinCharacter[] = ${JSON.stringify(dataset, null, 4)}`
+        `export const characters: GenshinCharacter[] = ${JSON.stringify(characters, null, 4)}`
     )
     await fs.writeFile(to, data)
 }
@@ -125,9 +143,9 @@ async function migrate(to) {
         await initial()
         await precheck()
         await migrate(targetPath)
-        console.log('Extractor process completed successfully.')
+        console.log('OK.')
     } catch (error) {
-        console.error(`Unexpected error during extracting: ${error.message}`)
+        console.error(`Unexpected error during extracting:\n\t${error.message}`)
         process.exit(1)
     }
 })()

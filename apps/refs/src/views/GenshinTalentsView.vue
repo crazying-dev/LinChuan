@@ -67,14 +67,14 @@ function getTableRowColor(e: GenshinCharacter['element']) {
 <Content>
     <template #buttons>
         <div class="m-2 text-slate-900 dark:text-slate-200 flex flex-row">
-            <button :class="hasRarity(4) ? 'bg-slate-400 dark:bg-slate-600' : ''"
-                    class="cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
+            <button :class="hasRarity(4) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
+                    class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
                     type="button"
                     @click="toggleRarity(4)">
                 <Icon class="m-1 text-purple-400" height="28" icon="uis:star" />
             </button>
-            <button :class="hasRarity(5) ? 'bg-slate-400 dark:bg-slate-600' : ''"
-                    class="cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
+            <button :class="hasRarity(5) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
+                    class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
                     type="button"
                     @click="toggleRarity(5)">
                 <Icon class="m-1 text-yellow-400" height="28" icon="uis:star" />
@@ -82,8 +82,8 @@ function getTableRowColor(e: GenshinCharacter['element']) {
         </div>
         <div class="m-2 text-slate-900 dark:text-slate-200 flex flex-row flex-wrap justify-center">
             <template v-for="{key, text} in weapons">
-                <button :class="hasWeapon(key) ? 'bg-slate-400 dark:bg-slate-600' : ''"
-                        class="cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
+                <button :class="hasWeapon(key) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
+                        class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
                         type="button"
                         @click="toggleWeapon(key)">
                     <div class="h-7 my-1 mx-3">{{ text }}</div>
@@ -92,8 +92,8 @@ function getTableRowColor(e: GenshinCharacter['element']) {
         </div>
         <div class="m-2 text-slate-900 dark:text-slate-200 flex flex-row flex-wrap justify-center">
             <template v-for="{id, key, text} in elements">
-                <button :class="hasElement(key) ? 'bg-slate-400 dark:bg-slate-600' : ''"
-                        class="cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
+                <button :class="hasElement(key) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
+                        class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
                         type="button"
                         @click="toggleElement(key)">
                     <img v-if="id"
@@ -110,8 +110,8 @@ function getTableRowColor(e: GenshinCharacter['element']) {
         </div>
         <div class="m-2 text-slate-900 dark:text-slate-200 flex flex-row flex-wrap justify-center">
             <template v-for="{key, text} in regions">
-                <button :class="hasRegion(key) ? 'bg-slate-400 dark:bg-slate-600' : ''"
-                        class="cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
+                <button :class="hasRegion(key) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
+                        class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
                         type="button"
                         @click="toggleRegion(key)">
                     <div class="h-7 my-1 mx-3">{{ text }}</div>
