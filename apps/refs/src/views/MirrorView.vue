@@ -2,7 +2,7 @@
 import Content from '#/layouts/Content.vue';
 import { Icon } from '@iconify/vue';
 import { AiButton } from '@navifox/ui';
-import { head } from 'es-toolkit';
+import { head, last } from 'es-toolkit';
 import { isRef, type Ref, ref } from 'vue';
 
 const pipSources = [
@@ -24,7 +24,7 @@ const npmSources = [
     { registry: 'https://mirrors.cloud.tencent.com/npm/', name: '腾讯云' },
     { registry: 'https://mirrors.huaweicloud.com/repository/npm/', name: '华为云' },
     { registry: 'https://mirrors.163.com/npm/', name: '网易' },
-    // { registry: 'https://registry.npmjs.org/', name: 'npm 官方' },
+    { registry: 'https://registry.npmjs.org/', name: 'npm' },
 ].map(
     item => ({ ...item, host: new URL(item.registry).hostname })
 )
@@ -306,7 +306,8 @@ const cli = () => ({
                     @mouseover="npmLayout = 4" />
             </div>
             <h3 class="mb-3 text-xl">
-                <span class="cursor-default">全局设置</span>
+                <span class="cursor-default">
+                    {{ npmSource === last(npmSources)!.registry ? '重置全局设置' : '全局设置' }}</span>
             </h3>
             <p><code>{{ cli()[nodeManager].config }}</code></p>
             <div class="mb-8 flex flex-wrap gap-3">
