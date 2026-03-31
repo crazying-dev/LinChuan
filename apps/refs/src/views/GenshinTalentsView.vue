@@ -2,7 +2,7 @@
 import { characters } from '#/constants/characters.ts';
 import Content from '#/layouts/Content.vue';
 import { Icon } from '@iconify/vue';
-import type { GenshinCharacter } from '@navifox/types';
+import type { AbilityScope, GenshinCharacter } from '@navifox/types';
 import { useToggles } from '@navifox/utils';
 import { ref } from 'vue';
 
@@ -11,12 +11,14 @@ const [ hasRarity, toggleRarity, noRarity ] = useToggles<number>()
 const [ hasRegion, toggleRegion, noRegion ] = useToggles<string | null>()
 const [ hasWeapon, toggleWeapon, noWeapon ] = useToggles<string>()
 const [ hasElement, toggleElement, noElement ] = useToggles<string | null>()
+const [ hasAbility, toggleAbility, noAbility ] = useToggles<AbilityScope>()
 const isRowShowable = (c: GenshinCharacter) => (
     true
     && (noRarity() || hasRarity(c.rarity))
     && (noRegion() || hasRegion(c.region))
     && (noWeapon() || hasWeapon(c.weapon))
     && (noElement() || hasElement(c.element))
+    && (noAbility() || c.abilities.filter(a => hasAbility(a.scope)).length)
 )
 const endpoint = 'https://genshin.jmp.blue'  // https://github.com/genshindev/api
 const regions = [
@@ -47,12 +49,12 @@ const elements = [
     { id: 'geo', key: '岩', text: '岩', tableRowColor: 'hover:bg-yellow-200 dark:hover:bg-yellow-700', },
     { id: null, key: null, text: '不定', tableRowColor: 'hover:bg-slate-100 dark:hover:bg-slate-900', },
 ]
-const columns = [
+const columns: { scope: AbilityScope, text: string }[] = [
     { scope: 'locator', text: '地图标记' },
     { scope: 'dispatch', text: '探索派遣' },
     { scope: 'stamina', text: '体力减免' },
     { scope: 'moving', text: '移速加成' },
-    { scope: 'crafting', text: '烹饪 合成<br />锻造 建筑' },
+    { scope: 'crafting', text: '烹饪 合成 锻造' },
     { scope: 'interaction', text: '环境交互' },
     { scope: 'others', text: '（未分类）' },
 ]
@@ -123,14 +125,25 @@ function getTableRowColor(e: GenshinCharacter['element']) {
     <div class="MaxContainer flex flex-col">
         <div class="bg-white dark:bg-slate-800 rounded-lg overflow-x-auto">
             <table class="text-center text-nowrap text-slate-900 dark:text-slate-200">
-                <thead class="**:[th]:p-4">
+                <thead class="**:[th]:px-4">
                 <tr>
                     <th></th>
                     <th v-for="{scope, text} in columns"
                         :class="scope === columnHighlighted ? 'bg-slate-300 dark:bg-slate-600' : ''"
-                        class="py-3 cursor-pointer transition-colors duration-200 hover:text-slate-400 dark:hover:text-slate-500"
+                        class="pt-4 pb-2 cursor-pointer transition-colors duration-200 hover:text-slate-400 dark:hover:text-slate-500"
                         @click="columnHighlighted = columnHighlighted === scope ? '' : scope"
                         v-html="text" />
+                </tr>
+                <tr>
+                    <th></th>
+                    <th v-for="{scope} in columns"
+                        :class="scope === columnHighlighted ? 'bg-slate-300 dark:bg-slate-600' : ''"
+                        class="pt-2 pb-4 cursor-pointer transition-colors duration-200 hover:text-slate-400 dark:hover:text-slate-500"
+                        @click="toggleAbility(scope)"
+                    >
+                        <Icon v-show="hasAbility(scope)" class="mx-auto" height="24" icon="mdi:filter-check" />
+                        <Icon v-show="!hasAbility(scope)" class="mx-auto" height="24" icon="mdi:filter" />
+                    </th>
                 </tr>
                 </thead>
                 <tbody class="**:[td]:px-4 **:[td]:py-2">
