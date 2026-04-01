@@ -361,7 +361,7 @@ const groupFrontend: BookmarkGroup = {
             logo: 'devicon:npm',
         }, {
             name: '`pnpm-workspace.yaml`',
-            link: 'https://pnpm.io/settings',
+            link: 'https://pnpm.io/zh/settings',
             logo: 'devicon:pnpm',
         }
     ]
@@ -379,10 +379,10 @@ const groupFrontendLibs: BookmarkGroup = {
             logo: 'logos:tailwindcss-icon',
             note: 'Tailwind 背景图片',
         }, {
-            name: 'Customizing theme',
-            link: 'https://tailwindcss.com/docs/theme#customizing-your-theme',
+            name: 'Theme variable',
+            link: 'https://tailwindcss.com/docs/theme#theme-variable-namespaces',
             logo: 'logos:tailwindcss-icon',
-            note: '定制自己的主题',
+            note: '主题变量命名空间',
         }, {
             name: 'GSAP Demo Hub',
             link: 'https://demos.gsap.com/explore/',
@@ -452,8 +452,8 @@ const groupReact: BookmarkGroup = {
         }
     ]
 }
-const groupNoSQL: BookmarkGroup = {
-    title: { text: '(No)SQL', link: '#sql' },
+const groupStorage: BookmarkGroup = {
+    title: { text: '存储层', link: '#storage' },
     items: [
         {
             name: 'Data Types',
@@ -812,7 +812,7 @@ export const bookmarks = [
     groupDjangoView,
     groupKotlin,
     groupIntelliJ,
-    groupNoSQL,
+    groupStorage,
     groupFrontend,
     groupFrontendLibs,
     groupVue,
@@ -826,7 +826,7 @@ export const bookmarks = [
 export const anchors: Hyperlink[] = [
     { text: 'Python & Django', link: groupPython.title!.link, logo: 'catppuccin:python' },
     { text: 'Kotlin & IntelliJ', link: groupKotlin.title!.link, logo: 'catppuccin:kotlin' },
-    { text: '(No)SQL', link: groupNoSQL.title!.link, logo: 'catppuccin:database' },
+    { text: '存储层', link: groupStorage.title!.link, logo: 'catppuccin:database' },
     { text: '前端技术栈', link: groupFrontend.title!.link, logo: 'catppuccin:xml' },
     { text: '标记 & 搜索', link: groupMarkdown.title!.link, logo: 'catppuccin:markdown' },
     { text: '更多', link: groupMinecraft.title!.link, logo: 'fluent-emoji-flat:fox' },
