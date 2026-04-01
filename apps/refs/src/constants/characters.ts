@@ -7,7 +7,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "双手剑",
         "element": "风",
-        "gameIndex": 112,
         "abilities": [
             {
                 "scope": "interaction",
@@ -29,7 +28,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "单手剑",
         "element": "岩",
-        "gameIndex": 111,
         "abilities": []
     },
     {
@@ -38,7 +36,6 @@ export const characters: GenshinCharacter[] = [
         "region": "挪德卡莱",
         "weapon": "长柄武器",
         "element": "岩",
-        "gameIndex": 110,
         "abilities": [
             {
                 "scope": "moving",
@@ -60,7 +57,6 @@ export const characters: GenshinCharacter[] = [
         "region": "挪德卡莱",
         "weapon": "法器",
         "element": "水",
-        "gameIndex": 109,
         "abilities": [
             {
                 "scope": "interaction",
@@ -88,7 +84,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "单手剑",
         "element": "火",
-        "gameIndex": 108,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -110,7 +105,6 @@ export const characters: GenshinCharacter[] = [
         "region": "挪德卡莱",
         "weapon": "弓",
         "element": "风",
-        "gameIndex": 107,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -132,7 +126,6 @@ export const characters: GenshinCharacter[] = [
         "region": "挪德卡莱",
         "weapon": "法器",
         "element": "草",
-        "gameIndex": 106,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -154,7 +147,6 @@ export const characters: GenshinCharacter[] = [
         "region": null,
         "weapon": "单手剑",
         "element": null,
-        "gameIndex": 105,
         "abilities": []
     },
     {
@@ -163,7 +155,6 @@ export const characters: GenshinCharacter[] = [
         "region": null,
         "weapon": "单手剑",
         "element": null,
-        "gameIndex": 104,
         "abilities": []
     },
     {
@@ -172,7 +163,6 @@ export const characters: GenshinCharacter[] = [
         "region": "挪德卡莱",
         "weapon": "长柄武器",
         "element": "雷",
-        "gameIndex": 103,
         "abilities": [
             {
                 "scope": "locator",
@@ -194,7 +184,6 @@ export const characters: GenshinCharacter[] = [
         "region": "挪德卡莱",
         "weapon": "法器",
         "element": "草",
-        "gameIndex": 102,
         "abilities": [
             {
                 "scope": "locator",
@@ -222,7 +211,6 @@ export const characters: GenshinCharacter[] = [
         "region": "挪德卡莱",
         "weapon": "双手剑",
         "element": "水",
-        "gameIndex": 101,
         "abilities": [
             {
                 "scope": "locator",
@@ -244,7 +232,6 @@ export const characters: GenshinCharacter[] = [
         "region": "挪德卡莱",
         "weapon": "长柄武器",
         "element": "雷",
-        "gameIndex": 100,
         "abilities": [
             {
                 "scope": "others",
@@ -266,7 +253,6 @@ export const characters: GenshinCharacter[] = [
         "region": null,
         "weapon": "单手剑",
         "element": "冰",
-        "gameIndex": 99,
         "abilities": []
     },
     {
@@ -275,7 +261,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "单手剑",
         "element": "水",
-        "gameIndex": 98,
         "abilities": [
             {
                 "scope": "moving",
@@ -297,7 +282,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "长柄武器",
         "element": "冰",
-        "gameIndex": 97,
         "abilities": []
     },
     {
@@ -306,7 +290,6 @@ export const characters: GenshinCharacter[] = [
         "region": "纳塔",
         "weapon": "法器",
         "element": "风",
-        "gameIndex": 96,
         "abilities": [
             {
                 "scope": "stamina",
@@ -322,7 +305,6 @@ export const characters: GenshinCharacter[] = [
         "region": "纳塔",
         "weapon": "法器",
         "element": "雷",
-        "gameIndex": 95,
         "abilities": [
             {
                 "scope": "moving",
@@ -344,7 +326,6 @@ export const characters: GenshinCharacter[] = [
         "region": "纳塔",
         "weapon": "长柄武器",
         "element": "雷",
-        "gameIndex": 94,
         "abilities": [
             {
                 "scope": "others",
@@ -360,7 +341,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "法器",
         "element": "风",
-        "gameIndex": 93,
         "abilities": []
     },
     {
@@ -369,7 +349,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "法器",
         "element": "风",
-        "gameIndex": 92,
         "abilities": [
             {
                 "scope": "interaction",
@@ -385,7 +364,6 @@ export const characters: GenshinCharacter[] = [
         "region": "纳塔",
         "weapon": "双手剑",
         "element": "火",
-        "gameIndex": 91,
         "abilities": []
     },
     {
@@ -394,7 +372,6 @@ export const characters: GenshinCharacter[] = [
         "region": "纳塔",
         "weapon": "法器",
         "element": "冰",
-        "gameIndex": 90,
         "abilities": [
             {
                 "scope": "stamina",
@@ -410,7 +387,6 @@ export const characters: GenshinCharacter[] = [
         "region": "纳塔",
         "weapon": "弓",
         "element": "风",
-        "gameIndex": 89,
         "abilities": [
             {
                 "scope": "stamina",
@@ -426,7 +402,6 @@ export const characters: GenshinCharacter[] = [
         "region": "纳塔",
         "weapon": "弓",
         "element": "雷",
-        "gameIndex": 88,
         "abilities": [
             {
                 "scope": "moving",
@@ -442,7 +417,6 @@ export const characters: GenshinCharacter[] = [
         "region": "纳塔",
         "weapon": "单手剑",
         "element": "岩",
-        "gameIndex": 87,
         "abilities": []
     },
     {
@@ -451,7 +425,6 @@ export const characters: GenshinCharacter[] = [
         "region": "纳塔",
         "weapon": "双手剑",
         "element": "草",
-        "gameIndex": 86,
         "abilities": [
             {
                 "scope": "moving",
@@ -479,7 +452,6 @@ export const characters: GenshinCharacter[] = [
         "region": "纳塔",
         "weapon": "法器",
         "element": "水",
-        "gameIndex": 85,
         "abilities": [
             {
                 "scope": "locator",
@@ -495,7 +467,6 @@ export const characters: GenshinCharacter[] = [
         "region": "纳塔",
         "weapon": "长柄武器",
         "element": "岩",
-        "gameIndex": 84,
         "abilities": [
             {
                 "scope": "locator",
@@ -511,7 +482,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "长柄武器",
         "element": "草",
-        "gameIndex": 83,
         "abilities": []
     },
     {
@@ -520,7 +490,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "弓",
         "element": "水",
-        "gameIndex": 82,
         "abilities": []
     },
     {
@@ -529,7 +498,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "单手剑",
         "element": "雷",
-        "gameIndex": 81,
         "abilities": [
             {
                 "scope": "locator",
@@ -545,7 +513,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "弓",
         "element": "雷",
-        "gameIndex": 80,
         "abilities": [
             {
                 "scope": "locator",
@@ -561,7 +528,6 @@ export const characters: GenshinCharacter[] = [
         "region": "至冬",
         "weapon": "长柄武器",
         "element": "火",
-        "gameIndex": 79,
         "abilities": []
     },
     {
@@ -570,7 +536,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "单手剑",
         "element": "岩",
-        "gameIndex": 78,
         "abilities": [
             {
                 "scope": "moving",
@@ -586,7 +551,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "法器",
         "element": "风",
-        "gameIndex": 77,
         "abilities": [
             {
                 "scope": "moving",
@@ -602,7 +566,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "双手剑",
         "element": "火",
-        "gameIndex": 76,
         "abilities": [
             {
                 "scope": "moving",
@@ -618,7 +581,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "长柄武器",
         "element": "火",
-        "gameIndex": 75,
         "abilities": [
             {
                 "scope": "stamina",
@@ -634,7 +596,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "双手剑",
         "element": "岩",
-        "gameIndex": 74,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -650,7 +611,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "单手剑",
         "element": "水",
-        "gameIndex": 73,
         "abilities": []
     },
     {
@@ -659,7 +619,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "法器",
         "element": "冰",
-        "gameIndex": 72,
         "abilities": []
     },
     {
@@ -668,7 +627,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "法器",
         "element": "冰",
-        "gameIndex": 71,
         "abilities": [
             {
                 "scope": "crafting",
@@ -684,7 +642,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "法器",
         "element": "水",
-        "gameIndex": 70,
         "abilities": [
             {
                 "scope": "moving",
@@ -700,7 +657,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "双手剑",
         "element": "冰",
-        "gameIndex": 69,
         "abilities": [
             {
                 "scope": "stamina",
@@ -716,7 +672,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "弓",
         "element": "火",
-        "gameIndex": 68,
         "abilities": [
             {
                 "scope": "locator",
@@ -732,7 +687,6 @@ export const characters: GenshinCharacter[] = [
         "region": "枫丹",
         "weapon": "单手剑",
         "element": "风",
-        "gameIndex": 67,
         "abilities": [
             {
                 "scope": "locator",
@@ -748,7 +702,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "单手剑",
         "element": "草",
-        "gameIndex": 66,
         "abilities": [
             {
                 "scope": "interaction",
@@ -764,7 +717,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "法器",
         "element": "草",
-        "gameIndex": 65,
         "abilities": []
     },
     {
@@ -773,7 +725,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "双手剑",
         "element": "草",
-        "gameIndex": 64,
         "abilities": [
             {
                 "scope": "crafting",
@@ -789,7 +740,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "长柄武器",
         "element": "冰",
-        "gameIndex": 63,
         "abilities": [
             {
                 "scope": "locator",
@@ -805,7 +755,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "双手剑",
         "element": "火",
-        "gameIndex": 62,
         "abilities": [
             {
                 "scope": "moving",
@@ -821,7 +770,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "单手剑",
         "element": "草",
-        "gameIndex": 61,
         "abilities": [
             {
                 "scope": "crafting",
@@ -837,7 +785,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "长柄武器",
         "element": "草",
-        "gameIndex": 60,
         "abilities": [
             {
                 "scope": "interaction",
@@ -853,7 +800,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "法器",
         "element": "风",
-        "gameIndex": 59,
         "abilities": [
             {
                 "scope": "others",
@@ -869,7 +815,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "弓",
         "element": "风",
-        "gameIndex": 58,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -885,7 +830,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "单手剑",
         "element": "冰",
-        "gameIndex": 57,
         "abilities": [
             {
                 "scope": "crafting",
@@ -901,7 +845,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "法器",
         "element": "草",
-        "gameIndex": 56,
         "abilities": [
             {
                 "scope": "others",
@@ -917,7 +860,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "单手剑",
         "element": "水",
-        "gameIndex": 55,
         "abilities": [
             {
                 "scope": "crafting",
@@ -933,7 +875,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "长柄武器",
         "element": "雷",
-        "gameIndex": 54,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -949,7 +890,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "长柄武器",
         "element": "水",
-        "gameIndex": 53,
         "abilities": [
             {
                 "scope": "stamina",
@@ -965,7 +905,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "双手剑",
         "element": "雷",
-        "gameIndex": 52,
         "abilities": [
             {
                 "scope": "crafting",
@@ -981,7 +920,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "弓",
         "element": "草",
-        "gameIndex": 51,
         "abilities": [
             {
                 "scope": "locator",
@@ -997,7 +935,6 @@ export const characters: GenshinCharacter[] = [
         "region": "须弥",
         "weapon": "弓",
         "element": "草",
-        "gameIndex": 50,
         "abilities": [
             {
                 "scope": "stamina",
@@ -1013,7 +950,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "法器",
         "element": "风",
-        "gameIndex": 49,
         "abilities": [
             {
                 "scope": "stamina",
@@ -1029,7 +965,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "单手剑",
         "element": "雷",
-        "gameIndex": 48,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -1045,7 +980,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "弓",
         "element": "水",
-        "gameIndex": 47,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -1061,7 +995,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "单手剑",
         "element": "水",
-        "gameIndex": 46,
         "abilities": []
     },
     {
@@ -1070,7 +1003,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "法器",
         "element": "雷",
-        "gameIndex": 45,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1086,7 +1018,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "长柄武器",
         "element": "冰",
-        "gameIndex": 44,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -1102,7 +1033,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "长柄武器",
         "element": "岩",
-        "gameIndex": 43,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1118,7 +1048,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "双手剑",
         "element": "岩",
-        "gameIndex": 42,
         "abilities": [
             {
                 "scope": "interaction",
@@ -1134,7 +1063,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "弓",
         "element": "岩",
-        "gameIndex": 41,
         "abilities": [
             {
                 "scope": "locator",
@@ -1150,7 +1078,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "长柄武器",
         "element": "火",
-        "gameIndex": 40,
         "abilities": [
             {
                 "scope": "interaction",
@@ -1166,7 +1093,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "法器",
         "element": "水",
-        "gameIndex": 39,
         "abilities": [
             {
                 "scope": "stamina",
@@ -1182,7 +1108,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "长柄武器",
         "element": "雷",
-        "gameIndex": 38,
         "abilities": [
             {
                 "scope": "others",
@@ -1198,7 +1123,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "弓",
         "element": "雷",
-        "gameIndex": 37,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -1214,7 +1138,6 @@ export const characters: GenshinCharacter[] = [
         "region": null,
         "weapon": "弓",
         "element": "冰",
-        "gameIndex": 36,
         "abilities": [
             {
                 "scope": "interaction",
@@ -1230,7 +1153,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "弓",
         "element": "火",
-        "gameIndex": 35,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1246,7 +1168,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "双手剑",
         "element": "风",
-        "gameIndex": 34,
         "abilities": [
             {
                 "scope": "interaction",
@@ -1262,7 +1183,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "单手剑",
         "element": "冰",
-        "gameIndex": 33,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1278,7 +1198,6 @@ export const characters: GenshinCharacter[] = [
         "region": "稻妻",
         "weapon": "单手剑",
         "element": "风",
-        "gameIndex": 32,
         "abilities": [
             {
                 "scope": "stamina",
@@ -1294,7 +1213,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "双手剑",
         "element": "冰",
-        "gameIndex": 31,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1310,7 +1228,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "法器",
         "element": "火",
-        "gameIndex": 30,
         "abilities": [
             {
                 "scope": "locator",
@@ -1326,7 +1243,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "长柄武器",
         "element": "冰",
-        "gameIndex": 29,
         "abilities": [
             {
                 "scope": "moving",
@@ -1342,7 +1258,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "长柄武器",
         "element": "火",
-        "gameIndex": 28,
         "abilities": []
     },
     {
@@ -1351,7 +1266,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "长柄武器",
         "element": "风",
-        "gameIndex": 27,
         "abilities": [
             {
                 "scope": "stamina",
@@ -1373,7 +1287,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "弓",
         "element": "冰",
-        "gameIndex": 26,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1389,7 +1302,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "单手剑",
         "element": "岩",
-        "gameIndex": 25,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1411,7 +1323,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "长柄武器",
         "element": "岩",
-        "gameIndex": 24,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1427,7 +1338,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "双手剑",
         "element": "火",
-        "gameIndex": 23,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1443,7 +1353,6 @@ export const characters: GenshinCharacter[] = [
         "region": "至冬",
         "weapon": "弓",
         "element": "水",
-        "gameIndex": 22,
         "abilities": []
     },
     {
@@ -1452,7 +1361,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "弓",
         "element": "冰",
-        "gameIndex": 21,
         "abilities": [
             {
                 "scope": "moving",
@@ -1480,7 +1388,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "法器",
         "element": "火",
-        "gameIndex": 20,
         "abilities": [
             {
                 "scope": "locator",
@@ -1502,7 +1409,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "弓",
         "element": "风",
-        "gameIndex": 19,
         "abilities": [
             {
                 "scope": "stamina",
@@ -1524,7 +1430,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "单手剑",
         "element": "雷",
-        "gameIndex": 18,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -1540,7 +1445,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "法器",
         "element": "水",
-        "gameIndex": 17,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1562,7 +1466,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "单手剑",
         "element": "冰",
-        "gameIndex": 16,
         "abilities": [
             {
                 "scope": "locator",
@@ -1584,7 +1487,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "双手剑",
         "element": "火",
-        "gameIndex": 15,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1600,7 +1502,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "单手剑",
         "element": "风",
-        "gameIndex": 14,
         "abilities": [
             {
                 "scope": "moving",
@@ -1622,7 +1523,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "法器",
         "element": "风",
-        "gameIndex": 13,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1644,7 +1544,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "双手剑",
         "element": "冰",
-        "gameIndex": 12,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -1660,7 +1559,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "双手剑",
         "element": "岩",
-        "gameIndex": 11,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1676,7 +1574,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "单手剑",
         "element": "火",
-        "gameIndex": 10,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -1692,7 +1589,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "弓",
         "element": "雷",
-        "gameIndex": 9,
         "abilities": [
             {
                 "scope": "dispatch",
@@ -1714,7 +1610,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "法器",
         "element": "岩",
-        "gameIndex": 8,
         "abilities": [
             {
                 "scope": "locator",
@@ -1730,7 +1625,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "单手剑",
         "element": "水",
-        "gameIndex": 7,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1746,7 +1640,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "双手剑",
         "element": "雷",
-        "gameIndex": 6,
         "abilities": [
             {
                 "scope": "stamina",
@@ -1762,7 +1655,6 @@ export const characters: GenshinCharacter[] = [
         "region": "璃月",
         "weapon": "长柄武器",
         "element": "火",
-        "gameIndex": 5,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1778,7 +1670,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "双手剑",
         "element": "雷",
-        "gameIndex": 4,
         "abilities": [
             {
                 "scope": "stamina",
@@ -1806,7 +1697,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "法器",
         "element": "水",
-        "gameIndex": 3,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1834,7 +1724,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "法器",
         "element": "雷",
-        "gameIndex": 2,
         "abilities": [
             {
                 "scope": "crafting",
@@ -1850,7 +1739,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "单手剑",
         "element": "冰",
-        "gameIndex": 1,
         "abilities": [
             {
                 "scope": "stamina",
@@ -1866,7 +1754,6 @@ export const characters: GenshinCharacter[] = [
         "region": "蒙德",
         "weapon": "弓",
         "element": "火",
-        "gameIndex": 0,
         "abilities": [
             {
                 "scope": "moving",
@@ -1888,7 +1775,6 @@ export const characters: GenshinCharacter[] = [
         "region": null,
         "weapon": "单手剑",
         "element": "火",
-        "gameIndex": -2,
         "abilities": []
     },
     {
@@ -1897,7 +1783,6 @@ export const characters: GenshinCharacter[] = [
         "region": null,
         "weapon": "单手剑",
         "element": "水",
-        "gameIndex": -3,
         "abilities": []
     },
     {
@@ -1906,7 +1791,6 @@ export const characters: GenshinCharacter[] = [
         "region": null,
         "weapon": "单手剑",
         "element": "草",
-        "gameIndex": -4,
         "abilities": []
     },
     {
@@ -1915,7 +1799,6 @@ export const characters: GenshinCharacter[] = [
         "region": null,
         "weapon": "单手剑",
         "element": "雷",
-        "gameIndex": -5,
         "abilities": []
     },
     {
@@ -1924,7 +1807,6 @@ export const characters: GenshinCharacter[] = [
         "region": null,
         "weapon": "单手剑",
         "element": "岩",
-        "gameIndex": -6,
         "abilities": []
     },
     {
@@ -1933,7 +1815,6 @@ export const characters: GenshinCharacter[] = [
         "region": null,
         "weapon": "单手剑",
         "element": "风",
-        "gameIndex": -7,
         "abilities": []
     }
 ]
