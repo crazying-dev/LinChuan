@@ -10,10 +10,9 @@ import {
     thanks,
     tighnari,
 } from '@navifox/constants';
-import { useBrowserLocation, useDark, useToggle } from '@vueuse/core';
+import { useDark, useToggle } from '@vueuse/core';
 
 const isDark = useDark()
-const location = useBrowserLocation()
 const toggleDark = useToggle(isDark)
 const linkMap = [
     {
@@ -39,10 +38,6 @@ const linkMap = [
         }
     },
 ]
-
-function isOutOfMySite(hyperlink: string) {
-    return new URL(hyperlink).hostname !== location.value.hostname
-}
 </script>
 
 
@@ -57,7 +52,6 @@ function isOutOfMySite(hyperlink: string) {
                 </h3>
                 <div class="flex flex-col flex-nowrap gap-3">
                     <a v-for="item in data"
-                       v-show="isOutOfMySite(item.link)"
                        :class="styles.link"
                        :href="item.link"
                        :target="item.link.startsWith('https://') ? '_blank' : '_self'"
