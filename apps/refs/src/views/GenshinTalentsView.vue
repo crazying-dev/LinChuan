@@ -21,6 +21,7 @@ const isRowShowable = (c: GenshinCharacter) => (
     && (noAbility() || c.abilities.filter(a => hasAbility(a.scope)).length)
 )
 const endpoint = 'https://genshin.jmp.blue'  // https://github.com/genshindev/api
+const rarities = [ { key: 4, color: 'purple' }, { key: 5, color: 'yellow' } ]
 const regions = [
     { key: '蒙德', text: '蒙德' },
     { key: '璃月', text: '璃月' },
@@ -47,7 +48,6 @@ const elements = [
     { id: 'dendro', key: '草', text: '草', tableRowColor: 'hover:bg-emerald-400 dark:hover:bg-emerald-900', },
     { id: 'cryo', key: '冰', text: '冰', tableRowColor: 'hover:bg-cyan-200 dark:hover:bg-cyan-700', },
     { id: 'geo', key: '岩', text: '岩', tableRowColor: 'hover:bg-yellow-200 dark:hover:bg-yellow-700', },
-    { id: null, key: null, text: '不定', tableRowColor: 'hover:bg-slate-100 dark:hover:bg-slate-900', },
 ]
 const columns: { scope: AbilityScope, text: string }[] = [
     { scope: 'locator', text: '地图标记' },
@@ -61,7 +61,7 @@ const columns: { scope: AbilityScope, text: string }[] = [
 ]
 
 function getTableRowColor(e: GenshinCharacter['element']) {
-    return elements[elements.findIndex(({ key }) => key === e)]!.tableRowColor
+    return elements.find(({ key }) => key === e)?.tableRowColor ?? 'hover:bg-slate-100 dark:hover:bg-slate-900'
 }
 </script>
 
@@ -70,56 +70,51 @@ function getTableRowColor(e: GenshinCharacter['element']) {
 <Content>
     <template #buttons>
         <div class="m-2 text-slate-900 dark:text-slate-200 flex flex-row">
-            <button :class="hasRarity(4) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
-                    class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
-                    type="button"
-                    @click="toggleRarity(4)">
-                <Icon class="m-1 text-purple-400" height="28" icon="uis:star" />
-            </button>
-            <button :class="hasRarity(5) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
-                    class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
-                    type="button"
-                    @click="toggleRarity(5)">
-                <Icon class="m-1 text-yellow-400" height="28" icon="uis:star" />
+            <button
+                v-for="{key, color} in rarities"
+                :class="hasRarity(key) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
+                class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
+                type="button"
+                @click="toggleRarity(key)"
+            >
+                <Icon :class="`text-${color}-400`" class="m-1" height="28" icon="uis:star" />
             </button>
         </div>
         <div class="m-2 text-slate-900 dark:text-slate-200 flex flex-row flex-wrap justify-center">
-            <template v-for="{key, text} in weapons">
-                <button :class="hasWeapon(key) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
-                        class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
-                        type="button"
-                        @click="toggleWeapon(key)">
-                    <div class="h-7 my-1 mx-3">{{ text }}</div>
-                </button>
-            </template>
+            <button
+                v-for="{key, text} in weapons"
+                :class="hasWeapon(key) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
+                class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
+                type="button"
+                @click="toggleWeapon(key)"
+            >
+                <div class="h-7 my-1 mx-3">{{ text }}</div>
+            </button>
         </div>
         <div class="m-2 text-slate-900 dark:text-slate-200 flex flex-row flex-wrap justify-center">
-            <template v-for="{id, key, text} in elements">
-                <button :class="hasElement(key) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
-                        class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
-                        type="button"
-                        @click="toggleElement(key)">
-                    <img v-if="id"
-                         :alt="text"
-                         :src="`${endpoint}/elements/${id}/icon`"
-                         :title="text"
-                         class="h-7 m-1" />
-                    <Icon v-else
-                          class="m-1 text-slate-500"
-                          height="28"
-                          icon="hugeicons:triangle-dash" />
-                </button>
-            </template>
+            <button
+                v-for="{id, key, text} in elements"
+                :class="hasElement(key) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
+                class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
+                type="button"
+                @click="toggleElement(key)"
+            >
+                <img :alt="text"
+                     :src="`${endpoint}/elements/${id}/icon`"
+                     :title="text"
+                     class="h-7 m-1" />
+            </button>
         </div>
         <div class="m-2 text-slate-900 dark:text-slate-200 flex flex-row flex-wrap justify-center">
-            <template v-for="{key, text} in regions">
-                <button :class="hasRegion(key) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
-                        class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
-                        type="button"
-                        @click="toggleRegion(key)">
-                    <div class="h-7 my-1 mx-3">{{ text }}</div>
-                </button>
-            </template>
+            <button
+                v-for="{key, text} in regions"
+                :class="hasRegion(key) ? 'bg-slate-400 dark:bg-slate-600' : 'bg-slate-200 dark:bg-slate-800'"
+                class="ml-[-1px] cursor-pointer border border-slate-400 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700"
+                type="button"
+                @click="toggleRegion(key)"
+            >
+                <div class="h-7 my-1 mx-3">{{ text }}</div>
+            </button>
         </div>
     </template>
 
