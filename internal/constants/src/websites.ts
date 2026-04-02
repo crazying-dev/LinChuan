@@ -99,7 +99,7 @@ export const friends: Website[] = [
         description: '宁为鲜花而死，不为面包而活。',
     },
 ]
-export const thanks: Website[] = [
+export const credits: Website[] = [
     { name: 'oO大黄Oo', link: 'https://www.pixiv.net/users/9892346', logo: 'fa6-brands:pixiv' },
     { name: '錯誤', link: 'https://www.pixiv.net/users/1297556', logo: 'fa6-brands:pixiv' },
     { name: 'アナ', link: 'https://www.pixiv.net/users/24036634', logo: 'fa6-brands:pixiv' },

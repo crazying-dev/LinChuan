@@ -3,11 +3,11 @@ import { Icon } from '@iconify/vue';
 import {
     copyrightInterval as interval,
     copyrights,
+    credits,
     friends,
     navifox,
     sitemap,
     socials,
-    thanks,
     tighnari,
 } from '@navifox/constants';
 import { useDark, useToggle } from '@vueuse/core';
@@ -23,14 +23,14 @@ const linkMap = [
             title: [ 'group-hover:text-indigo-600', 'dark:group-hover:text-indigo-400 ' ],
         }
     }, {
-        title: '引用鸣谢', subtitle: 'Thanks', data: thanks,
+        title: '引用鸣谢', subtitle: 'Credits', data: credits,
         styles: {
             link: [ 'hover:border-blue-300', 'dark:hover:border-blue-500' ],
             icon: [ 'text-blue-500' ],
             title: [ 'group-hover:text-blue-500' ],
         }
     }, {
-        title: '友链', subtitle: 'Friends', data: friends,
+        title: '友情链接', subtitle: 'Friends', data: friends,
         styles: {
             link: [ 'hover:border-purple-300', 'dark:hover:border-purple-500' ],
             icon: [ 'text-purple-600' ],
