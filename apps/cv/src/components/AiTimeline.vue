@@ -5,7 +5,7 @@ import BannerHoney from '#/assets/honey.jpg';
 import BannerZZZ from '#/assets/zzz.webp';
 import AiTimelineItem from '#/components/AiTimelineItem.vue';
 import { Icon } from '@iconify/vue';
-import { navifox } from '@navifox/constants';
+import { navifoxHome } from '@navifox/constants';
 </script>
 
 
@@ -171,7 +171,7 @@ import { navifox } from '@navifox/constants';
         VSCode 然后搭配 Kimi Code 使用，并且尝试编写前端、后端开发工程师的 SKILL。<br />
     </AiTimelineItem>
     <AiTimelineItem :colors="['#FF7F27','var(--color-slate-800)']">
-        <div v-html="navifox.description" />
+        <div v-html="navifoxHome.description" />
     </AiTimelineItem>
 </ul>
 </template>

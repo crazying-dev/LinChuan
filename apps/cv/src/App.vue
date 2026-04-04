@@ -6,7 +6,7 @@ import NavifoxPages from '#/components/experiences/NavifoxPages.vue';
 import ProgrammerPanel from '#/components/ProgrammerPanel.vue';
 import SkillsPanel from '#/components/SkillsPanel.vue';
 import { Icon } from '@iconify/vue';
-import { curriculumVitae, signature, tighnari } from '@navifox/constants';
+import { navifoxCV, signature, tighnari } from '@navifox/constants';
 import type { Badge } from '@navifox/types';
 import { BackToTopButton, Button } from '@navifox/ui';
 import { logger, useWebsiteLinks, useWebsiteMetas } from '@navifox/utils';
@@ -35,9 +35,9 @@ const timeline = useTemplateRef('timeline')
 logger.draw(signature, '#459199')
 
 useHead({
-    title: curriculumVitae.name,
-    meta: [ ...useWebsiteMetas(curriculumVitae) ],
-    link: [ ...useWebsiteLinks(curriculumVitae) ],
+    title: navifoxCV.name,
+    meta: [ ...useWebsiteMetas(navifoxCV) ],
+    link: [ ...useWebsiteLinks(navifoxCV) ],
 })
 </script>
 
@@ -57,7 +57,7 @@ useHead({
                 <span class="ml-1 mr-3 text-nowrap">{{ state.text }}</span>
             </div>
         </div>
-        <span class="text-center text-slate-600 tracking-[.5em]">・{{ curriculumVitae.description }}・</span>
+        <span class="text-center text-slate-600 tracking-[.5em]">・{{ navifoxCV.description }}・</span>
     </div>
 
     <!-- 项目经历 -->

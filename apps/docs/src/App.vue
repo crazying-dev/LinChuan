@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import FlairButton from '#/components/FlairButton.vue';
 import { Icon } from '@iconify/vue';
-import { copyrightInterval, mooncakeDocs, navifoxGuild, projects } from '@navifox/constants';
+import { copyrightInterval, navifoxDocs, navifoxGuild, projects } from '@navifox/constants';
 import { useWebsiteLinks, useWebsiteMetas } from '@navifox/utils';
 import { useHead } from '@unhead/vue';
 import { useQRCode } from '@vueuse/integrations/useQRCode';
@@ -60,9 +60,9 @@ const boxStates = {
 gsap.registerPlugin(ScrollTrigger)
 
 useHead({
-    title: mooncakeDocs.name,
-    meta: [ ...useWebsiteMetas(mooncakeDocs) ],
-    link: [ ...useWebsiteLinks(mooncakeDocs) ],
+    title: navifoxDocs.name,
+    meta: [ ...useWebsiteMetas(navifoxDocs) ],
+    link: [ ...useWebsiteLinks(navifoxDocs) ],
 })
 onMounted(() => {
     setTimeout(initializePanels, 100)
@@ -79,8 +79,8 @@ onUnmounted(() => {
          class="w-full h-screen flex justify-center items-center"
          style="background-color: var(--background)">
     <div class="p-12 flex flex-col items-center gap-8 text-nowrap">
-        <h1 class="text-5xl text-white"><b>{{ mooncakeDocs.name }}</b></h1>
-        <span class="text-lg text-amber-100 tracking-[.1em]">· {{ mooncakeDocs.description }} ·</span>
+        <h1 class="text-5xl text-white"><b>{{ navifoxDocs.name }}</b></h1>
+        <span class="text-lg text-amber-100 tracking-[.1em]">· {{ navifoxDocs.description }} ·</span>
     </div>
     <div class="absolute bottom-16 left-1/2" style="transform: translateX(-50%)">
         <Icon v-for="() in range(3)"

@@ -5,7 +5,7 @@ import {
     copyrights,
     credits,
     friends,
-    navifox,
+    navifoxHome,
     sitemap,
     socials,
     tighnari,
@@ -79,7 +79,7 @@ const linkMap = [
 
             <div class="relative order-last xl:order-first space-y-0.5 text-sm text-slate-600 dark:text-slate-400">
                 <div class="mb-2">
-                    <a :href="navifox.link"
+                    <a :href="navifoxHome.link"
                        class="flex font-medium items-center justify-center md:justify-start text-slate-800 dark:text-slate-300"
                        target="_blank">
                         <div class="justify-center text-emerald-600 dark:text-emerald-400 mr-3 text-4xl">
@@ -97,7 +97,7 @@ const linkMap = [
                     </a>
                 </div>
                 <p class="mb-8 flex flex-wrap"
-                   v-html="navifox.description" />
+                   v-html="navifoxHome.description" />
                 <div class="mb-3 inline-flex flex-wrap gap-4 text-slate-600 dark:text-slate-400">
                     <template v-for="social in socials">
                         <a v-if="social.logo"

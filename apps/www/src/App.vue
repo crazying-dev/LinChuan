@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import Background from '#/assets/background.jpg';
 import { Icon } from '@iconify/vue';
-import { navifox, signature, sitemap, socials, tighnari } from '@navifox/constants';
+import { navifoxHome, signature, sitemap, socials, tighnari } from '@navifox/constants';
 import { AiFooter } from '@navifox/ui';
 import { logger, useWebsiteLinks, useWebsiteMetas } from '@navifox/utils';
 import { useHead } from '@unhead/vue';
@@ -18,9 +18,9 @@ const bio = useTemplateRef('bio')
 logger.draw(signature, '#459199')
 
 useHead({
-    title: navifox.name,
-    meta: [ ...useWebsiteMetas(navifox) ],
-    link: [ ...useWebsiteLinks(navifox) ],
+    title: navifoxHome.name,
+    meta: [ ...useWebsiteMetas(navifoxHome) ],
+    link: [ ...useWebsiteLinks(navifoxHome) ],
 })
 useResizeObserver(bio, (entries) => {
     cardWidth.value = entries[0]!.contentRect.width
