@@ -1,111 +1,84 @@
 <script lang="ts" setup>
 import Background from '#/assets/background.jpg';
 import { Icon } from '@iconify/vue';
-import { navifoxHome, signature, sitemap, socials, tighnari } from '@navifox/constants';
+import { navifoxHome, signature, sitemap, tighnari } from '@navifox/constants';
 import { AiFooter } from '@navifox/ui';
 import { logger, useWebsiteLinks, useWebsiteMetas } from '@navifox/utils';
 import { useHead } from '@unhead/vue';
-import { useResizeObserver } from '@vueuse/core';
+import { onClickOutside } from '@vueuse/core';
 import { ref, useTemplateRef } from 'vue';
 
-const showSitemap = ref(false)
-const showSocials = ref(true)
 const version = __APP_VERSION__
-const btnTextSocial = ref('')
-const cardWidth = ref(0)
-const bio = useTemplateRef('bio')
+const isShowingDropdown = ref(false)
+const dropdown = useTemplateRef('dropdown')
 
 logger.draw(signature, '#459199')
 
+onClickOutside(dropdown, () => isShowingDropdown.value = false)
 useHead({
     title: navifoxHome.name,
     meta: [ ...useWebsiteMetas(navifoxHome) ],
     link: [ ...useWebsiteLinks(navifoxHome) ],
-})
-useResizeObserver(bio, (entries) => {
-    cardWidth.value = entries[0]!.contentRect.width
 })
 </script>
 
 
 <template>
 <img :src="Background" alt="背景图片" class="absolute size-full select-none object-cover z-0" />
-<div class="absolute size-full bg-black/25  dark:bg-black/50 z-10" />
-<div class="MaxContainer md:px-[20%]! h-screen flex items-center justify-end selection:bg-[#B5A2FD]/33 z-20 **:z-20">
-    <div class="max-md:-mx-4 flex w-fit flex-col text-[#FDE2A2]"
-         style="text-shadow: 1px 1px 3px #000c,0 0 8px #0009;">
-
-        <div ref="bio"
-             class="p-4 border border-transparent rounded-xl flex flex-col gap-y-3 transition-all duration-300 cursor-default Card">
-            <div class="flex flex-wrap items-baseline gap-3">
-                <span class="text-4xl font-semibold text-orange-300">{{ tighnari.name }}</span>
-                <code class="text-xl text-[#B5A2FD]">@{{ tighnari.uid }}</code>
-            </div>
-            <div class="mb-1 border-b border-b-blue-200/25 md:border-b-blue-200/50 -mx-4" />
-            <div v-if="tighnari.tags" class="font-semibold text-sm flex flex-wrap gap-2">
-                <span v-for="tag in tighnari.tags"
-                      class="border border-transparent dark:border-[#FDE2A280] bg-[#FDE2A280] dark:bg-[#FDE2A240] rounded-lg px-2 py-1">
-                    {{ tag }}
-                </span>
-            </div>
-            <h3 class="text-lg/6 text-[#FDA2BD]" v-html="tighnari.description" />
-        </div>
-
-        <div v-if="sitemap.length && showSitemap"
-             class="p-4 border border-transparent rounded-xl flex flex-col transition-all duration-300 Card">
-            <div :style="{ maxWidth: `${cardWidth}px` }"
-                 class="flex flex-row flex-wrap items-center gap-4 align-top">
+<div class="absolute size-full bg-black/67 z-10" />
+<div ref="dropdown" class="absolute md:hidden right-0 w-full z-30">
+    <div class="size-full p-4 flex flex-col items-end">
+        <button
+            class="p-5 cursor-pointer hover:text-cyan-600 dark:hover:text-[#B5A2FD] transition-colors duration-200"
+            @click="isShowingDropdown = true"
+        >
+            <Icon height="28" icon="lineicons:menu" />
+        </button>
+    </div>
+</div>
+<div ref="dropdown" class="fixed md:hidden right-0 w-full z-40">
+    <Transition>
+        <div
+            v-if="isShowingDropdown"
+            class="size-full p-4 flex flex-col items-end text-slate-900 dark:text-slate-200 bg-slate-200 dark:bg-slate-800 rounded-t-lg"
+        >
+            <button
+                class="p-5 cursor-pointer hover:text-cyan-600 dark:hover:text-[#B5A2FD] transition-colors duration-200"
+                @click="isShowingDropdown = false"
+            >
+                <Icon height="28" icon="lineicons:close" />
+            </button>
+            <div class="w-full flex flex-col gap-[1px]">
                 <template v-for="(site, index) in sitemap">
-                    <div v-if="index !== 0"
-                         class="h-6 border-r border-[#FDE2A2]" />
+                    <div v-if="index > 0" class="border-t border-t-slate-300 dark:border-t-slate-700" />
                     <a :href="site.link"
-                       :title="site.name"
-                       class="flex select-none items-center no-underline *:transition-all *:duration-300 group"
-                       draggable="false"
-                       target="_self"
+                       class="p-5 text-nowrap hover:text-cyan-600 dark:hover:text-[#B5A2FD] transition-colors duration-200"
+                       target="_blank"
                     >
-                        <template v-if="site.logo">
-                            <Icon :icon="site.logo"
-                                  class="group-hover:transform-[scale(1.2)] group-hover:text-[#FDA2BD]"
-                                  height="32" />
-                            <span class="ml-1 text-sm group-hover:text-[#FDA2BD] group-hover:ml-2 group-hover:-mr-1">
-                                {{ site.name }}</span>
-                        </template>
-                        <template v-else>
-                            <span class="ml-1 text-sm group-hover:text-[#FDA2BD]">
-                                {{ site.name }}</span>
-                        </template>
+                        <span>{{ site.name }}&nbsp;&nbsp;</span>
+                        <span class="text-slate-400 dark:text-slate-500">{{ site.note }}</span>
                     </a>
                 </template>
             </div>
         </div>
-
-        <div v-if="socials.length && showSocials"
-             class="p-4 border border-transparent rounded-xl flex flex-col transition-all duration-300 Card">
-            <div :style="{ maxWidth: `${cardWidth}px` }"
-                 class="flex flex-wrap items-center gap-x-4 gap-y-5 align-top">
-                <template v-for="site in socials">
-                    <div v-if="!site.name || !site.logo"
-                         class="h-5 border-r border-[#FDE2A2]" />
-                    <a v-else
-                       :href="site.link"
-                       :title="site.name"
-                       class="flex select-none items-center no-underline *:transition-all *:duration-300"
-                       draggable="false"
-                       target="_self"
-                       @mouseleave="btnTextSocial = ''"
-                       @mouseover="btnTextSocial = site.name"
-                    >
-                        <Icon :icon="site.logo"
-                              class="hover:text-[#FDA2BD] hover:transform-[scale(1.2)]"
-                              height="32" />
-                    </a>
-                </template>
-                <span class="flex-1 text-right text-sm leading-4"
-                      v-html="btnTextSocial" />
-            </div>
+    </Transition>
+</div>
+<div class="MaxContainer h-screen flex flex-col selection:bg-[#B5A2FD]/33 z-20 **:z-20">
+    <div class="flex flex-nowrap justify-end">
+        <div class="hidden md:flex flex-nowrap gap-4">
+            <a v-for="site in sitemap"
+               :href="site.link"
+               class="px-6 py-5 hover:text-yellow-100 hover:bg-[#B5A2FD]/33 transition-colors duration-200"
+               target="_blank">{{ site.name }}</a>
         </div>
-
+    </div>
+    <div class="h-full mb-8 md:mb-20 flex flex-col justify-end">
+        <div class="text-xl md:text-2xl mb-4 text-[#B5A2FD]"><code>@{{ tighnari.uid }}</code></div>
+        <div class="font-medium text-4xl md:text-6xl md:max-w-[75%]">
+            <span class="text-white">{{ tighnari.name }}</span>
+            <span v-for="tag in tighnari.tags" class="text-gray-400">／{{ tag }}</span>
+        </div>
+        <div class="text-4xl md:text-5xl mt-4 text-gray-400 font-sign" v-html="tighnari.description" />
     </div>
 </div>
 <AiFooter>
@@ -118,18 +91,19 @@ useResizeObserver(bio, (entries) => {
 </template>
 
 
+<!--suppress CssUnusedSymbol -->
 <style scoped>
-@media (width >= 768px) {
-    .Card {
-        /* 避免窄屏状态下与负 margin 冲突 */
-        padding: 1rem 2rem;
-    }
+.v-enter-active {
+    transition: all 0.3s ease-out;
+}
 
-    .Card:hover {
-        box-shadow: 0 0 12px 0 #00000047;
-        padding-block: 2rem;
-        backdrop-filter: blur(12px);
-        background-color: rgb(0 0 0 / 12%);
-    }
+.v-leave-active {
+    transition: all 0.3s ease-out;
+}
+
+.v-enter-from,
+.v-leave-to {
+    transform: translateY(-20px);
+    opacity: 0;
 }
 </style>
