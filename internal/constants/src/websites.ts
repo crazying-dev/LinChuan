@@ -43,15 +43,6 @@ export const navifoxDocs: Website = {
     description: '收纳展示散落在各个项目仓库的文档。',
     author: tighnari.name,
 }
-export const navifoxCV: Website = {
-    name: '己言简',
-    link: 'https://cv.navifox.net',
-    icon: 'https://www.navifox.net/favicon.ico',
-    mime: 'image/png',
-    description: '于时光中铭记你我',
-    author: tighnari.name,
-    note: '简历',
-}
 export const travelling: Website = {
     name: '开往',
     link: 'https://www.travellings.cn/go.html',
@@ -67,7 +58,6 @@ export const sitemap = [
     navifoxBlog,
     navifoxDocs,
     navifoxRefs,
-    navifoxCV,
 ]
 export const socials: Website[] = [
     { ...navifoxGuild, logo: 'streamline-logos:qq-logo-solid' },

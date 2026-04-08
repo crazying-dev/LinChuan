@@ -18,10 +18,6 @@
             "path": "./apps/docs",
         },
         {
-            "name": "己言简 @navifox/cv",
-            "path": "./apps/cv",
-        },
-        {
             "name": "星笺 @navifox/refs",
             "path": "./apps/refs",
         },

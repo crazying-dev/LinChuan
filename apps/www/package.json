@@ -19,7 +19,8 @@
         "@unhead/vue": "catalog:",
         "@vueuse/core": "catalog:",
         "tailwindcss": "catalog:",
-        "vue": "catalog:"
+        "vue": "catalog:",
+        "vue-router": "catalog:"
     },
     "devDependencies": {
         "@iconify/vue": "catalog:",

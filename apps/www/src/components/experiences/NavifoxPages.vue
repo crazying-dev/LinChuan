@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Experience from '#/components/Experience.vue';
-import { ColorBadge, navifoxCV, navifoxDocs, navifoxHome, navifoxRefs } from '@navifox/constants';
+import { ColorBadge, navifoxDocs, navifoxHome, navifoxRefs } from '@navifox/constants';
 import type { Project } from '@navifox/types';
 
 const project: Project = {
@@ -30,6 +30,7 @@ const project: Project = {
         <span>主页本身即是导航，需要站内站外各个项目的链接，自然是最先收纳进 Monorepo 仓库的项目；</span>
         <span>它也是我最开始接触 <u>Tailwind CSS</u> 的项目，因为起类名太麻烦了，它简直就是神器，</span>
         <span>不过需要适时拆分成几层 <code>div</code> 不然类名会很长，不方便阅读代码。</span>
+        <span>后面合并了展示简历、技能、动态，对抗时间磨损的时光胶囊。</span>
     </p>
     <p>
         <span><a :href="navifoxDocs.link">{{ navifoxDocs.name }}</a>（文档中心），指向散落在各个仓库的文档，</span>
@@ -38,12 +39,6 @@ const project: Project = {
         <span>这个子项目出现的背景是：现在（未来也是）总有项目的文档是集成在源码仓库中的，</span>
         <span>实在太分散了，非常需要一个类似于“文档中心”的页面来统一展示。</span>
         <span>文档与文档之间的翻滚效果、文档跳转按钮都使用了 <u>GSAP</u> 实现动效。</span>
-    </p>
-    <p>
-        <span><a :href="navifoxCV.link">{{ navifoxCV.name }}</a>（时光胶囊），</span>
-        <span>用来展示项目经历、技能树等富文本信息。</span>
-        <span>PDF 简历写太长可能不受 HR 待见，写太短又放不下很多经历；</span>
-        <span>更重要的也是，希望有个地方能刻下过往值得铭记的经历，对抗时间的磨损。</span>
     </p>
     <p>
         <span><a :href="navifoxRefs.link">{{ navifoxRefs.name }}</a>（Cheatsheet），</span>
