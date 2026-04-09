@@ -6,6 +6,7 @@ import SignatureLine from '#/components/SignatureLine.vue';
 import { Icon } from '@iconify/vue';
 import { anchors, bookmarks, navifoxRefs } from '@navifox/constants';
 import { AiFooter } from '@navifox/ui';
+import { takeRight } from 'es-toolkit';
 </script>
 
 
@@ -41,15 +42,22 @@ import { AiFooter } from '@navifox/ui';
                 <span>这一页收录了部分常用的书签，并按以下几个大类分布，更多参考见右上角。</span>
             </h2>
             <div class="flex flex-row flex-wrap items-center justify-center gap-4 mb-16 max-w-4xl mx-auto">
-                <a v-for="(anchor, i) in anchors"
-                   :class="i + 1 === anchors.length
-                   ? ['bg-gradient-to-r','from-orange-500/20','to-yellow-500/20','outline-orange-300/30','hover:from-orange-500/30','hover:to-yellow-500/30']
-                   : ['bg-white/10','outline-white/20','hover:bg-white/20']"
+                <a v-for="anchor in anchors.slice(0, -1)"
                    :href="anchor.link"
                    :target="anchor.link.startsWith('https://') ? '_blank' : '_self'"
-                   class="group inline-flex items-center justify-center px-6 h-10 backdrop-blur-sm outline rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-lg text-white">
-                    <div v-if="anchor.logo"
-                         class="flex-shrink-0 flex items-center justify-center mr-2">
+                   class="group inline-flex items-center justify-center px-6 h-10 backdrop-blur-sm outline rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-lg text-white bg-white/10 outline-white/20 hover:bg-white/20"
+                >
+                    <div v-if="anchor.logo" class="flex-shrink-0 flex items-center justify-center mr-2">
+                        <Icon :icon="anchor.logo" height="24" />
+                    </div>
+                    <span class="font-semibold leading-none">{{ anchor.text }}</span>
+                </a>
+                <a v-for="anchor in takeRight(anchors)"
+                   :href="anchor.link"
+                   :target="anchor.link.startsWith('https://') ? '_blank' : '_self'"
+                   class="group inline-flex items-center justify-center px-6 h-10 backdrop-blur-sm outline rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-lg text-white bg-gradient-to-r from-orange-500/20 to-yellow-500/20 outline-orange-300/30 hover:from-orange-500/30 hover:to-yellow-500/30"
+                >
+                    <div v-if="anchor.logo" class="flex-shrink-0 flex items-center justify-center mr-2">
                         <Icon :icon="anchor.logo" height="24" />
                     </div>
                     <span class="font-semibold leading-none">{{ anchor.text }}</span>

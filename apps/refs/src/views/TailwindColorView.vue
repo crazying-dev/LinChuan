@@ -50,14 +50,14 @@ function handleSelection(e: PointerEvent) {
         <div class="px-8 py-3 bg-white dark:bg-slate-800 rounded-lg">
             <div class="py-3 flex flex-nowrap w-fit mx-auto">
                 <template v-for="(ns, i) in namespaces">
+                    <div v-if="i > 0"
+                         class="ml-2 pr-2 border-l border-l-slate-300 dark:border-l-slate-700">{{ '\x00' }}
+                    </div>
                     <button :class="namespace === ns ? 'opacity-100' : 'opacity-25'"
                             class="px-3 py-1.5 cursor-pointer"
                             type="button"
                             @click="namespace = ns">
                         <code>{{ ns }}</code></button>
-                    <div v-if="i + 1 < namespaces.length"
-                         class="ml-2 pr-2 border-l border-l-slate-300 dark:border-l-slate-700">{{ '\x00' }}
-                    </div>
                 </template>
             </div>
             <div
