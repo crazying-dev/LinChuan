@@ -119,7 +119,7 @@ function getTableRowColor(e: GenshinCharacter['element']) {
     </template>
 
     <div class="MaxContainer flex flex-col">
-        <div class="bg-white dark:bg-slate-800 rounded-lg overflow-x-auto">
+        <div class="mx-auto bg-white dark:bg-slate-800 rounded-lg overflow-x-auto">
             <table class="text-center text-nowrap text-slate-900 dark:text-slate-200">
                 <thead class="**:[th]:px-4">
                 <tr>
