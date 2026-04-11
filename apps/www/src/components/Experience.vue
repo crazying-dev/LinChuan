@@ -36,13 +36,13 @@ defineProps<ExperienceDetail>()
             <code v-if="stop"> - {{ stop }}</code>
             <span v-else> 至今</span>
         </span>
-        <span class="text-slate-500">
+        <span class="text-slate-400 dark:text-slate-500">
             <span v-if="project?.description">{{ project.description }}・</span>
             <span v-if="team">{{ team }}・</span>
             <span>{{ title }}</span>
         </span>
     </div>
-    <div v-if="project?.stack" class="text-slate-500 text-sm flex flex-wrap gap-x-3 gap-y-1">
+    <div v-if="project?.stack" class="text-slate-400 dark:text-slate-500 text-sm flex flex-wrap gap-x-3 gap-y-1">
         <div v-for="skill in project.stack" class="flex flex-nowrap gap-1 items-center">
             <Icon :icon="skill.logo" height="16" />
             <span v-if="skill.text">{{ skill.text }}</span>

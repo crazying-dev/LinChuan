@@ -32,9 +32,11 @@ const skillsPanel = useTemplateRef<ComponentPublicInstance>('skillsPanel')
 
 
 <template>
-<div class="mx-auto px-4 max-w-[210mm] min-h-screen text-slate-400">
+<div class="mx-auto px-4 max-w-[210mm] min-h-screen text-slate-600 dark:text-slate-400">
 
-    <div class="mx-2 text-slate-800/25 text-nowrap overflow-x-hidden selection:bg-slate-900 selection:text-slate-600">
+    <div
+        class="mx-2 text-slate-300/25 dark:text-slate-800/25 text-nowrap overflow-x-hidden selection:bg-slate-200 dark:selection:bg-slate-900 selection:text-slate-400 dark:selection:text-slate-600"
+    >
         <i v-html="tighnari.description?.replaceAll('<br>','')" />
     </div>
 
@@ -42,7 +44,7 @@ const skillsPanel = useTemplateRef<ComponentPublicInstance>('skillsPanel')
 
         <!-- 头部信息 -->
         <div class="mx-8 flex flex-col gap-3 text-center items-center">
-            <h1 class="text-4xl"><b class="text-slate-50!">阿羽</b></h1>
+            <h1 class="text-4xl"><b class="text-slate-950 dark:text-slate-50">阿羽</b></h1>
             <div class="flex flex-wrap gap-1 justify-center items-center">
                 <div v-for="state in egoStates" class="inline-flex flex-nowrap items-center">
                     <Icon :icon="state.logo" height="16" />
@@ -65,10 +67,10 @@ const skillsPanel = useTemplateRef<ComponentPublicInstance>('skillsPanel')
         <!-- 技能评级 -->
         <AiDivider ref="programmerPanel" />
         <section class="mx-8">
-            <span class="mr-2"><b class="text-slate-50!">技能评估等级</b></span>
+            <span class="mr-2"><b class="text-slate-950 dark:text-slate-50">技能评估等级</b></span>
             <span class="ml-2 float-end"><code>{{ cvLastUpdateTime }}</code></span>
             <span>
-            <a class="not-hover:text-slate-500!"
+            <a class="not-hover:text-slate-400! dark:not-hover:text-slate-500!"
                href="https://github.com/bennyhuo/programmer-levels"
                target="_blank">霍丙乾 Programmer Levels v0.4</a>
         </span>

@@ -62,8 +62,10 @@ for (const level of programmerLevels) {
     <section v-for="desc in programmerLevels">
         <div><b>{{ desc.level }}</b></div>
         <ul class="max-md:leading-relaxed">
-            <li v-for="point in desc.points"
-                :class="point.unlit ? '' : 'text-slate-600'">
+            <li
+                v-for="point in desc.points"
+                :class="point.unlit ? '' : 'text-slate-400 dark:text-slate-600'"
+            >
                 <icon :icon="point.unlit ? 'icons8:circle' : 'icons8:checked'"
                       class="mr-1"
                       height="20" />
@@ -76,31 +78,32 @@ for (const level of programmerLevels) {
 
 
 <style scoped>
+@reference '#/style.css';
+
 svg {
     /* Tailwind 的 @layer base { svg } 自带了 display: block，
      * 没办法用 Icon 自带的 inline 属性覆盖。 */
-    display: inline;
+    @apply inline;
 }
 
 li {
-    cursor: default;
+    @apply cursor-default;
 }
 
 li,
 li :deep(*) {
-    transition: all .2s;
+    @apply transition-all duration-200;
 }
 
 :deep(u) {
-    text-decoration: underline 3px transparent;
-    text-underline-offset: 5px;
+    @apply underline-offset-5 decoration-transparent;
 }
 
 li:hover {
-    color: var(--color-slate-100);
+    @apply text-slate-900 dark:text-slate-100;
 
     :deep(u) {
-        text-decoration: underline 3px var(--color-orange-500);
+        @apply decoration-orange-500;
     }
 }
 </style>
