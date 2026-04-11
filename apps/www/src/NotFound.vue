@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import NotFoundAnimation from '#/asserts/notfound.gif';
+import NotFoundAnimation from '#/assets/notfound.gif';
 </script>
 
 

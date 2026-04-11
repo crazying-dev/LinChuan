@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import NotFoundAnimation from '#/asserts/notfound.gif';
+import NotFoundAnimation from '#/assets/notfound.gif';
 import NavBar from '#/components/NavBar.vue';
 import NavDropdown from '#/components/NavDropdown.vue';
 import { AiFooter } from '@navifox/ui';

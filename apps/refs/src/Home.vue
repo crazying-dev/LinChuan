@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import LinkIcon from '#/asserts/AkarIconsLinkOut.svg';
+import LinkIcon from '#/assets/AkarIconsLinkOut.svg';
 import NavBar from '#/components/NavBar.vue';
 import NavDropdown from '#/components/NavDropdown.vue';
 import SignatureLine from '#/components/SignatureLine.vue';
