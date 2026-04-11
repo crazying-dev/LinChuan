@@ -1,9 +1,0 @@
-@import 'tailwindcss';
-
-@source '../../node_modules/@navifox/ui';
-
-@custom-variant dark (&:where(.dark, .dark *));
-
-@theme {
-    --font-sign: 'Whisper', serif;  /* class="font-sign" */
-}
