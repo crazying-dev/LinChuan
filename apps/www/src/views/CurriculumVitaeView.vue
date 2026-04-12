@@ -3,6 +3,8 @@ import AiDivider from '#/components/AiDivider.vue';
 import Job2021 from '#/components/experiences/Job2021.vue';
 import Job2022 from '#/components/experiences/Job2022.vue';
 import NavifoxPages from '#/components/experiences/NavifoxPages.vue';
+import Navbar from '#/components/Navbar.vue';
+import NavDropdownMenu from '#/components/NavDropdownMenu.vue';
 import ProgrammerPanel from '#/components/ProgrammerPanel.vue';
 import SkillsPanel from '#/components/SkillsPanel.vue';
 import { Icon } from '@iconify/vue';
@@ -32,9 +34,11 @@ const skillsPanel = useTemplateRef<ComponentPublicInstance>('skillsPanel')
 
 
 <template>
+<Navbar class="absolute top-0 right-0 z-10" />
+<NavDropdownMenu class="fixed top-0 right-0 z-20" />
 <div class="mx-auto px-4 max-w-[210mm] min-h-screen text-slate-600 dark:text-slate-400">
     <div
-        class="mx-2 text-slate-300/25 dark:text-slate-800/25 text-nowrap overflow-x-hidden selection:bg-slate-200 dark:selection:bg-slate-900 selection:text-slate-400 dark:selection:text-slate-600"
+        class="mx-2 pt-28 text-slate-300/25 dark:text-slate-800/25 text-nowrap overflow-x-hidden selection:bg-slate-100 dark:selection:bg-slate-900 selection:text-slate-400 dark:selection:text-slate-600"
     >
         <i v-html="tighnari.description?.replaceAll('<br>','')" />
     </div>

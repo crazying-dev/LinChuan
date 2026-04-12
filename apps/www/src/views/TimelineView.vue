@@ -5,15 +5,19 @@ import BannerHoney from '#/assets/honey.jpg';
 import BannerZZZ from '#/assets/zzz.webp';
 import AiDivider from '#/components/AiDivider.vue';
 import AiTimelineItem from '#/components/AiTimelineItem.vue';
+import Navbar from '#/components/Navbar.vue';
+import NavDropdownMenu from '#/components/NavDropdownMenu.vue';
 import { Icon } from '@iconify/vue';
 import { navifoxHome, tighnari } from '@navifox/constants';
 </script>
 
 
 <template>
+<Navbar class="absolute top-0 right-0 z-10" />
+<NavDropdownMenu class="fixed top-0 right-0 z-20" />
 <div class="mx-auto px-4 max-w-[210mm] min-h-screen text-slate-600 dark:text-slate-400">
     <div
-        class="mx-2 text-slate-300/25 dark:text-slate-800/25 text-nowrap overflow-x-hidden selection:bg-slate-200 dark:selection:bg-slate-900 selection:text-slate-400 dark:selection:text-slate-600"
+        class="mx-2 pt-28 text-slate-300/25 dark:text-slate-800/25 text-nowrap overflow-x-hidden selection:bg-slate-100 dark:selection:bg-slate-900 selection:text-slate-400 dark:selection:text-slate-600"
     >
         <i v-html="tighnari.description?.replaceAll('<br>','')" />
     </div>
