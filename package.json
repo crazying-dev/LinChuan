@@ -17,7 +17,7 @@
         "repreview:docs": "pnpm run build:docs && pnpm run preview:docs",
         "repreview:refs": "pnpm run build:refs && pnpm run preview:refs",
         "clean": "node ./scripts/clean.mjs",
-        "migrate": "pnpx codemod pnpm/catalog",
+        "migrate": "pnpm dlx codemod pnpm/catalog",
         "reinstall": "pnpm run clean --del-lock && pnpm install"
     },
     "dependencies": {
