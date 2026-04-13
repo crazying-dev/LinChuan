@@ -111,3 +111,40 @@ pnpm remove --filter=@navifox/www vue-router  # 移除依赖
 
 只要是涉及到依赖的增删，除非是重新安装，那么不管是子项目的还是仓库整体的，在全部完成后，都需要在根目录执行
 `pnpm run migrate` 来迁移到 `pnpm-workspace.yaml`。
+
+### 检查依赖版本一致性
+
+对于人类与妖灵而言，可以在根目录执行 `pnpm run deps:list`
+来查看所有依赖与分布情况以及问题所在；而如果是 AI、Agent
+或类似工具，则只需要执行 `pnpm run deps:lint` 并判断
+exit code 即可，非零的值表示需要执行修复。
+
+### 修复依赖版本一致性
+
+在根目录下执行 `pnpm run deps:fix`。
+
+### 检查依赖版本
+
+检查哪些依赖有新版本可用（不修改文件）可以在根目录下执行
+`pnpm run deps:check`，这能用颜色标记版本号变化情况以及新旧版本的发布时间。
+
+根据 [SemVer](https://semver.org/lang/zh-CN/) 的定义，版本号 `x.y.z`
+代表 `major.minor.patch`，这条命令会列出每个层面的变动数量，并且使用不同颜色表示，例如
+`6 minor, 3 patch` 表示涉及到 6 个小版本更新、3 个补丁更新、不涉及大版本更新。
+
+### 更新依赖版本
+
+> 以下命令均在根目录下执行。
+
+直接执行 `pnpm run deps:update` 会出现命令行交互，用于手动选择更新哪些依赖。
+
+如果只需更新补丁层面的更新，执行 `pnpm run deps:update:patch`；
+如果需要更新小版本更新及补丁更新，执行 `pnpm run deps:update:minor`；
+如果要更新全部，执行 `pnpm run deps:update:all`。
+
+务必慎重执行全部更新！
+
+### 格式化 `package.json`
+
+如果需要格式化 `package.json`，尤其是根字段以及 `scripts`
+值的排序，可以在根目录下执行 `pnpm run deps:format`。

@@ -4,10 +4,10 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
         "build": "vue-tsc -b && vite build",
-        "preview": "vite preview",
         "db:migrate": "node scripts/migrate.mjs",
+        "dev": "vite",
+        "preview": "vite preview",
         "typecheck": "vue-tsc --noEmit --skipLibCheck"
     },
     "dependencies": {

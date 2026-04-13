@@ -12,8 +12,7 @@
             "types": "./global.d.ts"
         }
     },
-    "dependencies": {
-    },
+    "dependencies": { },
     "devDependencies": {
         "@types/node": "catalog:",
         "typescript": "catalog:",

@@ -13,6 +13,5 @@
     "dependencies": {
         "vite": "catalog:"
     },
-    "devDependencies": {
-    }
+    "devDependencies": { }
 }
