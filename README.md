@@ -38,7 +38,8 @@
     - `utils`，存放共享工具。
   - `scripts`，存放仓库级别的脚本。
 
-约定所有子项目都只放在 `./apps/`、`./packages/` 或 `./internal/` 目录下。项目本身不大，这样平铺方便查找和日常管理。
+约定所有子项目都只放在 `./apps/`、`./packages/` 或 `./internal/`
+目录下。项目本身不大，这样平铺方便查找和日常管理。
 
 ### `package.json`
 
@@ -47,9 +48,11 @@
 
 ## 工作流
 
+> 本节提到的绝大部分命令都（默认）应该在项目根目录下执行。
+
 ### 运行、构建、预览
 
-对于负责具体业务的子项目，在仓库根目录执行，这里以 `www` 子项目为例：
+对于负责具体业务的子项目，以 `www` 子项目为例：
 
 ```bash
 pnpm run dev:www      # 运行子项目
@@ -58,6 +61,11 @@ pnpm run preview:www  # 预览构建产物
 ```
 
 其它子项目不能直接运行和预览的方法，也无须执行构建。
+
+执行 `pnpm run build` 可以一次性构建所有（能构建的）子项目。
+
+理论上可以 `pnpm run dev` 和 `pnpm run preview`，如果有需要的话只需模仿 `pnpm run build`
+的命令新增即可，不过同时运行多个子项目会占用不同的端口，本项目不常用，所以不提供这两条命令。
 
 ### 添加子项目
 
@@ -69,7 +77,7 @@ pnpm run preview:www  # 预览构建产物
 
 ### 添加依赖
 
-为大仓添加依赖是在根目录下执行：
+为大仓添加依赖是执行：
 
 ```bash
 pnpm add -w typescript     # 添加依赖并保存到 `dependencies`
@@ -80,17 +88,7 @@ pnpm remove -w typescript  # 移除依赖
 
 对于子项目，有两种方法添加依赖，下面以 `www` 子项目举例。
 
-一种是先移动到对应的子目录再来执行：
-
-```bash
-cd ./apps/www
-pnpm add vue-router     # 添加依赖并保存到 `dependencies`
-pnpm add -D vue-router  # 添加依赖并保存到 `devDependencies`
-pnpm add -O vue-router  # 添加依赖并保存到 `optionalDependencies`
-pnpm remove vue-router  # 移除依赖
-```
-
-另一种是直接在根目录下执行，但需要指定具体的子项目：
+一种是直接在根目录下执行，但需要指定具体的子项目：
 
 ```bash
 pnpm add --filter=@navifox/www vue-router     # 添加依赖并保存到 `dependencies`
@@ -102,14 +100,24 @@ pnpm remove --filter=@navifox/www vue-router  # 移除依赖
 如果需要同时为多个子项目安装依赖，可以适当修改
 `--filter` 的参数，可参见 [pnpm 过滤](https://pnpm.io/zh/filtering)。
 
+另一种是先移动到对应的子目录再来执行：
+
+```bash
+cd ./apps/www
+pnpm add vue-router     # 添加依赖并保存到 `dependencies`
+pnpm add -D vue-router  # 添加依赖并保存到 `devDependencies`
+pnpm add -O vue-router  # 添加依赖并保存到 `optionalDependencies`
+pnpm remove vue-router  # 移除依赖
+```
+
 ### 重新安装依赖
 
-如果要迁移子项目位置，或者依赖出现了难以解决而古怪的错误，可以在根目录下执行
-`pnpm run reinstall` 来重新安装大仓以及子项目的所有依赖（包括第三方包和仓库内的子项目）。
+如果要迁移子项目位置，或者依赖出现了难以解决而古怪的错误，可以执行 `pnpm run reinstall`
+来重新安装大仓以及子项目的所有依赖（包括第三方包和仓库内的子项目）。
 
 ### 迁移
 
-只要是涉及到依赖的增删，除非是重新安装，那么不管是子项目的还是仓库整体的，在全部完成后，都需要在根目录执行
+只要是涉及到依赖的增删，除非是重新安装，那么不管是子项目的还是仓库整体的，在全部完成后，都要执行
 `pnpm run migrate` 来迁移到 `pnpm-workspace.yaml`。
 
 ### 检查依赖版本一致性
@@ -121,11 +129,11 @@ exit code 即可，非零的值表示需要执行修复。
 
 ### 修复依赖版本一致性
 
-在根目录下执行 `pnpm run deps:fix`。
+执行 `pnpm run deps:fix` 即可，详情参见 [`syncpack fix`](https://syncpack.dev/command/fix/)。
 
 ### 检查依赖版本
 
-检查哪些依赖有新版本可用（不修改文件）可以在根目录下执行
+检查哪些依赖有新版本可用（不修改文件）可以执行
 `pnpm run deps:check`，这能用颜色标记版本号变化情况以及新旧版本的发布时间。
 
 根据 [SemVer](https://semver.org/lang/zh-CN/) 的定义，版本号 `x.y.z`
@@ -133,8 +141,6 @@ exit code 即可，非零的值表示需要执行修复。
 `6 minor, 3 patch` 表示涉及到 6 个小版本更新、3 个补丁更新、不涉及大版本更新。
 
 ### 更新依赖版本
-
-> 以下命令均在根目录下执行。
 
 直接执行 `pnpm run deps:update` 会出现命令行交互，用于手动选择更新哪些依赖。
 
@@ -146,5 +152,5 @@ exit code 即可，非零的值表示需要执行修复。
 
 ### 格式化 `package.json`
 
-如果需要格式化 `package.json`，尤其是根字段以及 `scripts`
-值的排序，可以在根目录下执行 `pnpm run deps:format`。
+如果需要格式化 `package.json`，尤其是根字段以及
+`scripts` 值的排序，可以执行 `pnpm run deps:format`。
