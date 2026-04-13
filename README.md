@@ -2,15 +2,20 @@
 
 本项目是一个基于 pnpm Workspace 的 Monorepo，内含多个子项目。
 
+## 开始
+
+使用 `pnpm install` 安装所有依赖，然后参见下文[工作流](#工作流)一节运行本地开发服务，例如 `pnpm run dev:docs` 。
+
 ## 结构
 
 ### 技术栈
 
 整个项目的技术栈是：
 
+- Node.js 22
 - TypeScript
 - Tailwind CSS 4
-- Vue 3，具体是 Vue 3.5
+- Vue 3.5
 - Vite
 - Rolldown
 
@@ -20,25 +25,26 @@
 
 ### 仓库结构
 
-> Visual Studio Code 用户可以通过 `./navifox.code-workspace`
-> 来呈现项目结构。当然，建议复制一份来用，以免干扰 git 变更。
+- `navifox-pages/`，项目本体（仓库整体），俗称“**大仓**”。
+  - `apps/`，存放负责具体业务的子项目。
+    - `docs/`，存放文档相关资料与链接的网站。
+    - `refs/`，存放一些 CheatSheet 的网站。
+    - `www/`，Navifox Pages 主页。
+  - `packages/`，存放可公开的共享子包。
+  - `internal/`，存放内部共享子包。
+    - `constants/`，存放全局常量。
+    - `styles/`，存放全局样式及字体。
+    - `tsconfig/`，存放共享 `tsconfig` 配置。
+    - `types/`，存放全局类型定义。
+    - `ui/`，存放共享UI，包括 shadcn 等组件。
+    - `utils/`，存放共享工具。
+  - `scripts/`，存放仓库级别的脚本。
+  - `.nvmrc`，存放协作时统一采用的 Node.js 版本号。
+  - `.syncpackrc.ts`，[SyncPack](https://syncpack.dev/config/syncpackrc/) 的配置文件。
+  - `navifox.code-workspace`，Visual Studio Code 工作区配置文件，可以直观呈现项目结构。不过不要直接打开这个工作区，而是复制到
+    `navifox-pages.code-workspace` 或其它你喜欢的名称，再打开新复制的这个工作区。
 
-- `navifox-pages`，项目本体（仓库整体），俗称“**大仓**”。
-  - `apps`，存放负责具体业务的子项目。
-    - `docs`，存放文档网站。
-    - `refs`，存放一些 CheatSheet 的网站。
-    - `www`，Navifox Pages 主页。
-  - `packages`，存放可公开的共享子包。
-  - `internal`，存放内部共享子包。
-    - `constants`，存放全局常量。
-    - `styles`，存放全局样式及字体。
-    - `tsconfig`，存放共享 `tsconfig` 配置。
-    - `types`，存放全局类型定义。
-    - `ui`，存放共享UI，包括 shadcn 等组件。
-    - `utils`，存放共享工具。
-  - `scripts`，存放仓库级别的脚本。
-
-约定所有子项目都只放在 `./apps/`、`./packages/` 或 `./internal/`
+约定所有子项目都直接放在 `./apps/`、`./packages/` 或 `./internal/`
 目录下。项目本身不大，这样平铺方便查找和日常管理。
 
 ### `package.json`
@@ -48,7 +54,7 @@
 
 ## 工作流
 
-> 本节提到的绝大部分命令都（默认）应该在项目根目录下执行。
+> 本节提到的绝大部分命令都应当（默认）在项目根目录下执行。
 
 ### 运行、构建、预览
 
