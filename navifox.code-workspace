@@ -10,35 +10,39 @@
     },
     "folders": [
         {
-            "name": "路狐领航 @navifox/www",
+            "name": "路狐领航",
             "path": "./apps/www",
         },
         {
-            "name": "文档月饼盒 @navifox/docs",
+            "name": "文档月饼盒",
             "path": "./apps/docs",
         },
         {
-            "name": "星笺 @navifox/refs",
+            "name": "星笺",
             "path": "./apps/refs",
         },
         {
-            "name": "@navifox/constants",
+            "name": "常量库",
             "path": "./internal/constants",
         },
         {
-            "name": "@navifox/styles",
+            "name": "样式库",
             "path": "./internal/styles",
         },
         {
-            "name": "@navifox/tsconfig",
+            "name": "tsconfig配置库",
             "path": "./internal/tsconfig",
         },
         {
-            "name": "@navifox/types",
+            "name": "类型库",
             "path": "./internal/types",
         },
         {
-            "name": "@navifox/utils",
+            "name": "UI库",
+            "path": "./internal/ui",
+        },
+        {
+            "name": "工具库",
             "path": "./internal/utils",
         },
         {
