@@ -41,3 +41,21 @@ onClickOutside(dropdown, () => isShowingNavDropdownMenu.value = false)
     </Transition>
 </div>
 </template>
+
+
+<!--suppress CssUnusedSymbol-->
+<style scoped>
+.v-enter-active {
+    transition: all 0.3s ease-out;
+}
+
+.v-leave-active {
+    transition: all 0.3s ease-out;
+}
+
+.v-enter-from,
+.v-leave-to {
+    transform: translateY(-20px);
+    opacity: 0;
+}
+</style>
