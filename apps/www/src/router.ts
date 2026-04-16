@@ -3,7 +3,7 @@ import CurriculumVitaeView from '#/views/CurriculumVitaeView.vue';
 import HomeView from '#/views/HomeView.vue';
 import TimelineView from '#/views/TimelineView.vue';
 import { navifoxHome } from '@navifox/constants';
-import { useWebsiteLinks, useWebsiteMetas } from '@navifox/utils';
+import { website } from '@navifox/utils';
 import { useHead } from '@unhead/vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -51,11 +51,11 @@ const router = createRouter({
 router.beforeEach(to => {
     useHead({
         title: (to.meta.title as string | undefined) ?? navifoxHome.name,
-        meta: [ ...useWebsiteMetas(navifoxHome, {
+        meta: [ ...website.metas(navifoxHome, {
             description: to.meta.description as string | undefined,
             keywords: to.meta.keywords as string[] | undefined
         }) ],
-        link: [ ...useWebsiteLinks(navifoxHome) ],
+        link: [ ...website.links(navifoxHome) ],
         titleTemplate: to.meta.title ? `%s × ${navifoxHome.name}` : null,
     })
 })

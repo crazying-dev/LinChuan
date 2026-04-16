@@ -1,16 +1,16 @@
 import { UTCDate } from '@date-fns/utc';
 import { DurationLevel } from '@navifox/types';
 import { format } from 'date-fns';
-import { pi } from './math';
+import { product } from './math';
 
 export class Duration {
-    static POWERS = [ 1000n, 1000n, 1000n, 60n, 60n, 24n, 365n ]
+    static SCALES = [ 1000n, 1000n, 1000n, 60n, 60n, 24n, 365n ]
 
     private parts: number[] = [ 0, 0, 0, 0, 0, 0, 0, 0 ]
 
     constructor(t: bigint, level?: DurationLevel) {
-        let lefts = level == null ? t : t * pi(Duration.POWERS.slice(0, level))
-        Duration.POWERS.forEach((power, index) => {
+        let lefts = level == null ? t : t * product(Duration.SCALES.slice(0, level))
+        Duration.SCALES.forEach((power, index) => {
             this.parts[index] = Number(lefts % power)
             lefts = lefts / power
         })
@@ -101,7 +101,7 @@ export class Duration {
             [ this.minute, DurationLevel.MINUTE ],
             [ this.second, DurationLevel.SECOND ],
         ].map(
-            v => BigInt(v[0]!) * pi(Duration.POWERS.slice(DurationLevel.SECOND, v[1]))
+            v => BigInt(v[0]!) * product(Duration.SCALES.slice(DurationLevel.SECOND, v[1]))
         ).reduce(
             (prev, curr) => prev + curr, 0n
         )
@@ -122,7 +122,7 @@ export class Duration {
             [ this.second, DurationLevel.SECOND ],
             [ this.millisecond, DurationLevel.MILLISECOND ],
         ].map(
-            v => BigInt(v[0]!) * pi(Duration.POWERS.slice(DurationLevel.MILLISECOND, v[1]))
+            v => BigInt(v[0]!) * product(Duration.SCALES.slice(DurationLevel.MILLISECOND, v[1]))
         ).reduce(
             (prev, curr) => prev + curr, 0n
         )
@@ -145,7 +145,7 @@ export class Duration {
         }
     }
 
-    getLeadingZeroQty() {
+    getLeadingZeroCount() {
         for (let i = this.parts.length; i > 0; i--) {
             if (this.parts[i]! > 0)
                 return this.parts.length - i - 1

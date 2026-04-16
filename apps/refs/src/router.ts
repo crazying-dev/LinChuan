@@ -6,7 +6,7 @@ import TailwindColorView from '#/views/TailwindColorView.vue';
 import TimestampView from '#/views/TimestampView.vue';
 import UUIDAnalysisView from '#/views/UUIDAnalysisView.vue';
 import { navifoxRefs } from '@navifox/constants';
-import { useWebsiteLinks, useWebsiteMetas } from '@navifox/utils';
+import { website } from '@navifox/utils';
 import { useHead } from '@unhead/vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -79,8 +79,8 @@ const router = createRouter({
 router.beforeEach(to => {
     useHead({
         title: to.meta.title ?? navifoxRefs.name,
-        meta: [ ...useWebsiteMetas(navifoxRefs, { description: to.meta.description, keywords: to.meta.keywords }) ],
-        link: [ ...useWebsiteLinks(navifoxRefs) ],
+        meta: [ ...website.metas(navifoxRefs, { description: to.meta.description, keywords: to.meta.keywords }) ],
+        link: [ ...website.links(navifoxRefs) ],
         titleTemplate: to.meta.title ? `%s × ${navifoxRefs.name}` : null,
     })
 })

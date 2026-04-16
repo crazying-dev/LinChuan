@@ -2,7 +2,7 @@
 import FlairButton from '#/components/FlairButton.vue';
 import { Icon } from '@iconify/vue';
 import { copyrightInterval, navifoxDocs, navifoxGuild, projects } from '@navifox/constants';
-import { useWebsiteLinks, useWebsiteMetas } from '@navifox/utils';
+import { website } from '@navifox/utils';
 import { useHead } from '@unhead/vue';
 import { useQRCode } from '@vueuse/integrations/useQRCode';
 import { range } from 'es-toolkit';
@@ -61,8 +61,8 @@ gsap.registerPlugin(ScrollTrigger)
 
 useHead({
     title: navifoxDocs.name,
-    meta: [ ...useWebsiteMetas(navifoxDocs) ],
-    link: [ ...useWebsiteLinks(navifoxDocs) ],
+    meta: [ ...website.metas(navifoxDocs) ],
+    link: [ ...website.links(navifoxDocs) ],
 })
 onMounted(() => {
     setTimeout(initializePanels, 100)

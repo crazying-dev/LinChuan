@@ -23,7 +23,7 @@ const configs = {
             `<code>${d.second}. ${zzz(d.millisecond)}</code>`,
             `<code>${d.millisecond}</code>`,
         ].slice(
-            Math.min(4, d.getLeadingZeroQty()),
+            Math.min(4, d.getLeadingZeroCount()),
         ).join(
             ''
         ),
@@ -41,7 +41,7 @@ const configs = {
             `<code>${d.minute}:${zz(d.second)}</code>`,
             `<code>${d.second}</code>`,
         ].slice(
-            Math.min(3, d.getLeadingZeroQty()),
+            Math.min(3, d.getLeadingZeroCount()),
         ).join(
             ''
         ),
