@@ -7,9 +7,9 @@
     --button-stroke: var(--color-amber-200);
     --button-color: var(--color-amber-200);
     --button-hoverColor: var(--background);
-    --ease-in-out-quart: cubic-bezier(.645, .045, .355, 1);
+    --ease-in-out-quart: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 *::selection {
-    background: #3B7D82;
+    background: #3b7d82;
 }

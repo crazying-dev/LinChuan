@@ -25,26 +25,22 @@ async function cleanTargetsRecursively(currentDir, targets) {
                 await cleanTargetsRecursively(itemPath, targets);
             }
         } catch (error) {
-            console.error(
-                `Error handling item ${item} in ${currentDir}: ${error.message}`,
-            );
+            console.error(`Error handling item ${item} in ${currentDir}: ${error.message}`);
         }
     }
 }
 
 (async function startCleanup() {
     // 要删除的目录及文件名称
-    const targets = [ 'node_modules', 'dist', '.turbo', 'dist.zip' ];
+    const targets = ['node_modules', 'dist', '.turbo', 'dist.zip'];
     const deleteLockFile = process.argv.includes('--del-lock');
-    const cleanupTargets = [ ...targets ];
+    const cleanupTargets = [...targets];
 
     if (deleteLockFile) {
         cleanupTargets.push('pnpm-lock.yaml');
     }
 
-    console.log(
-        `Starting cleanup of targets: ${cleanupTargets.join(', ')} from root: ${rootDir}`,
-    );
+    console.log(`Starting cleanup of targets: ${cleanupTargets.join(', ')} from root: ${rootDir}`);
 
     try {
         await cleanTargetsRecursively(rootDir, cleanupTargets);

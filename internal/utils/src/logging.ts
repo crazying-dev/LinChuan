@@ -4,17 +4,17 @@ import type { LogLevel } from '@navifox/types';
 // https://developer.chrome.com/docs/devtools/console/format-style?hl=zh-cn
 
 export class Logger {
-    static DEBUG = { name: 'DEBUG', style: 'color: lightgrey' } as LogLevel
-    static INFO = { name: 'INFO', style: 'color: deepskyblue' } as LogLevel
-    static WARN = { name: 'WARN', style: 'color: orange' } as LogLevel
-    static ERROR = { name: 'ERROR', style: 'color: red' } as LogLevel
+    static DEBUG = { name: 'DEBUG', style: 'color: lightgrey' } as LogLevel;
+    static INFO = { name: 'INFO', style: 'color: deepskyblue' } as LogLevel;
+    static WARN = { name: 'WARN', style: 'color: orange' } as LogLevel;
+    static ERROR = { name: 'ERROR', style: 'color: red' } as LogLevel;
 
-    user: string
-    mainDomain: string
+    user: string;
+    mainDomain: string;
 
     constructor(user: string, host: string) {
-        this.user = user
-        this.mainDomain = host.split('.').slice(-2).join('.')
+        this.user = user;
+        this.mainDomain = host.split('.').slice(-2).join('.');
     }
 
     log(level: LogLevel, msg: string, style: string) {
@@ -27,23 +27,23 @@ export class Logger {
             'color: cyan;',
             level.style,
             style,
-        )
+        );
     }
 
     debug(msg: string, style: string = '') {
-        this.log(Logger.DEBUG, msg, style)
+        this.log(Logger.DEBUG, msg, style);
     }
 
     info(msg: string, style: string = '') {
-        this.log(Logger.INFO, msg, style)
+        this.log(Logger.INFO, msg, style);
     }
 
     warn(msg: string, style: string = '') {
-        this.log(Logger.WARN, msg, style)
+        this.log(Logger.WARN, msg, style);
     }
 
     error(msg: string, style: string = '') {
-        this.log(Logger.ERROR, msg, style)
+        this.log(Logger.ERROR, msg, style);
     }
 
     print(msg: string, ...style: string[]) {
@@ -56,12 +56,12 @@ export class Logger {
             'color: cyan;',
             '',
             ...style,
-        )
+        );
     }
 
     draw(art: string, color: string) {
-        console.log('%c' + art, `color: ${color}; font-size: 12px; font-family: Consolas;`)
+        console.log('%c' + art, `color: ${color}; font-size: 12px; font-family: Consolas;`);
     }
 }
 
-export const logger = new Logger('tighnari', location.hostname)
+export const logger = new Logger('tighnari', location.hostname);

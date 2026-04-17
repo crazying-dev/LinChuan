@@ -7,6 +7,6 @@ export const DurationLevel = {
     HOUR: 5,
     DAY: 6,
     YEAR: 7,
-} as const
+} as const;
 
-export type DurationLevel = typeof DurationLevel[keyof typeof DurationLevel]
+export type DurationLevel = (typeof DurationLevel)[keyof typeof DurationLevel];

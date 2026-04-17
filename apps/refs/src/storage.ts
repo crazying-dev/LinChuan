@@ -1,3 +1,3 @@
 import { shallowRef } from 'vue';
 
-export const isShowingNavDropdown = shallowRef(false)
+export const isShowingNavDropdown = shallowRef(false);

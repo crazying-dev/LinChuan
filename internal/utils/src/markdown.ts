@@ -1,21 +1,22 @@
 import { trim } from 'es-toolkit';
 import MarkdownIt from 'markdown-it';
 
-
 const md = MarkdownIt({ breaks: true }).use((md) => {
     md.inline.ruler.before('emphasis', 'underline', (state, silent) => {
-        const MARKUP = '__'
-        const MARKER = MARKUP.charCodeAt(0)
-        const ELEMENT = 'u'
-        const contentStart = state.pos + 2
+        const MARKUP = '__';
+        const MARKER = MARKUP.charCodeAt(0);
+        const ELEMENT = 'u';
+        const contentStart = state.pos + 2;
 
         if (state.src.charCodeAt(contentStart - 2) !== MARKER) return false;
         if (state.src.charCodeAt(contentStart - 1) !== MARKER) return false;
 
         let contentEnd = contentStart;
         while (contentEnd < state.posMax) {
-            if (state.src.charCodeAt(contentEnd) === MARKER &&
-                state.src.charCodeAt(contentEnd + 1) === MARKER) {
+            if (
+                state.src.charCodeAt(contentEnd) === MARKER && //
+                state.src.charCodeAt(contentEnd + 1) === MARKER
+            ) {
                 break;
             }
             contentEnd++;
@@ -38,23 +39,22 @@ const md = MarkdownIt({ breaks: true }).use((md) => {
         return true;
     });
 
-    md.renderer.rules['underline_open'] = () => '<u>'
-    md.renderer.rules['underline_close'] = () => '</u>'
-})
+    md.renderer.rules['underline_open'] = () => '<u>';
+    md.renderer.rules['underline_close'] = () => '</u>';
+});
 
 export function nbsp(text?: string) {
-    if (typeof text !== 'string')
-        return undefined
-    return text.replaceAll(' ', '&nbsp;')
+    if (typeof text !== 'string') return undefined;
+    return text.replaceAll(' ', '&nbsp;');
 }
 
 export function markit(
     text: string,
     options?: {
-        default?: string,
-        unbreaks?: boolean,
-        multiline?: boolean,
-    }
+        default?: string;
+        unbreaks?: boolean;
+        multiline?: boolean;
+    },
 ): string;
 
 /**
@@ -72,20 +72,17 @@ export function markit(
 export function markit(
     text?: string,
     options?: {
-        default?: string,
-        unbreaks?: boolean,
-        multiline?: boolean,
-    }
+        default?: string;
+        unbreaks?: boolean;
+        multiline?: boolean;
+    },
 ) {
-    if (typeof text !== 'string')
-        return options?.default
+    if (typeof text !== 'string') return options?.default;
 
     // 参数 text 预期的两端是空格“或”换行，而换行后的空格默认为正文，不会移除。
-    let result = trim(trim(text), '\n').replaceAll('\\n', '\n')
+    let result = trim(trim(text), '\n').replaceAll('\\n', '\n');
 
-    result = options?.multiline
-        ? md.render(result)
-        : md.renderInline(result)
+    result = options?.multiline ? md.render(result) : md.renderInline(result);
 
-    return result
+    return result;
 }

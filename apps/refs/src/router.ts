@@ -17,72 +17,76 @@ const router = createRouter({
             path: '/',
             name: 'Homepage',
             component: Home,
-        }, {
+        },
+        {
             path: '/timestamp',
             name: 'TimestampSheet',
             meta: {
                 title: '时间戳对照表',
                 description: '对照、查询不同进位制（字符集）下的计数空间，以及不同单位的时间存储上限。',
-                keywords: [ '时间戳', '进制', '进位制', '表格', '字符集', '字符串', '对照表' ],
+                keywords: ['时间戳', '进制', '进位制', '表格', '字符集', '字符串', '对照表'],
                 logo: 'svg-spinners:clock',
             },
             component: TimestampView,
-        }, {
+        },
+        {
             path: '/mirror',
             name: 'MirrorSheet',
             meta: {
                 title: '镜像源',
                 description: '展示部分编程常用包管理器的镜像设置，用于快速设置与解决问题；镜像源按收录时间排序。',
-                keywords: [
-                    '镜像源', '镜像', 'pip', 'npm', 'pnpm', 'conda', 'uv', 'hatch', 'poetry', 'yarn',
-                ],
+                keywords: ['镜像源', '镜像', 'pip', 'npm', 'pnpm', 'conda', 'uv', 'hatch', 'poetry', 'yarn'],
             },
             component: MirrorView,
-        }, {
+        },
+        {
             path: '/tailwind',
             name: 'TailwindColorSheet',
             meta: {
                 title: 'Tailwind 颜色一览',
                 description: 'Tailwind CSS v4 颜色相关类名与变量名一览',
-                keywords: [ 'Tailwind', 'TailwindCSS', 'CSS', '颜色' ],
+                keywords: ['Tailwind', 'TailwindCSS', 'CSS', '颜色'],
                 logo: 'logos:tailwindcss-icon',
             },
             component: TailwindColorView,
-        }, {
+        },
+        {
             path: '/uuid',
             name: 'UUIDAnalysisSheet',
             meta: {
                 title: 'UUID 结构',
                 description: '通用唯一标识符 UUID（Universally Unique IDentifier）结构解析。',
-                keywords: [ 'UUID', 'id', 'RFC9562', 'RFC4122' ],
+                keywords: ['UUID', 'id', 'RFC9562', 'RFC4122'],
             },
             component: UUIDAnalysisView,
-        }, {
+        },
+        {
             path: '/genshin/talent',
             name: 'GenshinTalentSheet',
             meta: {
                 title: '角色实用天赋表',
                 description: '原神角色（截止 6.5 月之六版本）部分实用天赋一览表（按游戏内图鉴顺序排序）。',
-                keywords: [ '原神', '角色', '天赋', '空月之歌', '月之六', '6.5' ],
+                keywords: ['原神', '角色', '天赋', '空月之歌', '月之六', '6.5'],
             },
             component: GenshinTalentsView,
-        }, {
+        },
+        {
             path: '/:pathMatch(.*)*',
             name: 'NotFound',
             meta: {
                 title: '页面不存在',
             },
             component: NotFound,
-        }
-    ]
-})
-router.beforeEach(to => {
+        },
+    ],
+});
+router.beforeEach((to) => {
     useHead({
         title: to.meta.title ?? navifoxRefs.name,
-        meta: [ ...website.metas(navifoxRefs, { description: to.meta.description, keywords: to.meta.keywords }) ],
-        link: [ ...website.links(navifoxRefs) ],
+        meta: [...website.metas(navifoxRefs, { description: to.meta.description, keywords: to.meta.keywords })],
+        link: [...website.links(navifoxRefs)],
         titleTemplate: to.meta.title ? `%s × ${navifoxRefs.name}` : null,
-    })
-})
+    });
+});
 
 export default router;

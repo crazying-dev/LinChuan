@@ -1,15 +1,10 @@
-<script lang="ts" setup>
-</script>
-
-
 <template>
-<div class="relative border border-dashed border-slate-300 dark:border-slate-700 tick-left tick-right" />
+    <div class="TickLeft TickRight relative border border-dashed border-slate-300 dark:border-slate-700" />
 </template>
 
-
 <style scoped>
-.tick-left::before {
-    content: "";
+.TickLeft::before {
+    content: '';
     border-top: 5px solid #0000;
     border-bottom: 5px solid #0000;
     border-right: 5px solid #0000;
@@ -21,13 +16,13 @@
     left: -1px;
 }
 
-.dark .tick-left::before {
+.dark .TickLeft::before {
     border-left: 5px solid var(--color-slate-700);
     left: 0;
 }
 
-.tick-right::after {
-    content: "";
+.TickRight::after {
+    content: '';
     border-top: 5px solid #0000;
     border-right: 5px solid var(--color-slate-300);
     border-bottom: 5px solid #0000;
@@ -39,7 +34,7 @@
     right: -1px;
 }
 
-.dark .tick-right::after {
+.dark .TickRight::after {
     border-right: 5px solid var(--color-slate-700);
     right: 0;
 }

@@ -17,7 +17,8 @@ const router = createRouter({
                 showOnNavbar: true,
             },
             component: HomeView,
-        }, {
+        },
+        {
             path: '/cv',
             name: 'CurriculumVitae',
             meta: {
@@ -27,7 +28,8 @@ const router = createRouter({
                 showOnNavbar: true,
             },
             component: CurriculumVitaeView,
-        }, {
+        },
+        {
             path: '/timeline',
             name: 'Timeline',
             meta: {
@@ -37,27 +39,30 @@ const router = createRouter({
                 showOnNavbar: true,
             },
             component: TimelineView,
-        }, {
+        },
+        {
             path: '/:pathMatch(.*)*',
             name: 'NotFound',
             meta: {
                 title: '页面不存在',
             },
             component: NotFound,
-        }
-    ]
-})
+        },
+    ],
+});
 
-router.beforeEach(to => {
+router.beforeEach((to) => {
     useHead({
         title: (to.meta.title as string | undefined) ?? navifoxHome.name,
-        meta: [ ...website.metas(navifoxHome, {
-            description: to.meta.description as string | undefined,
-            keywords: to.meta.keywords as string[] | undefined
-        }) ],
-        link: [ ...website.links(navifoxHome) ],
+        meta: [
+            ...website.metas(navifoxHome, {
+                description: to.meta.description as string | undefined,
+                keywords: to.meta.keywords as string[] | undefined,
+            }),
+        ],
+        link: [...website.links(navifoxHome)],
         titleTemplate: to.meta.title ? `%s × ${navifoxHome.name}` : null,
-    })
-})
+    });
+});
 
 export default router;

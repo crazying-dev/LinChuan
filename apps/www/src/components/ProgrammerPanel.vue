@@ -15,9 +15,11 @@ const programmerLevels = [
             { text: '你可以为项目沉淀技术规范，制定最佳编码实践，提升项目整体的代码质量和编码效率。' },
             { text: '你在团队中发挥着__技术引导__作用，推动团队不断提升软件开发的质量和稳定性。' },
             { text: '你也会利用闲暇时间开发一些__开源__项目，或者有能力为一些著名的开源项目贡献代码。' },
-            { text: '你也开始在一些场合__分享__自己的技术实践，尽管有时候你还不太习惯在很多人面前大声表达自己的意见。' },
+            {
+                text: '你也开始在一些场合__分享__自己的技术实践，尽管有时候你还不太习惯在很多人面前大声表达自己的意见。',
+            },
             { text: '对了，你可能掌握了多门编程语言，也有编程语言偏好，但对于吹捧特定语言的行为持保留意见。' },
-        ]
+        ],
     },
     {
         level: '5 级：性能观察员',
@@ -32,7 +34,7 @@ const programmerLevels = [
             { text: '你理解系统的各个组成部分，能够在实现新功能时考虑到系统整体的__架构__和__稳定性__。' },
             { text: '你开始看到散落的知识点之间产生美妙的连接，__知识体系__逐渐构建起来。' },
             { text: '不过，你也更加清楚的认识到自己存在哪些不足，并开始尝试努力补齐自己的短板。' },
-        ]
+        ],
     },
     {
         level: '4 级：问题研究员',
@@ -46,38 +48,35 @@ const programmerLevels = [
             { text: '你在团队中能够独立承担功能模块的开发任务，偶尔能为同事提供技术支持。' },
             { text: '你开始参与团队内的技术决策，能够提供建设性的意见，推动技术方案的改进。' },
             { text: '你可能还没意识到，你已经是一个有追求的程序员了，言谈举止都透露着优秀程序员的气质。' },
-        ]
-    }
-]
+        ],
+    },
+];
 for (const level of programmerLevels) {
     for (const point of level.points) {
-        point.text = markit(point.text)
+        point.text = markit(point.text);
     }
 }
 </script>
 
-
 <template>
-<div class="flex flex-col gap-6">
-    <section v-for="desc in programmerLevels">
-        <div><b>{{ desc.level }}</b></div>
-        <ul class="max-md:leading-relaxed **:transition-all **:duration-200">
-            <li
-                v-for="point in desc.points"
-                :class="point.unlit ? '' : 'text-slate-400 dark:text-slate-600'"
-                class="cursor-default group hover:text-slate-900 dark:hover:text-slate-100"
-            >
-                <icon
-                    :icon="point.unlit ? 'icons8:circle' : 'icons8:checked'"
-                    class="mr-1"
-                    height="20"
-                />
-                <span
-                    class="*:[u]:underline-offset-5! *:[u]:decoration-transparent! group-hover:*:[u]:decoration-orange-500!"
-                    v-html="point.text"
-                />
-            </li>
-        </ul>
-    </section>
-</div>
+    <div class="flex flex-col gap-6">
+        <section v-for="desc in programmerLevels">
+            <div>
+                <b>{{ desc.level }}</b>
+            </div>
+            <ul class="**:transition-all **:duration-200 max-md:leading-relaxed">
+                <li
+                    v-for="point in desc.points"
+                    :class="point.unlit ? '' : 'text-slate-400 dark:text-slate-600'"
+                    class="group cursor-default hover:text-slate-900 dark:hover:text-slate-100"
+                >
+                    <icon :icon="point.unlit ? 'icons8:circle' : 'icons8:checked'" class="mr-1" height="20" />
+                    <span
+                        class="*:[u]:decoration-transparent! *:[u]:underline-offset-5! group-hover:*:[u]:decoration-orange-500!"
+                        v-html="point.text"
+                    />
+                </li>
+            </ul>
+        </section>
+    </div>
 </template>

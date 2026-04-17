@@ -5,8 +5,7 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import { viteZip } from 'vite-plugin-zip-file';
 
-
-const timestamp = Math.trunc(new Date().getTime() / 1000)
+const timestamp = Math.trunc(new Date().getTime() / 1000);
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -21,16 +20,14 @@ export default defineConfig({
         }),
     ],
     define: {
-        '__APP_VERSION__': `"v${process.env.npm_package_version}+${timestamp}"`,
+        __APP_VERSION__: `"v${process.env.npm_package_version}+${timestamp}"`,
     },
     resolve: {
         alias: {
             '#': resolve(__dirname, './src'),
-        }
+        },
     },
     server: {
-        allowedHosts: [
-            '.navifox.net',
-        ],
+        allowedHosts: ['.navifox.net'],
     },
-})
+});

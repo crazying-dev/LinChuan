@@ -22,8 +22,6 @@ export default defineConfig({
         },
     },
     server: {
-        allowedHosts: [
-            '.navifox.net',
-        ],
+        allowedHosts: ['.navifox.net'],
     },
-})
+});

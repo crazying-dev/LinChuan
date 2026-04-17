@@ -1,54 +1,53 @@
 <script lang="ts" setup>
-import { markit } from '@navifox/utils'
-import { Comment, computed, Fragment, h, Text, type VNode, type VNodeArrayChildren } from 'vue'
+import { markit } from '@navifox/utils';
+import { Comment, computed, Fragment, h, Text, type VNode, type VNodeArrayChildren } from 'vue';
 
 function processVNodes(vNodes: VNodeArrayChildren): VNodeArrayChildren {
-    return vNodes.map(node => {
+    return vNodes.map((node) => {
         if (typeof node === 'string' || typeof node === 'number') {
-            return h('span', { innerHTML: markit(String(node)) })
+            return h('span', { innerHTML: markit(String(node)) });
         }
         if (!node || typeof node !== 'object') {
-            return node
+            return node;
         }
 
-        const vNode = node as VNode
+        const vNode = node as VNode;
 
         if (vNode.type === Text) {
-            return h('span', { innerHTML: markit(String(vNode.children ?? '')) })
+            return h('span', { innerHTML: markit(String(vNode.children ?? '')) });
         }
         if (vNode.type === Comment) {
-            return node
+            return node;
         }
         if (vNode.type === Fragment) {
             if (Array.isArray(vNode.children)) {
-                return h(Fragment, null, processVNodes(vNode.children as VNodeArrayChildren))
+                return h(Fragment, null, processVNodes(vNode.children as VNodeArrayChildren));
             }
-            return vNode
+            return vNode;
         }
         if (typeof vNode.type === 'string' && Array.isArray(vNode.children)) {
-            return h(vNode.type, vNode.props, processVNodes(vNode.children as VNodeArrayChildren))
+            return h(vNode.type, vNode.props, processVNodes(vNode.children as VNodeArrayChildren));
         } else {
-            return vNode
+            return vNode;
         }
-    })
+    });
 }
 
-const props = defineProps<{ paragraph?: boolean, text?: string }>()
-const slots = defineSlots<{ default(): any }>()
+const props = defineProps<{ paragraph?: boolean; text?: string }>();
+const slots = defineSlots<{ default(): any }>();
 const rendered = computed(() => {
-    const tag = props.paragraph ? 'p' : 'span'
+    const tag = props.paragraph ? 'p' : 'span';
 
     if (props.text) {
-        return h(tag, { innerHTML: markit(props.text) })
+        return h(tag, { innerHTML: markit(props.text) });
     }
 
-    const vNodes = slots.default?.()
-    const children = vNodes ? (Array.isArray(vNodes) ? vNodes : [ vNodes ]) : []
-    return h(tag, processVNodes(children as VNodeArrayChildren))
-})
+    const vNodes = slots.default?.();
+    const children = vNodes ? (Array.isArray(vNodes) ? vNodes : [vNodes]) : [];
+    return h(tag, processVNodes(children as VNodeArrayChildren));
+});
 </script>
 
-
 <template>
-<component :is="rendered" />
+    <component :is="rendered" />
 </template>

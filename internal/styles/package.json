@@ -12,6 +12,6 @@
             "default": "./src/fonts.css"
         }
     },
-    "dependencies": { },
-    "devDependencies": { }
+    "dependencies": {},
+    "devDependencies": {}
 }

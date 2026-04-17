@@ -5,7 +5,7 @@ import { ColorBadge } from '@navifox/constants';
 const stacks = [
     {
         scope: '编程语言',
-        levels: [ '语言', '框架', '生态', '底层' ],
+        levels: ['语言', '框架', '生态', '底层'],
         skills: [
             { badge: ColorBadge.Python, level: 3 },
             { badge: ColorBadge.Kotlin, level: 1 },
@@ -14,10 +14,11 @@ const stacks = [
             { badge: ColorBadge.Rust, level: -1 },
             { badge: ColorBadge.JavaScript, level: 1 },
             { badge: ColorBadge.TypeScript, level: 1 },
-        ]
-    }, {
+        ],
+    },
+    {
         scope: '后端开发',
-        levels: [ '会用', '熟悉', '调优', '定制' ],
+        levels: ['会用', '熟悉', '调优', '定制'],
         skills: [
             { badge: ColorBadge.Django, level: 3 },
             { badge: ColorBadge.DjangoRESTFramework, level: 3 },
@@ -28,10 +29,11 @@ const stacks = [
             { badge: ColorBadge.Selenium, level: 0 },
             { badge: ColorBadge.Celery, level: 1 },
             { badge: ColorBadge.Spring, level: -1 },
-        ]
-    }, {
+        ],
+    },
+    {
         scope: '前端开发',
-        levels: [ '会用', '熟悉', '调优', '定制' ],
+        levels: ['会用', '熟悉', '调优', '定制'],
         skills: [
             { badge: ColorBadge.TailwindCSS, level: 2 },
             { badge: ColorBadge.Vue, level: 2 },
@@ -45,10 +47,11 @@ const stacks = [
             { badge: ColorBadge.Pnpm, level: 1 },
             { badge: ColorBadge.WebHTML, level: 1 },
             { badge: ColorBadge.WebCSS, level: 1 },
-        ]
-    }, {
+        ],
+    },
+    {
         scope: 'DevOps',
-        levels: [ '了解', '用过', '熟练', '精通' ],
+        levels: ['了解', '用过', '熟练', '精通'],
         skills: [
             { badge: ColorBadge.Bash, level: 1 },
             { badge: ColorBadge.Cmd, level: 2 },
@@ -58,19 +61,21 @@ const stacks = [
             { badge: ColorBadge.GitHubAction, level: 1 },
             { badge: ColorBadge.Apifox, level: 2 },
             { badge: ColorBadge.Grafana, level: 1 },
-        ]
-    }, {
+        ],
+    },
+    {
         scope: '存储类',
-        levels: [ '学过', '用过', '调过', '救过' ],
+        levels: ['学过', '用过', '调过', '救过'],
         skills: [
             { badge: ColorBadge.PostgreSQL, level: 2 },
             { badge: ColorBadge.MySQL, level: 1 },
             { badge: ColorBadge.Redis, level: 1 },
             { badge: ColorBadge.SQLite, level: 0 },
-        ]
-    }, {
+        ],
+    },
+    {
         scope: '环境类',
-        levels: [ '落灰', '会用', '熟练', '发烧' ],
+        levels: ['落灰', '会用', '熟练', '发烧'],
         skills: [
             { badge: ColorBadge.PyCharm, level: 3 },
             { badge: ColorBadge.IntelliJ, level: 1 },
@@ -83,44 +88,43 @@ const stacks = [
             { badge: ColorBadge.Kali, level: 0 },
             { badge: ColorBadge.Firefox, level: 2 },
             { badge: ColorBadge.Chrome, level: 1 },
-        ]
-    }, {
-        scope: '未分类',
-        levels: [ '会用', '常用', '复用', '调优' ],
-        skills: [
-            { badge: ColorBadge.Markdown, level: 3 },
-        ]
+        ],
     },
-]
+    {
+        scope: '未分类',
+        levels: ['会用', '常用', '复用', '调优'],
+        skills: [{ badge: ColorBadge.Markdown, level: 3 }],
+    },
+];
 
 for (const tree of stacks) {
-    tree.skills.sort((a, b) => a.badge.text!.localeCompare(b.badge.text!))
+    tree.skills.sort((a, b) => a.badge.text!.localeCompare(b.badge.text!));
 }
 </script>
 
-
 <template>
-<div class="flex flex-col gap-7">
-    <section v-for="branch in stacks" class="flex flex-col gap-3">
-        <div><b>{{ branch.scope }}</b></div>
-        <div v-if="branch.skills" class="text-sm flex flex-wrap gap-x-6 gap-y-2">
-            <div v-for="skill in branch.skills"
-                 class="group flex flex-nowrap gap-2 items-center">
-                <Icon :icon="skill.badge.logo" width="24" />
-                <div class="flex flex-nowrap gap-1 relative">
-                    <span
-                        v-for="(label, level) in branch.levels"
-                        :class="level <= skill.level ? '' : 'text-slate-300 dark:text-slate-700'"
-                        class="cursor-default group-hover:opacity-0"
-                    >
-                        {{ label }}</span>
-                    <span
-                        class="absolute left-0 top-0 text-nowrap bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 opacity-0 group-hover:opacity-100"
-                    >
-                        {{ skill.badge.text }}&nbsp;</span>
+    <div class="flex flex-col gap-7">
+        <section v-for="branch in stacks" class="flex flex-col gap-3">
+            <div>
+                <b>{{ branch.scope }}</b>
+            </div>
+            <div v-if="branch.skills" class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                <div v-for="skill in branch.skills" class="group flex flex-nowrap items-center gap-2">
+                    <Icon :icon="skill.badge.logo" width="24" />
+                    <div class="relative flex flex-nowrap gap-1">
+                        <span
+                            v-for="(label, level) in branch.levels"
+                            :class="level <= skill.level ? '' : 'text-slate-300 dark:text-slate-700'"
+                            class="cursor-default group-hover:opacity-0"
+                            v-html="label"
+                        />
+                        <span
+                            class="absolute top-0 left-0 bg-white text-nowrap text-slate-500 opacity-0 group-hover:opacity-100 dark:bg-slate-800 dark:text-slate-400"
+                            v-html="skill.badge.text"
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
 </template>

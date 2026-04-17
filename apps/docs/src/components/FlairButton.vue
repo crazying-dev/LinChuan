@@ -2,21 +2,24 @@
 import { gsap } from 'gsap';
 import { onMounted, type TemplateRef, useTemplateRef } from 'vue';
 
-defineProps<{ use?: string, flairStyle?: string }>()
+defineProps<{ use?: string; flairStyle?: string }>();
 
-const button = useTemplateRef('button')
-const flair = useTemplateRef('flair')
+const button = useTemplateRef('button');
+const flair = useTemplateRef('flair');
 
 onMounted(() => {
     new ButtonFactory(button, flair);
-})
+});
 
 class ButtonFactory {
     readonly xSet: Function;
     readonly ySet: Function;
     readonly hasFill: boolean;
 
-    constructor(readonly blockRef: TemplateRef<any>, readonly flairRef: TemplateRef<any>) {
+    constructor(
+        readonly blockRef: TemplateRef<any>,
+        readonly flairRef: TemplateRef<any>,
+    ) {
         this.xSet = gsap.quickSetter(this.flair, 'xPercent');
         this.ySet = gsap.quickSetter(this.flair, 'yPercent');
         this.hasFill = this.block.classList.contains('button--fill');
@@ -24,28 +27,21 @@ class ButtonFactory {
     }
 
     get block() {
-        return this.blockRef.value
+        return this.blockRef.value;
     }
 
     get flair() {
-        return this.flairRef.value
+        return this.flairRef.value;
     }
 
     getXY(event: MouseEvent) {
-        const { left, top, width, height } =
-            this.block.getBoundingClientRect();
+        const { left, top, width, height } = this.block.getBoundingClientRect();
 
-        const xTransformer = gsap.utils.pipe(
-            gsap.utils.mapRange(0, width, 0, 100),
-            gsap.utils.clamp(0, 100)
-        );
-        const yTransformer = gsap.utils.pipe(
-            gsap.utils.mapRange(0, height, 0, 100),
-            gsap.utils.clamp(0, 100)
-        );
+        const xTransformer = gsap.utils.pipe(gsap.utils.mapRange(0, width, 0, 100), gsap.utils.clamp(0, 100));
+        const yTransformer = gsap.utils.pipe(gsap.utils.mapRange(0, height, 0, 100), gsap.utils.clamp(0, 100));
         return {
             x: xTransformer(event.clientX - left),
-            y: yTransformer(event.clientY - top)
+            y: yTransformer(event.clientY - top),
         };
     }
 
@@ -60,13 +56,13 @@ class ButtonFactory {
                 gsap.to(this.flair, {
                     opacity: 1,
                     duration: 1,
-                    ease: 'power2.out'
+                    ease: 'power2.out',
                 });
             } else {
                 gsap.to(this.flair, {
                     scale: 1,
                     duration: 0.4,
-                    ease: 'power2.out'
+                    ease: 'power2.out',
                 });
             }
         });
@@ -82,7 +78,7 @@ class ButtonFactory {
                     yPercent: y > 90 ? y + 20 : y < 10 ? y - 20 : y,
                     opacity: 0,
                     duration: 1,
-                    ease: 'power2.out'
+                    ease: 'power2.out',
                 });
             } else {
                 gsap.to(this.flair, {
@@ -90,7 +86,7 @@ class ButtonFactory {
                     yPercent: y > 90 ? y + 20 : y < 10 ? y - 20 : y,
                     scale: 0,
                     duration: 0.3,
-                    ease: 'power2.out'
+                    ease: 'power2.out',
                 });
             }
         });
@@ -102,21 +98,19 @@ class ButtonFactory {
                 xPercent: x,
                 yPercent: y,
                 duration: this.hasFill ? 1 : 0.4,
-                ease: 'power2'
+                ease: 'power2',
             });
         });
     }
 }
 </script>
 
-
 <template>
-<component :is="use ?? 'a'" ref="button" class="button button--stroke">
-    <span ref="flair" :style="flairStyle" class="flair"></span>
-    <span ref="label" class="label"><slot></slot></span>
-</component>
+    <component :is="use ?? 'a'" ref="button" class="button button--stroke">
+        <span ref="flair" :style="flairStyle" class="flair"></span>
+        <span ref="label" class="label"><slot></slot></span>
+    </component>
 </template>
-
 
 <style scoped>
 .button {
@@ -127,12 +121,12 @@ class ButtonFactory {
     color: var(--button-color);
     cursor: pointer;
     display: inline-flex;
-    gap: .363636em;
+    gap: 0.363636em;
     justify-content: center;
-    letter-spacing: -.01em;
+    letter-spacing: -0.01em;
     line-height: 1.04545;
     overflow: hidden;
-    padding: .9375rem 1.5rem;
+    padding: 0.9375rem 1.5rem;
     position: relative;
     text-decoration: none;
 
@@ -149,9 +143,9 @@ class ButtonFactory {
     right: 0;
     left: 0;
     top: 0;
-    border: .175rem solid var(--button-stroke);
+    border: 0.175rem solid var(--button-stroke);
     border-radius: 6.25rem;
-    content: "";
+    content: '';
     pointer-events: none;
 }
 
@@ -176,7 +170,7 @@ class ButtonFactory {
         aspect-ratio: 1;
         background: url(../assets/noise-button.png), var(--button-stroke);
         border-radius: 50%;
-        content: "";
+        content: '';
         display: block;
         pointer-events: none;
         transform: translate(-50%, -50%);
@@ -197,7 +191,7 @@ class ButtonFactory {
     }
 
     .button--stroke:hover .label {
-        transition: color .15s var(--ease-in-out-quart);
+        transition: color 0.15s var(--ease-in-out-quart);
     }
 }
 </style>

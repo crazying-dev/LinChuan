@@ -33,6 +33,7 @@
     --font-mono: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
 }
 
-i, em {
+i,
+em {
     font-family: 'Segoe UI', 'HarmonyOS Sans SC', 'MiSans VF', sans-serif;
 }

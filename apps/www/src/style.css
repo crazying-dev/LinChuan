@@ -5,7 +5,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --font-sign: 'Whisper', serif;  /* class="font-sign" */
+    --font-sign: 'Whisper', serif; /* class="font-sign" */
 }
 
 @layer components {
@@ -16,7 +16,7 @@
         }
 
         a {
-            @apply transition-colors duration-200 text-cyan-700 dark:text-slate-200;
+            @apply text-cyan-700 transition-colors duration-200 dark:text-slate-200;
             @apply hover:text-orange-500 dark:hover:text-orange-300;
         }
 
@@ -28,7 +28,8 @@
             @apply mt-2 indent-8;
         }
 
-        ol, ul {
+        ol,
+        ul {
             @apply mt-2;
         }
 

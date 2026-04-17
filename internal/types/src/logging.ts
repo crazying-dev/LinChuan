@@ -1,4 +1,4 @@
 export type LogLevel = {
-    name: string
-    style: string
-}
+    name: string;
+    style: string;
+};
