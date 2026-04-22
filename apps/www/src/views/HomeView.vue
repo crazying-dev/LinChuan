@@ -22,10 +22,10 @@ logger.draw(signature, '#459199');
             </div>
             <div class="text-4xl font-medium md:max-w-[75%] md:text-6xl">
                 <span class="text-white">{{ tighnari.name }}</span>
-                <span v-for="tag in tighnari.tags" class="text-gray-300/75 dark:text-gray-400">／{{ tag }}</span>
+                <span v-for="tag in tighnari.tags" class="text-gray-300/75 dark:text-gray-400/75">／{{ tag }}</span>
             </div>
             <div
-                class="font-sign mt-4 text-4xl text-white md:text-5xl dark:text-gray-400"
+                class="font-sign mt-4 text-4xl text-white md:text-5xl dark:text-gray-300"
                 v-html="tighnari.description"
             />
         </div>

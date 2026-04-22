@@ -23,7 +23,7 @@ const router = useRouter();
                 <a
                     v-for="{ meta, path } in router.options.routes.filter((r) => r.meta?.showOnNavbar)"
                     :href="path"
-                    class="px-6 py-5 font-bold hover:bg-[#B5A2FDA0] hover:text-orange-200 dark:hover:bg-[#B5A2FD50] dark:hover:text-orange-300"
+                    class="px-6 py-5 hover:bg-[#B5A2FDA0] hover:text-orange-200 dark:hover:bg-[#B5A2FD50] dark:hover:text-orange-300"
                 >
                     {{ meta?.title ?? '首页' }}
                 </a>
@@ -44,7 +44,7 @@ const router = useRouter();
                 <a
                     v-for="{ meta, path } in router.options.routes.filter((r) => r.meta?.showOnNavbar)"
                     :href="path"
-                    class="px-6 py-5 font-bold hover:bg-cyan-200 hover:text-cyan-600 dark:hover:bg-[#B5A2FD50] dark:hover:text-orange-300"
+                    class="px-6 py-5 hover:bg-cyan-200 hover:text-cyan-600 dark:hover:bg-[#B5A2FD50] dark:hover:text-orange-300"
                 >
                     {{ meta?.title ?? '首页' }}
                 </a>
