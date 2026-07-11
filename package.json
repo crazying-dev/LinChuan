@@ -39,14 +39,16 @@
         "taze": "catalog:",
         "typescript": "catalog:"
     },
-    "engines": {
-        "node": ">=22.22.2",
-        "pnpm": ">=10.28.0"
-    },
-    "packageManager": "pnpm@10.34.5",
-    "pnpm": {
-        "overrides": {
-            "vite": "catalog:"
+    "devEngines": {
+        "packageManager": {
+            "name": "pnpm",
+            "version": "11.11.0",
+            "onFail": "error"
+        },
+        "runtime": {
+            "name": "node",
+            "version": ">=22.22.2",
+            "onFail": "error"
         }
     }
 }

@@ -1,10 +1,11 @@
 # Navifox Pages
 
-本项目是一个基于 pnpm Workspace 的 Monorepo，内含多个子项目。
+本项目是 Navifox 生态页面仓库，一个基于 pnpm Workspace 的 Monorepo，内含多个子项目。
 
 ## 开始
 
-使用 `pnpm install` 安装所有依赖，然后参见下文[工作流](#工作流)一节运行本地开发服务，例如 `pnpm run dev:docs` 。
+安装或升级到 pnpm 11，接着使用 `pnpm install`
+安装所有依赖，然后参见下文[工作流](#工作流)一节运行本地开发服务，例如 `pnpm run dev:docs` 。
 
 ## 结构
 
@@ -13,10 +14,11 @@
 整个项目的技术栈是：
 
 - Node.js 22
+- pnpm 11
 - TypeScript
 - Tailwind CSS 4
 - Vue 3.5
-- Vite
+- Vite 8
 - Rolldown
 
 部分子项目所用的技术栈是：
