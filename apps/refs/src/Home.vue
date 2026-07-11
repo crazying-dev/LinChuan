@@ -64,7 +64,7 @@ import { takeRight } from 'es-toolkit';
                         <span class="leading-none font-semibold">{{ anchor.text }}</span>
                     </a>
                     <a
-                        v-for="anchor in takeRight(anchors)"
+                        v-for="anchor in takeRight(anchors, 1)"
                         :href="anchor.link"
                         :target="anchor.link.startsWith('https://') ? '_blank' : '_self'"
                         class="group inline-flex h-10 items-center justify-center rounded-3xl bg-linear-to-r from-orange-500/20 to-yellow-500/20 px-6 text-white outline outline-orange-300/30 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:from-orange-500/30 hover:to-yellow-500/30 hover:shadow-lg"
