@@ -1,12 +1,15 @@
-.idea
-.vscode
-**/node_modules/
-cache
-dist
-dist-ssr
-dist.*
-*.local
-*.code-workspace
-!navifox.code-workspace
+# IDEs & AI files
+/.idea
+/.vscode
+/.agents
+/*.code-workspace
+!/navifox.code-workspace
 
-pnpm-lock.yaml
+# Environment
+/.env.local
+/.env.*.local
+**/node_modules/
+/cache
+/dist
+/dist-ssr
+/dist.*
