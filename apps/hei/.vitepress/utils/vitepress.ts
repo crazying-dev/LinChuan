@@ -92,7 +92,13 @@ export class VitePressConfigurator {
             cwd: this.configs.srcDir ?? '.',
             nodir: true,
             absolute: true,
-            ignore: ['**/node_modules/**', '**/dist/**', ...(this.configs.srcExclude ?? [])],
+            ignore: [
+                '**/node_modules/**',
+                '**/cache/**',
+                '**/dist/**',
+                '**/dist.*/**',
+                ...(this.configs.srcExclude ?? []),
+            ],
         });
         for (const file of files) {
             const url = normalizePath(rewrite(pathlib.relative(base, file).replace(/\\/g, '/')))
