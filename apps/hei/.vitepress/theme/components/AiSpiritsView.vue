@@ -6,16 +6,17 @@ const names = typeof props.names === 'string' ? props.names.split(/[\s,]/) : pro
 </script>
 
 <template>
-    <div class="AiSpirits">
+    <div class="AiSpiritsView">
         <AiSpiritCard v-for="name in names" :name />
     </div>
 </template>
 
 <style scoped>
-.AiSpirits {
+.AiSpiritsView {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 16px;
+    margin: 16px 0;
 }
 </style>
