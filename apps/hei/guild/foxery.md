@@ -13,7 +13,7 @@ import { navifoxGuild, tighnari } from '@navifox/constants';
 
 ## 妖灵
 
-<AiSpiritsView names="路狐羽" />
+<SpiritBanner names="路狐羽" />
 
 ## 传送门
 

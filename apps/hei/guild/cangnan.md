@@ -7,7 +7,7 @@ aside: false
 
 ## 妖灵
 
-<AiSpiritsView names="雨笛 西木子 池年 灵遥 静一 无限" />
+<SpiritBanner names="雨笛 西木子 池年 灵遥 静一 无限" />
 
 ## 时间线
 

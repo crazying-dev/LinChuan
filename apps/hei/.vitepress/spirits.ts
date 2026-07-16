@@ -1,4 +1,4 @@
-import type { Spirit } from './types';
+import type { Spirit } from '#/types';
 
 export const spirits = [
     { name: '雨笛', english: 'yudi', titles: ['总馆长', '苍南会馆馆长', '妖灵会馆长老'] },

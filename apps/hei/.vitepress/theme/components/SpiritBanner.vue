@@ -1,18 +1,20 @@
 <script setup lang="ts">
-import AiSpiritCard from './AiSpiritCard.vue';
+import SpiritCard from './SpiritCard.vue';
+import { spiritsByName } from '#/spirits';
 
 const props = defineProps<{ names: string | string[] }>();
 const names = typeof props.names === 'string' ? props.names.split(/[\s,]/) : props.names;
+const spirits = names.map((name) => spiritsByName[name]).filter((s) => !!s);
 </script>
 
 <template>
-    <div class="AiSpiritsView">
-        <AiSpiritCard v-for="name in names" :name />
+    <div class="SpiritBanner">
+        <SpiritCard v-for="spirit in spirits" v-bind="spirit" />
     </div>
 </template>
 
 <style scoped>
-.AiSpiritsView {
+.SpiritBanner {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

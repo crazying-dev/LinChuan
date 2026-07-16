@@ -51,6 +51,11 @@ const configurator = new VitePressConfigurator(
             },
         },
         vite: {
+            resolve: {
+                alias: {
+                    '#': __dirname,
+                },
+            },
             server: {
                 allowedHosts: ['.navifox.net'],
             },

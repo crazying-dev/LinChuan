@@ -7,7 +7,7 @@ aside: false
 
 ## 妖灵
 
-<AiSpiritsView />
+<SpiritBanner names="" />
 
 ## 时间线
 

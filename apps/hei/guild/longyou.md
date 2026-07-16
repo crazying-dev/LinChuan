@@ -7,7 +7,7 @@ aside: false
 
 ## 妖灵
 
-<AiSpiritsView names="潘靖 鸠老 若水" />
+<SpiritBanner names="潘靖 鸠老 若水" />
 
 ## 时间线
 

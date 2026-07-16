@@ -7,7 +7,7 @@ aside: false
 
 ## 妖灵
 
-<AiSpiritsView names="郑信毅" />
+<SpiritBanner names="郑信毅" />
 
 ## 时间线
 

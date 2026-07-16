@@ -7,7 +7,7 @@ aside: false
 
 ## 妖灵
 
-<AiSpiritsView names="卡里 秃贝" />
+<SpiritBanner names="卡里 秃贝" />
 
 ## 时间线
 

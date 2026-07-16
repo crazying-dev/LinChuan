@@ -1,23 +1,19 @@
 <script setup lang="ts">
 import { VPLink } from 'vitepress/theme';
-import { spirits, spiritsByName } from '../../spirits';
+import type { Spirit } from '#/types';
 
-const props = defineProps<{ name: string }>();
-const spirit = spiritsByName[props.name] || spirits.at(-1)!;
+defineProps<Spirit>();
 </script>
 
 <template>
-    <VPLink class="AiSpiritCard" :href="spirit.link" target="_self" :no-icon="true" :tag="spirit.link ? 'a' : 'div'">
+    <VPLink class="SpiritCard" :href="link" target="_self" :no-icon="true" :tag="link ? 'a' : 'div'">
         <article class="box">
-            <img v-if="spirit.avatar" :src="spirit.avatar" :alt="name" class="avatar" />
+            <img v-if="avatar" :src="avatar" :alt="name" class="avatar" />
             <div v-else class="avatar"></div>
             <div class="content">
                 <div class="name" v-html="name" />
-                <div class="titles" v-if="typeof spirit.titles === 'string'">
-                    <div v-for="title in spirit.titles.split(' ')">{{ title }}</div>
-                </div>
-                <div class="titles" v-else>
-                    <div v-for="title in spirit.titles">{{ title }}</div>
+                <div class="titles">
+                    <div v-for="title in titles">{{ title }}</div>
                 </div>
             </div>
         </article>
@@ -25,7 +21,7 @@ const spirit = spiritsByName[props.name] || spirits.at(-1)!;
 </template>
 
 <style scoped>
-.AiSpiritCard {
+.SpiritCard {
     display: block;
     color: inherit;
     border: 1px solid var(--vp-c-bg-soft);
@@ -39,7 +35,7 @@ const spirit = spiritsByName[props.name] || spirits.at(-1)!;
         background-color 0.25s;
 }
 
-.AiSpiritCard.link:hover {
+.SpiritCard.link:hover {
     color: inherit;
     border-color: var(--vp-c-brand-1);
 }
