@@ -1,6 +1,24 @@
 # Navifox Pages
 
-本项目是 Navifox 生态页面仓库，一个基于 pnpm Workspace 的 Monorepo，内含多个子项目。整个项目的技术栈是：
+本项目是 Navifox 生态页面仓库，一个基于 pnpm Workspace 的 Monorepo，包含多个子项目。
+
+| 项目                                | 描述                 |
+|-----------------------------------|--------------------|
+| [路狐领航](https://www.navifox.net)   | Navifox 主页。        |
+| [文档月饼盒](https://docs.navifox.net) | 收纳展示散落在各个项目仓库的文档。  |
+| [蓝溪拾遗](https://hei.navifox.net)   | 罗小黑世界观下的设定集与友链簿。   |
+| [星笺](https://refs.navifox.net)    | 狐狸们用小爪子敲出的一页纸快速参考。 |
+
+## 开始
+
+1. 切换到 pnpm 11 版本；只安装了 npm 的话可以通过 `corepack enable pnpm` 来安装 pnpm。
+2. 在项目根目录下使用 `pnpm install` 安装所有依赖。
+3. 参见下文[工作流](#工作流)一节运行本地开发服务，例如 `pnpm run dev:docs`。
+4. Visual Studio Code 用户复制 `./navifox.code-workspace` 到喜欢的位置，再打开新复制的这个工作区。
+
+## 技术栈
+
+整个项目的技术栈是：
 
 - Node.js 22
 - pnpm 11
@@ -17,14 +35,9 @@
 - GSAP（`www`、`docs`）
 - Unhead（`www`、`docs`、`refs`）
 
-## 开始
-
-1. 切换到 pnpm 11 版本；只安装了 npm 的话可以通过 `corepack enable pnpm` 来安装 pnpm。
-2. 在项目根目录下使用 `pnpm install` 安装所有依赖。
-3. 参见下文[工作流](#工作流)一节运行本地开发服务，例如 `pnpm run dev:docs`。
-4. Visual Studio Code 用户复制 `./navifox.code-workspace` 到喜欢的位置，再打开新复制的这个工作区。
-
 ## 结构
+
+### 目录结构
 
 - `navifox-pages/`，项目本体（仓库整体），俗称"**大仓**"。
   - `apps/`，存放负责具体业务的子项目。
@@ -37,18 +50,20 @@
   - `.syncpackrc.json`，SyncPack 的[配置](https://syncpack.dev/config/syncpackrc/)。
   - `navifox.code-workspace`，Visual Studio Code 工作区配置文件（只读），可以直观呈现项目结构。
 
-| 路径                     | `name`             |                项目名                | 用途                             |
-|------------------------|--------------------|:---------------------------------:|--------------------------------|
-| `.apps/docs/`          | @navifox/docs      | [文档月饼盒](https://docs.navifox.net) | 存放文档与资料链接的网站。                  |
-| `.apps/hei/`           | @navifox/hei       |  [蓝溪拾遗](https://hei.navifox.net)  | 存放罗小黑世界观的百科网站，基于 VitePress 构建。 |
-| `.apps/refs/`          | @navifox/refs      |  [星笺](https://refs.navifox.net)   | 存放一些 CheatSheet 与参考工具的网站。      |
-| `.apps/www/`           | @navifox/www       |  [路狐领航](https://www.navifox.net)  | Navifox 主页。                    |
-| `.internal/constants/` | @navifox/constants |                                   | 存放全局常量。                        |
-| `.internal/styles/`    | @navifox/styles    |                                   | 存放全局样式及字体。                     |
-| `.internal/tsconfig/`  | @navifox/tsconfig  |                                   | 存放共享 `tsconfig` 配置。            |
-| `.internal/types/`     | @navifox/types     |                                   | 存放全局类型定义。                      |
-| `.internal/ui/`        | @navifox/ui        |                                   | 存放共享 UI，包括 shadcn 等组件。         |
-| `.internal/utils/`     | @navifox/utils     |                                   | 存放共享工具。                        |
+### 工作区结构
+
+| 路径                      | 包名                 | 用途                                               |
+|-------------------------|--------------------|--------------------------------------------------|
+| `./apps/docs/`          | @navifox/docs      | [文档月饼盒](https://docs.navifox.net)。               |
+| `./apps/hei/`           | @navifox/hei       | [蓝溪拾遗](https://hei.navifox.net)，基于 VitePress 构建。 |
+| `./apps/refs/`          | @navifox/refs      | [星笺](https://refs.navifox.net)。                  |
+| `./apps/www/`           | @navifox/www       | [路狐领航](https://www.navifox.net)。                 |
+| `./internal/constants/` | @navifox/constants | 存放全局常量。                                          |
+| `./internal/styles/`    | @navifox/styles    | 存放全局样式及字体。                                       |
+| `./internal/tsconfig/`  | @navifox/tsconfig  | 存放共享 `tsconfig` 配置。                              |
+| `./internal/types/`     | @navifox/types     | 存放全局类型定义。                                        |
+| `./internal/ui/`        | @navifox/ui        | 存放共享 UI，包括 shadcn 等组件。                           |
+| `./internal/utils/`     | @navifox/utils     | 存放共享工具。                                          |
 
 ## 约定
 
