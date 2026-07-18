@@ -103,7 +103,6 @@ export class VitePressConfigurator {
                 '**/node_modules/**',
                 '**/cache/**',
                 '**/dist/**',
-                '**/dist.*/**',
                 ...(this.configs.srcExclude ?? []),
             ],
         });
