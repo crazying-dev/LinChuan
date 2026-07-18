@@ -6,8 +6,7 @@
     "scripts": {
         "build": "vitepress build",
         "dev": "vitepress dev",
-        "preview": "vitepress preview",
-        "typecheck": "vue-tsc --noEmit --skipLibCheck"
+        "preview": "vitepress preview"
     },
     "dependencies": {
         "@catppuccin/vitepress": "catalog:",
