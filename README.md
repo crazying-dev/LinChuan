@@ -1,17 +1,6 @@
 # Navifox Pages
 
-本项目是 Navifox 生态页面仓库，一个基于 pnpm Workspace 的 Monorepo，内含多个子项目。
-
-## 开始
-
-安装或升级到 pnpm 11，接着使用 `pnpm install`
-安装所有依赖，然后参见下文[工作流](#工作流)一节运行本地开发服务，例如 `pnpm run dev:docs` 。
-
-## 结构
-
-### 技术栈
-
-整个项目的技术栈是：
+本项目是 Navifox 生态页面仓库，一个基于 pnpm Workspace 的 Monorepo，内含多个子项目。整个项目的技术栈是：
 
 - Node.js 22
 - pnpm 11
@@ -21,39 +10,53 @@
 - Vite 8
 - Rolldown
 
-部分子项目所用的技术栈是：
+部分子项目所用的技术栈还包括：
 
-- Vue Router
+- Vue Router（`www`、`refs`）
+- VitePress（`hei`）
+- GSAP（`www`、`docs`）
+- Unhead（`www`、`docs`、`refs`）
 
-### 仓库结构
+## 开始
 
-- `navifox-pages/`，项目本体（仓库整体），俗称“**大仓**”。
+1. 切换到 pnpm 11 版本；只安装了 npm 的话可以通过 `corepack enable pnpm` 来安装 pnpm。
+2. 在项目根目录下使用 `pnpm install` 安装所有依赖。
+3. 参见下文[工作流](#工作流)一节运行本地开发服务，例如 `pnpm run dev:docs`。
+4. Visual Studio Code 用户复制 `./navifox.code-workspace` 到喜欢的位置，再打开新复制的这个工作区。
+
+## 结构
+
+- `navifox-pages/`，项目本体（仓库整体），俗称"**大仓**"。
   - `apps/`，存放负责具体业务的子项目。
-    - `docs/`，存放文档相关资料与链接的网站。
-    - `refs/`，存放一些 CheatSheet 的网站。
-    - `www/`，Navifox Pages 主页。
-  - `packages/`，存放可公开的共享子包。
+  - `packages/`，存放可公开的共享子包（目前为空，作为占位目录）。
   - `internal/`，存放内部共享子包。
-    - `constants/`，存放全局常量。
-    - `styles/`，存放全局样式及字体。
-    - `tsconfig/`，存放共享 `tsconfig` 配置。
-    - `types/`，存放全局类型定义。
-    - `ui/`，存放共享UI，包括 shadcn 等组件。
-    - `utils/`，存放共享工具。
   - `scripts/`，存放仓库级别的脚本。
+  - `.gitignore`，用于忽略 IDE 配置、环境变量、node_modules、构建产物以及脚本文件。
   - `.nvmrc`，存放协作时统一采用的 Node.js 版本号。
   - `.oxfmtrc.json`，oxfmt 的[配置](https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html)。
   - `.syncpackrc.json`，SyncPack 的[配置](https://syncpack.dev/config/syncpackrc/)。
-  - `navifox.code-workspace`，Visual Studio Code 工作区配置文件，可以直观呈现项目结构。不过不要直接打开这个工作区，而是复制到
-    `navifox-pages.code-workspace` 或其它你喜欢的名称，再打开新复制的这个工作区。
+  - `navifox.code-workspace`，Visual Studio Code 工作区配置文件（只读），可以直观呈现项目结构。
 
-约定所有子项目都直接放在 `./apps/`、`./packages/` 或 `./internal/`
-目录下。项目本身不大，这样平铺方便查找和日常管理。
+| 路径                     | `name`             |                项目名                | 用途                             |
+|------------------------|--------------------|:---------------------------------:|--------------------------------|
+| `.apps/docs/`          | @navifox/docs      | [文档月饼盒](https://docs.navifox.net) | 存放文档与资料链接的网站。                  |
+| `.apps/hei/`           | @navifox/hei       |  [蓝溪拾遗](https://hei.navifox.net)  | 存放罗小黑世界观的百科网站，基于 VitePress 构建。 |
+| `.apps/refs/`          | @navifox/refs      |  [星笺](https://refs.navifox.net)   | 存放一些 CheatSheet 与参考工具的网站。      |
+| `.apps/www/`           | @navifox/www       |  [路狐领航](https://www.navifox.net)  | Navifox 主页。                    |
+| `.internal/constants/` | @navifox/constants |                                   | 存放全局常量。                        |
+| `.internal/styles/`    | @navifox/styles    |                                   | 存放全局样式及字体。                     |
+| `.internal/tsconfig/`  | @navifox/tsconfig  |                                   | 存放共享 `tsconfig` 配置。            |
+| `.internal/types/`     | @navifox/types     |                                   | 存放全局类型定义。                      |
+| `.internal/ui/`        | @navifox/ui        |                                   | 存放共享 UI，包括 shadcn 等组件。         |
+| `.internal/utils/`     | @navifox/utils     |                                   | 存放共享工具。                        |
 
-### `package.json`
+## 约定
 
-- 所有子项目的 `name` 约定以 `@navifox/<NAME>` 的格式来命名。
-- 除了 `./packages/` 之外的所有子项目 `private` 字段值固定为 `true` 。
+1. 所有子项目都直接放在 `./apps/`、`./packages/` 或 `./internal/` 目录下。项目本身不大，这样平铺方便查找和日常管理。
+2. 所有子项目 `package.json` 的 `name` 约定以 `@navifox/<NAME>` 的格式来命名。
+3. 除了 `./packages/` 之外的所有子项目 `package.json` 的 `private` 字段值固定为 `true`。
+4. 根 `package.json` 包含 `devEngines` 字段，用于约束协作时的 pnpm 版本（`11.11.0`）和 Node.js 版本（`>=22.22.2`）。
+5. 第三方依赖使用 `catalog:` 协议统一在 `pnpm-workspace.yaml` 中管理版本号。
 
 ## 工作流
 
@@ -69,7 +72,8 @@ pnpm run build:www    # 构建子项目
 pnpm run preview:www  # 预览构建产物
 ```
 
-其它子项目不能直接运行和预览的方法，也无须执行构建。
+目前支持 `www`、`docs`、`refs`、`hei` 四个子项目的 dev/build/preview 命令，其它子项目（`internal/`
+下的共享包）不能直接运行和预览，也无须执行构建。
 
 执行 `pnpm run build` 可以一次性构建所有（能构建的）子项目。
 
@@ -169,4 +173,16 @@ README 对此有所限制。
 [oxfmt](https://oxc.rs/docs/guide/usage/formatter/cli.html#available-positional-items)
 的参数，例如 `pnpm run format apps/www` 可以格式化 `./apps/www/` 下的所有文件。
 
+使用 `pnpm run format:check` 可以只检查格式而不修改文件。
+
 SyncPack 也有格式化 `package.json` 的能力，不过还是统一用 oxfmt 比较好。
+
+### 代码检查
+
+使用 `pnpm run lint` 运行 oxlint 代码检查。
+
+使用 `pnpm run lint:fix` 可以在检查的同时自动修复部分问题。
+
+### 类型检查
+
+使用 `pnpm run typecheck` 对所有子项目执行 TypeScript 类型检查（`vue-tsc --noEmit --skipLibCheck`）。注意 `hei` 是 VitePress 项目，内部已自行处理 TypeScript，不参与此项检查。
