@@ -35,6 +35,12 @@ export const spiritsOC: SpiritInfo[] = [
         tags: ['临川会馆画师'],
         avatar: 'https://img.crazying-dev.top/Friend/LanZhi.jpg',
         link: '',
+    },
+    {
+        name: '念一',
+        tags: ['(只是一个游历于世界各地的旅行者)'],
+        avatar: 'https://img.crazying-dev.top/Friend/killing.jpg',
+        link: ''
     }
 ];
 
