@@ -44,7 +44,7 @@ const spirit: SpiritInfo = {
     name: '妖灵名称',
     tags: ['能力设定', '执行者评级', ''],
     avatar: '头像URL',
-    link: `/spirit/妖灵ID`,
+    link: '/spirit/妖灵ID',
 }
 ```
 

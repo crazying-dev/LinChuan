@@ -13,10 +13,28 @@ export type SpiritInfo = {
 export const spiritsOC: SpiritInfo[] = [
     // 在此处添加更多妖灵...
     {
+        name: '念月',
+        tags: ['苍南会馆跨境追缉组组长', '一级执行者', '无限大徒弟'],
+        avatar: 'https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEXoZFqX5rk6ukttXGdfE1STDfx2PLj_QAC7CAAAtJdAAFXR_rGsPnqvNs9BA.jpg',
+        link: '/spirit/nuray',
+    },
+    {
+        name: '济慈',
+        tags: ['苍南会馆下属前攻组组长', '一级执行者'],
+        avatar: 'https://img.crazying-dev.top/Friend/Keats.jpg',
+        link: '/spirit/keats',
+    },
+    {
+        name: '攸往',
+        tags: ['苍南会馆常驻妖精', '总馆落云组组长', '一级执行者'],
+        avatar: 'https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEXoPZqX40D39Dp8doOjuF4dfJMRn1erQACHyAAAnULAVcjuD6NuxWnhD0E.jpg',
+        link: '/spirit/ziyouwang',
+    },
+    {
         name: '路狐羽',
         tags: ['罗狐会馆馆长', '二级执行者'],
         avatar: 'https://www.navifox.net/avatar256.jpg',
-        link: `/spirit/navifox`,
+        link: '/spirit/navifox',
     },
 ];
 
